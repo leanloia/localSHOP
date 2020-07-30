@@ -3,107 +3,56 @@ const authRouter = express.Router();
 
 const User = require("../models/user");
 const bcrytp = require("bcryptjs");
-const { render } = require("../app");
 const saltRounds = 10;
 
-// GET sign up
-authRouter.get("/signup", (req, res, next) => {
-  res.render("auth/signup", { errorMessage: "" });
+//GET home page
+
+authRouter.get("/", (req, res, next) => {
+  res.render("localshop/index", { errorMessage: "" });
 });
 
-// POST sign up -> toma valores de formularios para registrar al usuario
+// GET signup page
+
+authRouter.get("/signup", (req, res, next) => {
+  res.render("localshop/signup", { errorMessage: "" });
+});
+
+// POST signup page
+
 authRouter.post("/signup", async (req, res, next) => {
   const { name, email, password } = req.body;
 
-  //comprobar que el usuario haya escrito contraseña y pass
+  //comprueba que todos los campos esten completos
   if (name === "" || email === "" || password === "") {
-    res.json( {
-      errorMessage: "Must complete all of the fields, please try again.",
+    res.render("localshop/signup", {
+      errorMessage:
+        "Must complete all the fields to register, please try again.",
     });
-    return;
   }
-
   try {
-    //comprobar que no hay otro usuario con el mismo email en BDD
+    //comprueba que email exista como usuario registrado
     const userFound = await User.findOne({ email });
-
     if (userFound) {
-      res.json( {
-        errorMessage: "This email is already register.",
+      res.render("localshop/signup", {
+        errorMessage: "This email adress is already taken.",
       });
       return;
     }
 
-    //si no existe en email, continuo con registro
-    //primero encripto password antes de guardarlo
+    //si email no existe, continua el registro encriptando el password
     const salt = bcrytp.genSaltSync(saltRounds);
     const hashPass = bcrytp.hashSync(password, salt);
 
-    //ahora guardo en BDD
-    await User.create({ name, email, password: hashPass });
-    // res.redirect("/login");
+    //se guarda en la BDD con el resto de información
+
+    const newUser = { name, email, password: hashPass };
+
+    await User.create(newUser);
+    res.redirect("/login");
   } catch (error) {
-    res.json( {
-      errorMessage: "Something happened, please try again.",
-    });
+    console.error(error);
+    next(error);
   }
-});
-
-// GET login
-authRouter.get("/login", (req, res, next) => {
-  res.render("auth/login", { errorMessage: "" });
-});
-
-//POST login
-
-authRouter.post("/login", async (req, res, next) => {
-  const { email, password } = req.body;
-
-  try {
-    if (email === "" || password === "") {
-      res.render("auth/login", {
-        errorMessage: "Must complete both fields to login, please try again.",
-      });
-    }
-
-    const userFound = await User.findOne({ email });
-    if (!userFound) {
-      res.render("auth/login", {
-        errorMessage:
-          "This email its not registered, please try with another one.",
-      });
-      return;
-    }
-
-    if (!bcrytp.compareSync(password, userFound.password)) {
-      res.render("auth/login", { errorMessage: "Invalid password." });
-      return;
-    }
-
-    req.session.currentUser = userFound;
-    res.redirect("/");
-  } catch (error) {
-    res.render("auth/login", {
-      errorMessage: "Something happened, please try again.",
-    });
-  }
-});
-
-//GET logout
-
-authRouter.get("/logout", (req, res, next) => {
-  if (!req.session.currentUser) {
-    res.redirect("/");
-    return;
-  }
-
-  req.session.destroy((err) => {
-    if (err) {
-      next(err);
-      return;
-    }
-    res.redirect("/");
-  });
 });
 
 module.exports = authRouter;
