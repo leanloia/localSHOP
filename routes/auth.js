@@ -1,7 +1,7 @@
 const express = require("express");
 const authRouter = express.Router();
 const User = require("../models/user");
-const Business = require("../models/business")
+const Business = require("../models/business");
 const bcrytp = require("bcryptjs");
 const saltRounds = 10;
 
@@ -65,7 +65,7 @@ authRouter.get("/login", (req, res, next) => {
 authRouter.post("/login", async (req, res, next) => {
   //traemos valores de input de login page
   const { email, password } = req.body;
-  
+
   try {
     if (email === "" || password === "") {
       res.render("localshop/login", {
@@ -79,7 +79,7 @@ authRouter.post("/login", async (req, res, next) => {
 
     const userFound = await User.findOne({ email });
     //en caso de que el email no exista
-    if (!userFound || userFound == '') {
+    if (!userFound || userFound == "") {
       res.render("localshop/login", {
         errorMessage: `This email adress doesn't exist, please sign up.`,
       });
@@ -94,54 +94,83 @@ authRouter.post("/login", async (req, res, next) => {
     }
     //creamos una session y un currentUser = al usuario que se loguea
     //guardamos sesion en BDD
-    (req.session.currentUser = userFound); 
+    req.session.currentUser = userFound;
     res.redirect("/");
-  } 
-  
-  catch (error) {
+  } catch (error) {
     console.error(error);
     next(next);
   }
 });
 
+//GET logout
+
+authRouter.get("/logout", (req, res, next) => {
+  if (!req.session.currentUser) {
+    res.redirect("/");
+    return;
+  }
+
+  req.session.destroy((err) => {
+    if (err) {
+      next(err);
+      return;
+    } else {
+      res.redirect("/");
+      return;
+    }
+  });
+});
+
 //GET add-business
 
-authRouter.get('/add-business', (req, res, next) => {
-  res.render('localshop/add-business');
+authRouter.get("/add-business", (req, res, next) => {
+  res.render("localshop/add-business");
 });
 
 //POST add-business
-authRouter.post('/add-business', async (req, res, next) => {
+authRouter.post("/add-business", async (req, res, next) => {
   const { name, adress, imageUrl, phone, webpage, type, about } = req.body;
-  
-  if (name === '' || adress === '' || imageUrl === '' || phone === '' || webpage === '' || type === '' || about === '') {
-    res.render('localshop/add-business', {errorMessage: 'Please, complete the form.'});
+
+  if (
+    name === "" ||
+    adress === "" ||
+    imageUrl === "" ||
+    phone === "" ||
+    webpage === "" ||
+    type === "" ||
+    about === ""
+  ) {
+    res.render("localshop/add-business", {
+      errorMessage: "Please, complete the form.",
+    });
     return;
   }
-  
+
   try {
-    const bussinessFound = await Business.findOne({name, type})
-  
+    const bussinessFound = await Business.findOne({ name, type });
+
     if (bussinessFound) {
       res.render("localshop/add-business", {
         errorMessage: "This name is already taken.",
       });
       return;
     }
-    
-    await Business.create({name, adress, imageUrl, phone, webpage, type, about, owner: req.session.currentUser._id})
-    res.redirect('/business/:id');
-    
-    
+
+    await Business.create({
+      name,
+      adress,
+      imageUrl,
+      phone,
+      webpage,
+      type,
+      about,
+      owner: req.session.currentUser._id,
+    });
+    res.redirect("/business/:id");
   } catch (error) {
     console.error(error);
     next(error);
   }
-
-  
-
-})
-
-
+});
 
 module.exports = authRouter;
