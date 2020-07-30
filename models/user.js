@@ -6,6 +6,8 @@ const userSchema = new Schema({
   email: String,
   password: String,
   isOwner: { type: Boolean, default: false },
+}, {
+  businessOwned: [{ }]
 });
 
 userSchema.set("timestamps", true);

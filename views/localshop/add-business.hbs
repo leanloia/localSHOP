@@ -1,0 +1,51 @@
+<h2> Add Business </h2>
+
+{{#if errorMessage}}
+<p class="error-message">
+    {{ errorMessage }}
+</p>
+{{/if}}
+
+<form action="/add-business" method="post">
+    <div>
+        <label for="name-input"> Name </label>
+        <input type="text" name="name" id="name-input" placeholder="Name">
+    </div>
+
+    <div>
+        <label for="adress-input"> Businees adress </label>
+        <input type="text" name="adress" id="adress-input" placeholder="Adress">
+    </div>
+    <div>
+        <label for="image-input"> Add an image </label>
+        <input type="text" name="imageUrl" id="image-input" placeholder="ImageUrl">
+    </div>
+    <div>
+        <label for="phone-input"> Phone number </label>
+        <input type="text" name="phone" id="phone-input" placeholder="Phone number">
+    </div>
+    <div>
+        <label for="webpage-input"> Webpage </label>
+        <input type="text" name="webpage" id="webpage-input" placeholder="Webpage">
+    </div>
+    <div>
+        <label for="type-input"> Type of business </label>
+        <select name="type" id="type-input">
+            <option value="Bookstore">Bookstore</option>
+            <option value="Clothing">Clothing</option>
+            <option value="Coffee shop">Coffee shop</option>
+            <option value="Fruits and Vegetables">Fruits and Vegetables</option>
+            <option value="Hairdress">Hairdress</option>
+            <option value="Restaurant">Restaurant</option>
+            <option value="Shoe store">Shoes</option>
+            <option value="Toy store">Toys</option>
+        </select>
+    </div>
+    <div>
+        <label for="about-input"> Something about your business </label>
+        <textarea name="about" id="about-input" cols="30" rows="10" placeholder="About your business..."></textarea>
+        {{!-- <input type="" name="about" id="about-input" placeholder="About your business"> --}}
+    </div>
+
+    <button> Create New Business </button>
+</form>
