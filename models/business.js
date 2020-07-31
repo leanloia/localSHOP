@@ -12,7 +12,6 @@ const businessSchema = new Schema({
     },
     city: {
         type: String,
-        enum: ['Barcelona', 'Girona', 'Lleida', 'Tarragona'],
         required: true
     },
     imageUrl: {
