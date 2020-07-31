@@ -1,0 +1,48 @@
+<h1>Business</h1>
+<section>
+    {{#if errorMessage}}
+    <p class="error-message">
+        {{ errorMessage }}
+    </p>
+    {{/if}}
+
+    <form action="/add-business" method="post">
+
+
+        <div>
+            <label for="city-input"> City </label>
+            <select name="city" id="city-input">
+                {{#each business}}
+                <option value={{this.city}}>{{this.city}}</option>
+                {{/each}}
+            </select>
+        </div>
+
+
+        <div>
+            <label for="type-input"> Type of business </label>
+            <select name="type" id="type-input">
+                <option value="Bookstore">Bookstore</option>
+                <option value="Clothing">Clothing</option>
+                <option value="Coffee shop">Coffee shop</option>
+                <option value="Fruits and Vegetables">Fruits and Vegetables</option>
+                <option value="Hairdress">Hairdress</option>
+                <option value="Restaurant">Restaurant</option>
+                <option value="Shoe store">Shoes</option>
+                <option value="Toy store">Toys</option>
+            </select>
+        </div>
+
+
+        <div>
+
+
+            <div>
+
+            </div>
+
+
+
+            <a href='/'>Home</a>
+        </div>
+</section>

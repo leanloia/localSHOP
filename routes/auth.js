@@ -1,7 +1,7 @@
 const express = require("express");
 const authRouter = express.Router();
 const User = require("../models/user");
-const Business = require("../models/business")
+const Business = require("../models/business");
 const bcrytp = require("bcryptjs");
 const saltRounds = 10;
 
@@ -98,7 +98,7 @@ authRouter.post("/login", async (req, res, next) => {
       email
     });
     //en caso de que el email no exista
-    if (!userFound || userFound == '') {
+    if (!userFound || userFound == "") {
       res.render("localshop/login", {
         errorMessage: `This email adress doesn't exist, please sign up.`,
       });
@@ -115,7 +115,7 @@ authRouter.post("/login", async (req, res, next) => {
     }
     //creamos una session y un currentUser = al usuario que se loguea
     //guardamos sesion en BDD
-    (req.session.currentUser = userFound);
+    req.session.currentUser = userFound;
     res.redirect("/");
   } catch (error) {
     console.error(error);
@@ -123,65 +123,25 @@ authRouter.post("/login", async (req, res, next) => {
   }
 });
 
-//GET add-business
+//GET logout
 
-authRouter.get('/add-business', (req, res, next) => {
-  res.render('localshop/add-business');
-});
-
-//POST add-business
-authRouter.post('/add-business', async (req, res, next) => {
-  const {
-    name,
-    adress,
-    imageUrl,
-    phone,
-    webpage,
-    type,
-    about
-  } = req.body;
-
-  if (name === '' || adress === '' || imageUrl === '' || phone === '' || webpage === '' || type === '' || about === '') {
-    res.render('localshop/add-business', {
-      errorMessage: 'Please, complete the form.'
-    });
+authRouter.get("/logout", (req, res, next) => {
+  if (!req.session.currentUser) {
+    res.redirect("/");
     return;
   }
 
-  try {
-    const bussinessFound = await Business.findOne({
-      name,
-      type
-    })
-
-    if (bussinessFound) {
-      res.render("localshop/add-business", {
-        errorMessage: "This name is already taken.",
-      });
+  req.session.destroy((err) => {
+    if (err) {
+      next(err);
+      return;
+    } else {
+      res.redirect("/");
       return;
     }
+  });
+});
 
-    await Business.create({
-      name,
-      adress,
-      imageUrl,
-      phone,
-      webpage,
-      type,
-      about,
-      owner: req.session.currentUser._id
-    })
-    res.redirect('/business/:id');
-
-
-  } catch (error) {
-    console.error(error);
-    next(error);
-  }
-
-
-
-})
 
 
 
