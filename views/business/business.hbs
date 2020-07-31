@@ -8,12 +8,11 @@
 
     <form action="/add-business" method="post">
 
-
         <div>
             <label for="city-input"> City </label>
             <select name="city" id="city-input">
                 {{#each business}}
-                <option value={{this.city}}>{{this.city}}</option>
+                <option value={{this}}>{{this}}</option>
                 {{/each}}
             </select>
         </div>
