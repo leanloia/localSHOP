@@ -6,7 +6,7 @@
     </p>
     {{/if}}
 
-    <form action="/add-business" method="post">
+    <form action="/business" method="post">
 
         <div>
             <label for="city-input"> City </label>
@@ -16,8 +16,6 @@
                 {{/each}}
             </select>
         </div>
-
-
         <div>
             <label for="type-input"> Type of business </label>
             <select name="type" id="type-input">
@@ -31,17 +29,22 @@
                 <option value="Toy store">Toys</option>
             </select>
         </div>
-
+        <button type="submit">Search</button>
 
         <div>
-
-
+            {{#each bizz}}
             <div>
-
+                <p>Name: {{name}} </p>
+                <p>City: {{city}} </p>
+                <p>Phone: {{phone}} </p>
+                <p>Webpage: {{webpage}} </p>
+                <p>About: {{about}} </p>
+                <a href="/business/details/{{id}}">See more...</a>
             </div>
+            {{/each}}
+        </div>
 
-
-
+        <div>
             <a href='/'>Home</a>
         </div>
 </section>

@@ -31,6 +31,7 @@ mongoose
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
 const businessRouter = require('./routes/business');
+const profileRouter = require('./routes/profile');
 
 // const laundryRouter = require('./routes/laundry');
 
@@ -80,6 +81,7 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.use('/', indexRouter);
 app.use('/', authRouter);
 app.use('/', businessRouter);
+app.use('/', profileRouter)
 
 // app.use('/', laundryRouter);
 
