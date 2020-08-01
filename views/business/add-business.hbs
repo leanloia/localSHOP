@@ -6,7 +6,7 @@
 </p>
 {{/if}}
 
-<form action="/add-business" method="post">
+<form action="/add-business" method="post" enctype="multipart/form-data">
     <div>
         <label for="name-input"> Name </label>
         <input type="text" name="name" id="name-input" placeholder="Name">
@@ -24,7 +24,7 @@
 
     <div>
         <label for="image-input"> Add an image </label>
-        <input type="text" name="imageUrl" id="image-input" placeholder="ImageUrl">
+        <input type="file" name="image_url" id="image-input">
     </div>
     <div>
         <label for="phone-input"> Phone number </label>

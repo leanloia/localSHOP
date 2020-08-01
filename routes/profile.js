@@ -16,55 +16,71 @@ profileRouter.use((req, res, next) => {
 //GET profile/:name page
 
 profileRouter.get("/profile", async (req, res, next) => {
-  const userId = req.session.currentUser._id
+  const userId = req.session.currentUser._id;
   try {
     let userFound = await User.findOne({ _id: userId });
-        if(userFound) {
-            res.render('profile/profile', {user: userFound});
-            return;
-        }
+    let businessFound = await Business.find({ owner: userId });
+    if (businessFound && userFound) {
+      res.render("profile/profile", {
+        user: userFound,
+        business: businessFound,
+      });
+      return;
+    } else if (!businessFound) {
+      res.render("profile/profile", { user: userFound });
+      return;
+    }
 
+    // if(userFound) {
+    //     res.render('profile/profile', {user: userFound});
+    //     return;
+    // }
   } catch (error) {
-      console.error(error);
-      next(error);
-
+    console.error(error);
+    next(error);
   }
 });
 
 //GET profile/:name/edit
-profileRouter.get('/profile/:id/edit', async (req, res, next) => {
-    const userId = req.params.id;
-    try {
-        let userFound = await User.findOne({ _id: userId });
-            if(userFound) {
-                res.render('profile/edit-profile', {user: userFound});
-                return;
-            }
-    
-      } catch (error) {
-          console.error(error);
-          next(error);
-    
-      }
-})
+profileRouter.get("/profile/:id/edit", async (req, res, next) => {
+  const userId = req.params.id;
+  try {
+    let userFound = await User.findOne({ _id: userId });
+    let businessFound = await Business.find({ owner: userId });
+    if (businessFound && userFound) {
+      res.render("profile/edit-profile", {
+        user: userFound,
+        business: businessFound,
+      });
+      return;
+    } else if (!businessFound) {
+      res.render("profile/edit-profile", { user: userFound });
+      return;
+    }
+  } catch (error) {
+    console.error(error);
+    next(error);
+  }
+});
 
 //POST profile/:name/edit
-profileRouter.post('/profile/:id/edit', async (req, res, next) => {
-    const {name, email} = req.body;
-    let userId = req.session.currentUser._id;   
+profileRouter.post("/profile/:id/edit", async (req, res, next) => {
+  const { name, email } = req.body;
+  let userId = req.session.currentUser._id;
 
-    try {
-        let userFound = await User.findByIdAndUpdate({_id: userId}, {name, email}, {new: true});
-        
-        res.redirect('/profile');
-        return;
-        
-    } catch (error) {
-        console.error(error);
-        next(error);
-        
-    }
+  try {
+    let userFound = await User.findByIdAndUpdate(
+      { _id: userId },
+      { name, email },
+      { new: true }
+    );
 
-})
+    res.redirect("/profile");
+    return;
+  } catch (error) {
+    console.error(error);
+    next(error);
+  }
+});
 
 module.exports = profileRouter;

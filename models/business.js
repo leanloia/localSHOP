@@ -14,10 +14,14 @@ const businessSchema = new Schema({
         type: String,
         required: true
     },
-    imageUrl: {
+    image_url: {
         type: String,
-        default: './images/default-business.jpg',
+        default: './images/profile-picture.png',
     },
+    profilePic: {
+        type: String,
+        default: './images/profile-picture.png',
+      },
     phone: {
         type: Number,
         required: true

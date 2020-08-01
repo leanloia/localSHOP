@@ -2,6 +2,7 @@ const express = require("express");
 const businessRouter = express.Router();
 const User = require("../models/user");
 const Business = require("../models/business");
+const parser = require('./../config/cloudinary');
 
 //funciones auxiliares :D
 
@@ -38,18 +39,26 @@ businessRouter.get("/add-business", (req, res, next) => {
   res.render("business/add-business");
 });
 
+// businessRouter.post('/endPointName', parser.single('profilepic'), (req, res, next) => {
+//   // thanks to multer, you have now access to the new object "req.file"
+  
+//   // get the image URL to save it to the database and/or render the image in your view
+//   const image_url = req.file.secure_url;
+// })
+
 //POST add-business
-businessRouter.post("/add-business", async (req, res, next) => {
+businessRouter.post("/add-business", parser.single('profilepic'), async (req, res, next) => {
+  const image_url = req.file.secure_url;
   const {
     name,
     adress,
     city,
-    imageUrl,
     phone,
     webpage,
     type,
     about,
   } = req.body;
+  
 
   if (
     name === "" ||
@@ -83,7 +92,7 @@ businessRouter.post("/add-business", async (req, res, next) => {
       name,
       adress,
       city: formatCityName(city),
-      imageUrl,
+      profilepic: image_url,
       phone,
       webpage,
       type,
@@ -91,12 +100,14 @@ businessRouter.post("/add-business", async (req, res, next) => {
       owner: req.session.currentUser._id
     });
     
-    
+    // buscar al obj usuario que está logueado
     const addBusinessToUser = await User.findById(req.session.currentUser._id)
+    //añade el nuevo business al obj
     addBusinessToUser.businessOwned.push(newBussiness)
+    //guarda
     addBusinessToUser.save()
-    console.log('ACAAAAAAAAAAAAAAAAAAAAAAAAA', addBusinessToUser)
-     
+    //cambia estado de usuario a "owner"
+    req.session.currentUser.isOwner = true;    
 
     
     res.redirect("/");

@@ -6,19 +6,68 @@
 </p>
 {{/if}}
 
-<form action="/profile/{{user._id}}/edit" method="post">
-    <div>
-        <label for="name-input"> Name </label>
-        <input type="text" name="name" id="name-input" value="{{user.name}}" placeholder="Name">
-    </div>
+<div>
+    <form action="/profile/{{user._id}}/edit" method="post">
+        <section>
+            <h2>USER INFO</h2>
+            <div>
+                <label for="name-input"> Name </label>
+                <input type="text" name="name" id="name-input" value="{{user.name}}" placeholder="Name">
+            </div>
 
-    <div>
-        <label for="email-input"> Email </label>
-        <input type="email" name="email" id="email-input" value="{{user.email}}" placeholder="Email@email.com">
-    </div>
+            <div>
+                <label for="email-input"> Email </label>
+                <input type="email" name="email" id="email-input" value="{{user.email}}" placeholder="Email@email.com">
+            </div>
+        </section>
+        <h2>MOTHERFUCKIN BUSINESS</h2>
+        {{#each business}}
+        <section>
+            <div>
+                <label for="name-input"> Name </label>
+                <input type="text" value="{{name}}" name="name" id="name-input" readonly>
+            </div>
 
-    <button> Submit changes </button>
-</form>
+            <div>
+                <label for="adress-input"> Businees adress </label>
+                <input type="text" name="adress" value={{adress}} id="adress-input">
+            </div>
+
+            <div>
+                <label for="city-input"> City </label>
+                <input type="text" name="city" value={{city}} id="city-input">
+            </div>
+
+            <div>
+                <label for="image-input"> Add an image </label>
+                <input type="text" name="image_url" value={{image_url}} id="image-input">
+            </div>
+            <div>
+                <label for="profilePic-input"> Profile PIC </label>
+                <input type="text" name="profilePic" value={{profilePic}} id="profilePic-input">
+            </div>
+            <div>
+                <label for="phone-input"> Phone number </label>
+                <input type="text" name="phone" value={{phone}} id="phone-input">
+            </div>
+            <div>
+                <label for="webpage-input"> Webpage </label>
+                <input type="text" name="webpage" value={{webpage}} id="webpage-input">
+            </div>
+
+            <div>
+                <label for="about-input"> Something about your business </label>
+                <textarea name="about" id="about-input" value={{about}} cols="30" rows="10"
+                    ></textarea>
+            </div>
+        </section>
+        {{/each}}
+
+        <button> Submit changes </button>
+    </form>
+</div>
+
+
 
 <p>
     <a href="/profile/{{user._id}}">
