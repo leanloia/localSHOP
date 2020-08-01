@@ -16,10 +16,10 @@ const businessSchema = new Schema({
     },
     imageUrl: {
         type: String,
-        required: true
+        default: './images/default-business.jpg',
     },
     phone: {
-        type: String,
+        type: Number,
         required: true
     },
     webpage: {
@@ -54,6 +54,6 @@ const businessSchema = new Schema({
 
 businessSchema.set("timestamps", true);
 
-const Business = mongoose.model("Business", businessSchema);
+const Business = mongoose.model("Business", businessSchema, 'businesses');
 
 module.exports = Business;
