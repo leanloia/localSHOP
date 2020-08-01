@@ -39,6 +39,7 @@ It gives you the oportunity, as a local business, for register as one and share 
 | `DELETE`   | `/profile/:name/:businessId` | Private route. Deletes the existing favorite from the current user.      |
 | `GET`      | `/business`                    | Renders `business-list` view.                                            |                           |
 | `GET`      | `/business/details/:id`        | Render `business-details` view for the particular business.              |                           |
+| `POST`     | `/business/details/:id`        | Send review info from form in business-details view                      |                           |
 | `GET`      | `/add-business`                | Render `add-business` view.                                              |                           |
 | `POST`     | `/add-business`                | Sends info through forms from `add-business` view.                       |                           |
 

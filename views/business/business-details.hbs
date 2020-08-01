@@ -9,5 +9,18 @@
                 <img src="{{businessFound.imageUrl}}" alt="">
                 {{!-- <a href="/business/details/{{id}}">See more...</a> --}}
             </div>
+
+
+            {{#if currentUserInfo}}
+            <form action="/business/details/:id" method="post">
+                <label for="">User:</label>
+                <input type="text" value="{{currentUserInfo.email}}" name="user" id="user-review" readonly>
+                <label for="">Comments:</label>
+                <textarea name="comments" id="comment-box" cols="30" rows="10"></textarea>
+
+                <button type="submit">Submit</button>
+
+            </form>
+            {{/if}}
            
         </div>

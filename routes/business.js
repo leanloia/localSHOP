@@ -27,10 +27,11 @@ function uniquifyCities(array) {
 }
 
 //función para el populate Business-User
-getUserwithBusiness = (id) => {
-  User.findById(id)
-    .populate('businesses')
-}
+// getUserwithBusiness = (id, newBizz) => {
+//   User.findByIdAndUpdate({id}, { "$push": { "businessOwned": newBizz }}, {new: true} )
+//     .populate('businesses')
+//     // .exec((err, businesses) => console.log('Populated User '+ businesses))
+// };
 
 //GET add-business
 businessRouter.get("/add-business", (req, res, next) => {
@@ -77,8 +78,9 @@ businessRouter.post("/add-business", async (req, res, next) => {
       });
       return;
     }
+    console.log('ACAAAAAAAAAAAAAAAAAAAAAAAAA', req.session.currentUser)
 
-    await Business.create({
+    const newBussiness = await Business.create({
       name,
       adress,
       city: formatCityName(city),
@@ -87,20 +89,24 @@ businessRouter.post("/add-business", async (req, res, next) => {
       webpage,
       type,
       about,
-      owner: req.session.currentUser._id,
+      owner: req.session.currentUser._id
     });
-    console.log('hhhhhhhhhhhhhhhhhhh', req.session.currentUser._id)
-    await getUserwithBusiness(req.session.currentUser._id);
+    
+    const addBusinessToUser = await User.findByIdAndUpdate({req.session.currentUser._id})
+    .populate('businessOwned')
+    .
+
+
+      
+
+    // await getUserwithBusiness(req.session.currentUser._id, newBussiness);
 
     res.redirect("/");
-
   } catch (error) {
     console.error(error);
     next(error);
   }
 });
-
-
 
 //GET business
 businessRouter.get("/business", async (req, res, next) => {
@@ -111,7 +117,7 @@ businessRouter.get("/business", async (req, res, next) => {
   //traiga los valores según el input de ciudades y/o tipo de producto
 
   res.render("business/business", {
-    business: uniqueCities
+    business: uniqueCities,
   });
 });
 
@@ -121,18 +127,15 @@ businessRouter.post("/business", async (req, res, next) => {
   //definimos constantes por input de filtro
 
   try {
-    const {
-      city,
-      type
-    } = req.body;
+    const { city, type } = req.body;
 
     const businessFiltered = await Business.find({
       city,
-      type
+      type,
     });
 
     res.render("business/business", {
-      bizz: businessFiltered
+      bizz: businessFiltered,
     });
   } catch (error) {
     console.error(error);
@@ -146,22 +149,19 @@ businessRouter.get("/business/details/:id", async (req, res, next) => {
 
   try {
     const businessFound = await Business.findById({
-      _id: businessId
+      _id: businessId,
     });
     console.log("HOLAAAAAAAAAAAAA", businessFound);
     if (businessFound) {
-      res.render('business/business-details', {
-        businessFound
-      })
+      res.render("business/business-details", {
+        businessFound,
+      });
       return;
     }
-
   } catch (error) {
     console.error(error);
     next(error);
   }
 });
-
-
 
 module.exports = businessRouter;
