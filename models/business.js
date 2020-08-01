@@ -54,6 +54,6 @@ const businessSchema = new Schema({
 
 businessSchema.set("timestamps", true);
 
-const Business = mongoose.model("Business", businessSchema);
+const Business = mongoose.model("Business", businessSchema, 'businesses');
 
 module.exports = Business;

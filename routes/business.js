@@ -78,8 +78,7 @@ businessRouter.post("/add-business", async (req, res, next) => {
       });
       return;
     }
-    console.log('ACAAAAAAAAAAAAAAAAAAAAAAAAA', req.session.currentUser)
-
+    
     const newBussiness = await Business.create({
       name,
       adress,
@@ -92,15 +91,14 @@ businessRouter.post("/add-business", async (req, res, next) => {
       owner: req.session.currentUser._id
     });
     
-    const addBusinessToUser = await User.findByIdAndUpdate({req.session.currentUser._id})
-    .populate('businessOwned')
-    .
+    
+    const addBusinessToUser = await User.findById(req.session.currentUser._id)
+    addBusinessToUser.businessOwned.push(newBussiness)
+    addBusinessToUser.save()
+    console.log('ACAAAAAAAAAAAAAAAAAAAAAAAAA', addBusinessToUser)
+     
 
-
-      
-
-    // await getUserwithBusiness(req.session.currentUser._id, newBussiness);
-
+    
     res.redirect("/");
   } catch (error) {
     console.error(error);
