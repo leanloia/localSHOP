@@ -48,9 +48,7 @@ businessRouter.get("/add-business", (req, res, next) => {
 // })
 
 //POST add-business
-businessRouter.post(
-  "/add-business",
-  parser.single("image_url"),
+businessRouter.post("/add-business", parser.single("image_url"),
   async (req, res, next) => {
     const { name, adress, city, phone, webpage, type, about } = req.body;
 
@@ -102,10 +100,10 @@ businessRouter.post(
       );
       //añade el nuevo business al obj
       addBusinessToUser.businessOwned.push(newBussiness);
+      //cambia estado de usuario a "owner"
+      addBusinessToUser.isOwner = true;
       //guarda
       addBusinessToUser.save();
-      //cambia estado de usuario a "owner"
-      req.session.currentUser.isOwner = true;
 
       res.redirect("/");
     } catch (error) {
@@ -144,6 +142,8 @@ businessRouter.post("/business", async (req, res, next) => {
     res.render("business/business", {
       bizz: businessFiltered,
     });
+
+    
   } catch (error) {
     console.error(error);
     next(error);

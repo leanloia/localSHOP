@@ -1,17 +1,15 @@
 <div>
-            
-            <div>
-                <p>Name: {{businessFound.name}} </p>
-                <p>City: {{businessFound.city}} </p>
-                <p>Phone: {{businessFound.phone}} </p>
-                <p>Webpage: {{businessFound.webpage}} </p>
-                <p>About: {{businessFound.about}} </p>
-                <img src="{{businessFound.image_url}}" alt="">
-                {{!-- <a href="/business/details/{{id}}">See more...</a> --}}
-            </div>
-
-
-            {{#if currentUserInfo}}
+    <div>
+        <p>Name: {{businessFound.name}} </p>
+        <p>City: {{businessFound.city}} </p>
+        <p>Phone: {{businessFound.phone}} </p>
+        <p>Webpage: {{businessFound.webpage}} </p>
+        <p>About: {{businessFound.about}} </p>
+        <img src="{{businessFound.image_url}}" alt="">
+        {{!-- <a href="/business/details/{{id}}">See more...</a> --}}
+    </div>
+    {{#if currentUserInfo}}
+        
             <form action="/business/details/{{businessFound._id}}" method="post">
                 <label for="">User:</label>
                 <input type="text" value="{{currentUserInfo.email}}" name="user" id="user-review" readonly>
@@ -23,6 +21,7 @@
                 <button type="submit">Submit</button>
 
             </form>
-            {{/if}}
-           
-        </div>
+       
+    {{/if}}
+
+</div>
