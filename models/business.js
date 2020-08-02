@@ -49,15 +49,10 @@ const businessSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "User",
     },
-    review: [
-      {
-        user: String,
-        comment: String,
-      },
-      {
-        default: "",
-      },
-    ],
+    reviews: [{
+      type: Schema.Types.ObjectId,
+      ref: 'Review'
+    }],
   },
   {
     timestamps: {

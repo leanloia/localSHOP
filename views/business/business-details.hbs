@@ -12,11 +12,13 @@
 
 
             {{#if currentUserInfo}}
-            <form action="/business/details/:id" method="post">
+            <form action="/business/details/{{businessFound._id}}" method="post">
                 <label for="">User:</label>
                 <input type="text" value="{{currentUserInfo.email}}" name="user" id="user-review" readonly>
                 <label for="">Comments:</label>
-                <textarea name="comments" id="comment-box" cols="30" rows="10"></textarea>
+                <textarea name="comment" id="comment-box" cols="30" rows="10"></textarea>
+
+                {{!-- puntaje en el review?? --}}
 
                 <button type="submit">Submit</button>
 

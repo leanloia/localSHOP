@@ -79,6 +79,10 @@ Favorites model
 
 [See the Trello board.]
 
+- añadir sistema de valoracion para reviews de comercios
+
+
+
 <br>
 
 ## Links

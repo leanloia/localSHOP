@@ -17,6 +17,11 @@ const userSchema = new Schema({
   businessOwned: [{
     type: Schema.Types.ObjectId,
     ref: 'Business'
+  }],
+
+  reviewsMade: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Review'
   }]
 
 });

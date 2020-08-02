@@ -2,7 +2,8 @@ const express = require("express");
 const businessRouter = express.Router();
 const User = require("../models/user");
 const Business = require("../models/business");
-const parser = require('./../config/cloudinary');
+const Review = require("../models/review");
+const parser = require("./../config/cloudinary");
 
 //funciones auxiliares :D
 
@@ -41,53 +42,48 @@ businessRouter.get("/add-business", (req, res, next) => {
 
 // businessRouter.post('/endPointName', parser.single('profilepic'), (req, res, next) => {
 //   // thanks to multer, you have now access to the new object "req.file"
-  
+
 //   // get the image URL to save it to the database and/or render the image in your view
 //   const image_url = req.file.secure_url;
 // })
 
 //POST add-business
-businessRouter.post("/add-business", parser.single('image_url'), async (req, res, next) => {
-  const image_url = req.file.secure_url;
-  const {
-    name,
-    adress,
-    city,
-    phone,
-    webpage,
-    type,
-    about,
-  } = req.body;
-  
-  
-  if (
-    name === "" ||
-    adress === "" ||
-    city === "" ||
-    phone === "" ||
-    webpage === "" ||
-    type === "" ||
-    about === ""
+businessRouter.post(
+  "/add-business",
+  parser.single("image_url"),
+  async (req, res, next) => {
+    const { name, adress, city, phone, webpage, type, about } = req.body;
+
+    const image_url = req.file.secure_url;
+
+    if (
+      name === "" ||
+      adress === "" ||
+      city === "" ||
+      phone === "" ||
+      webpage === "" ||
+      type === "" ||
+      about === ""
     ) {
       res.render("business/add-business", {
         errorMessage: "Please, complete the form.",
       });
       return;
     }
-    
+
     try {
       const bussinessFound = await Business.findOne({
         name,
         type,
       });
-      
+
       if (bussinessFound) {
         res.render("business/add-business", {
           errorMessage: "This name is already taken.",
         });
         return;
       }
-      
+
       const newBussiness = await Business.create({
         name,
         adress,
@@ -97,38 +93,39 @@ businessRouter.post("/add-business", parser.single('image_url'), async (req, res
         webpage,
         type,
         about,
-        owner: req.session.currentUser._id
+        owner: req.session.currentUser._id,
       });
-      
+
       // buscar al obj usuario que está logueado
-      const addBusinessToUser = await User.findById(req.session.currentUser._id)
+      const addBusinessToUser = await User.findById(
+        req.session.currentUser._id
+      );
       //añade el nuevo business al obj
-      addBusinessToUser.businessOwned.push(newBussiness)
+      addBusinessToUser.businessOwned.push(newBussiness);
       //guarda
-      addBusinessToUser.save()
+      addBusinessToUser.save();
       //cambia estado de usuario a "owner"
-      req.session.currentUser.isOwner = true;    
-      
-      
+      req.session.currentUser.isOwner = true;
+
       res.redirect("/");
     } catch (error) {
       console.error(error);
       next(error);
     }
+  }
+);
+
+//GET business
+businessRouter.get("/business", async (req, res, next) => {
+  const consultaBusiness = await Business.find();
+  // toma todos los business y trae los valores (sin repetir) de las ciudades que existen
+  var uniqueCities = await uniquifyCities(consultaBusiness);
+
+  //traiga los valores según el input de ciudades y/o tipo de producto
+
+  res.render("business/business", {
+    business: uniqueCities,
   });
-  
-  
-  //GET business
-  businessRouter.get("/business", async (req, res, next) => {
-    const consultaBusiness = await Business.find();
-    // toma todos los business y trae los valores (sin repetir) de las ciudades que existen
-    var uniqueCities = await uniquifyCities(consultaBusiness);
-    
-    //traiga los valores según el input de ciudades y/o tipo de producto
-    
-    res.render("business/business", {
-      business: uniqueCities,
-    });
 });
 
 //POST business
@@ -143,7 +140,7 @@ businessRouter.post("/business", async (req, res, next) => {
       city,
       type,
     });
-    console.log('HOLAAAAAAAAAAAAAAAAAAAAAAAAAAAA', businessFiltered)
+    
     res.render("business/business", {
       bizz: businessFiltered,
     });
@@ -170,6 +167,42 @@ businessRouter.get("/business/details/:id", async (req, res, next) => {
   } catch (error) {
     console.error(error);
     next(error);
+  }
+});
+
+//POST business/details/:id
+businessRouter.post("/business/details/:id", async (req, res, next) => {
+  const { comment } = req.body;
+  try {
+    let businessId = req.params.id;
+    //primero buscamos business
+    const businessFound = await Business.findById({ _id: businessId });
+    const userFound = await User.findById({_id: req.session.currentUser._id})
+    console.log('req.session.currentUser', userFound._id)
+    console.log('business ID', businessFound._id)
+    //creamos instancia de Review
+    const newReview = await Review.create({
+      user: userFound._id,
+      comment,
+      commentTo: businessFound._id
+    });
+
+    console.log('NEWREVIEW!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', newReview)
+    
+    //Empujamos id de review en objeto business que lo recibe
+    businessFound.reviews.push(newReview._id)
+    //Empujamos id de review en objeto user que lo realiza
+    userFound.reviewsMade.push(newReview._id)
+    //salvamos todo en BDD
+    businessFound.save();
+    userFound.save();
+    
+    res.redirect('/business/details/:id')
+
+  } catch (error) {
+    console.error(error);
+    next(error);
+
   }
 });
 
