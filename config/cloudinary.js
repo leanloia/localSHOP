@@ -12,11 +12,11 @@ cloudinary.config({
 
 const storage = cloudinaryStorage({
   cloudinary: cloudinary,
-  folder: 'destination-folder-in-cloudinary',
+  folder: 'localSHOP-profilepic',
   allowedFormats: ['jpg', 'png', 'jpeg', 'gif'],
   transformation: [{ width: 500, height: 500, crop: 'limit' }]
 });
  
 const parser = multer({ storage: storage });
 
-module.exports = parser.js;
+module.exports = parser;

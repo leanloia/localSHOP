@@ -47,7 +47,7 @@ businessRouter.get("/add-business", (req, res, next) => {
 // })
 
 //POST add-business
-businessRouter.post("/add-business", parser.single('profilepic'), async (req, res, next) => {
+businessRouter.post("/add-business", parser.single('image_url'), async (req, res, next) => {
   const image_url = req.file.secure_url;
   const {
     name,
@@ -59,7 +59,7 @@ businessRouter.post("/add-business", parser.single('profilepic'), async (req, re
     about,
   } = req.body;
   
-
+  
   if (
     name === "" ||
     adress === "" ||
@@ -68,66 +68,67 @@ businessRouter.post("/add-business", parser.single('profilepic'), async (req, re
     webpage === "" ||
     type === "" ||
     about === ""
-  ) {
-    res.render("business/add-business", {
-      errorMessage: "Please, complete the form.",
-    });
-    return;
-  }
-
-  try {
-    const bussinessFound = await Business.findOne({
-      name,
-      type,
-    });
-
-    if (bussinessFound) {
+    ) {
       res.render("business/add-business", {
-        errorMessage: "This name is already taken.",
+        errorMessage: "Please, complete the form.",
       });
       return;
     }
     
-    const newBussiness = await Business.create({
-      name,
-      adress,
-      city: formatCityName(city),
-      profilepic: image_url,
-      phone,
-      webpage,
-      type,
-      about,
-      owner: req.session.currentUser._id
-    });
-    
-    // buscar al obj usuario que está logueado
-    const addBusinessToUser = await User.findById(req.session.currentUser._id)
-    //añade el nuevo business al obj
-    addBusinessToUser.businessOwned.push(newBussiness)
-    //guarda
-    addBusinessToUser.save()
-    //cambia estado de usuario a "owner"
-    req.session.currentUser.isOwner = true;    
-
-    
-    res.redirect("/");
-  } catch (error) {
-    console.error(error);
-    next(error);
-  }
-});
-
-//GET business
-businessRouter.get("/business", async (req, res, next) => {
-  const consultaBusiness = await Business.find();
-  // toma todos los business y trae los valores (sin repetir) de las ciudades que existen
-  var uniqueCities = await uniquifyCities(consultaBusiness);
-
-  //traiga los valores según el input de ciudades y/o tipo de producto
-
-  res.render("business/business", {
-    business: uniqueCities,
+    try {
+      const bussinessFound = await Business.findOne({
+        name,
+        type,
+      });
+      
+      if (bussinessFound) {
+        res.render("business/add-business", {
+          errorMessage: "This name is already taken.",
+        });
+        return;
+      }
+      
+      const newBussiness = await Business.create({
+        name,
+        adress,
+        city: formatCityName(city),
+        image_url,
+        phone,
+        webpage,
+        type,
+        about,
+        owner: req.session.currentUser._id
+      });
+      
+      // buscar al obj usuario que está logueado
+      const addBusinessToUser = await User.findById(req.session.currentUser._id)
+      //añade el nuevo business al obj
+      addBusinessToUser.businessOwned.push(newBussiness)
+      //guarda
+      addBusinessToUser.save()
+      //cambia estado de usuario a "owner"
+      req.session.currentUser.isOwner = true;    
+      
+      
+      res.redirect("/");
+    } catch (error) {
+      console.error(error);
+      next(error);
+    }
   });
+  
+  
+  //GET business
+  businessRouter.get("/business", async (req, res, next) => {
+    const consultaBusiness = await Business.find();
+    // toma todos los business y trae los valores (sin repetir) de las ciudades que existen
+    var uniqueCities = await uniquifyCities(consultaBusiness);
+    
+    //traiga los valores según el input de ciudades y/o tipo de producto
+    
+    res.render("business/business", {
+      business: uniqueCities,
+    });
 });
 
 //POST business
@@ -142,7 +143,7 @@ businessRouter.post("/business", async (req, res, next) => {
       city,
       type,
     });
-
+    console.log('HOLAAAAAAAAAAAAAAAAAAAAAAAAAAAA', businessFiltered)
     res.render("business/business", {
       bizz: businessFiltered,
     });
@@ -160,7 +161,6 @@ businessRouter.get("/business/details/:id", async (req, res, next) => {
     const businessFound = await Business.findById({
       _id: businessId,
     });
-    console.log("HOLAAAAAAAAAAAAA", businessFound);
     if (businessFound) {
       res.render("business/business-details", {
         businessFound,
