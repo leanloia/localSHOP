@@ -143,7 +143,6 @@ businessRouter.post("/business", async (req, res, next) => {
     });
     //filtro con f(x) auxiliar para dejar un valor por cada ciudad (evitar que se repita si hay mas de una)
     const businessUnique = await uniquifyCities(businessCities)
-    console.log('ACAAA', businessUnique)
     
     res.render("business/business", {
       bizz: businessFiltered,
@@ -166,6 +165,7 @@ businessRouter.get("/business/details/:id", async (req, res, next) => {
     const businessFound = await Business.findById({
       _id: businessId,
     });
+    console.log('HOLAAAAAAAAAAAAAAAAAAAAAAAA', businessFound)
     if (businessFound) {
       res.render("business/business-details", {
         businessFound,
