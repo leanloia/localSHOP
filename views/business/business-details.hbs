@@ -9,7 +9,7 @@
         {{!-- <a href="/business/details/{{id}}">See more...</a> --}}
     </div>
     {{#if currentUserInfo}}
-        
+       
             <form action="/business/details/{{businessFound._id}}" method="post">
                 <label for="">User:</label>
                 <input type="text" value="{{currentUserInfo.email}}" name="user" id="user-review" readonly>

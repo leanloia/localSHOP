@@ -5,6 +5,7 @@ const Business = require("../models/business");
 const Review = require("../models/review");
 const parser = require("./../config/cloudinary");
 
+
 //funciones auxiliares :D
 
 //función para poner el nombre de las ciudades primera mayus (e.g. Barcelona, Girona)
@@ -52,7 +53,7 @@ businessRouter.post("/add-business", parser.single("image_url"),
   async (req, res, next) => {
     const { name, adress, city, phone, webpage, type, about } = req.body;
 
-    const image_url = req.file.secure_url;
+    const image_url = req.file ? req.file.secure_url : './images/default-business.jpg'
 
     if (
       name === "" ||
@@ -105,7 +106,7 @@ businessRouter.post("/add-business", parser.single("image_url"),
       //guarda
       addBusinessToUser.save();
 
-      res.redirect("/");
+      res.redirect(`/business/details/${newBussiness._id}`)
     } catch (error) {
       console.error(error);
       next(error);
@@ -133,14 +134,21 @@ businessRouter.post("/business", async (req, res, next) => {
 
   try {
     const { city, type } = req.body;
-
+    //traigo lista completa de ciudades
+    const businessCities = await Business.find();
+    //traigo lista de ciudades que coiciden con input select
     const businessFiltered = await Business.find({
       city,
       type,
     });
+    //filtro con f(x) auxiliar para dejar un valor por cada ciudad (evitar que se repita si hay mas de una)
+    const businessUnique = await uniquifyCities(businessCities)
+    console.log('ACAAA', businessUnique)
     
     res.render("business/business", {
       bizz: businessFiltered,
+      businessUnique
+
     });
 
     
@@ -197,7 +205,7 @@ businessRouter.post("/business/details/:id", async (req, res, next) => {
     businessFound.save();
     userFound.save();
     
-    res.redirect('/business/details/:id')
+    res.redirect(`/business/details/${businessId}`)
 
   } catch (error) {
     console.error(error);

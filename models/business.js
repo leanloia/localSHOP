@@ -17,7 +17,6 @@ const businessSchema = new Schema(
     },
     image_url: {
       type: String,
-      default: "./images/profile-picture.png",
     },
     phone: {
       type: Number,

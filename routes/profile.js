@@ -2,6 +2,7 @@ const express = require("express");
 const profileRouter = express.Router();
 const User = require("../models/user");
 const Business = require("../models/business");
+const parser = require("./../config/cloudinary");
 
 //Comprobación de logueo, ruta privada para usuarios logueados
 profileRouter.use((req, res, next) => {
@@ -63,15 +64,16 @@ profileRouter.get("/profile/:id/edit", async (req, res, next) => {
   }
 });
 
-//POST profile/:name/edit
-profileRouter.post("/profile/:id/edit", async (req, res, next) => {
+//POST profile/:name/editUser
+profileRouter.post("/profile/:id/editUser", parser.single("profilePic"), async (req, res, next) => {
+  const profilePic = req.file ? req.file.secure_url : req.session.currentUser.profilePic
   const { name, email } = req.body;
   let userId = req.session.currentUser._id;
 
   try {
     let userFound = await User.findByIdAndUpdate(
       { _id: userId },
-      { name, email },
+      { name, email, profilePic },
       { new: true }
     );
 
@@ -80,6 +82,27 @@ profileRouter.post("/profile/:id/edit", async (req, res, next) => {
   } catch (error) {
     console.error(error);
     next(error);
+  }
+});
+
+//POST profile/:name/editBusiness
+profileRouter.post("/profile/:id/editBusiness/:businessId", parser.single("image_url"), async (req, res, next) => {
+  try {
+    const { name, adress, city, phone, webpage, about } = req.body;
+    console.log('HolaAAAAAAAAAAAAAA!!!!!!', req.body)
+    
+    const businessFound = await Business.findById(req.params.businessId);
+    
+    const image_url = req.file ? req.file.secure_url : businessFound.image_url
+    const businessToUpdt = await Business.findByIdAndUpdate(businessFound._id, { adress, city, image_url, phone, webpage, about}, {new: true});
+
+    
+    res.redirect("/profile");
+    return;
+    
+  } catch (error) {
+    console.error(error);
+    next(error);    
   }
 });
 

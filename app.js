@@ -15,7 +15,7 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 
 mongoose
-  .connect('mongodb+srv://leanmarina:ironhack2020@cluster0.dmf7o.mongodb.net/localSHOP?retryWrites=true&w=majority', {
+  .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
@@ -57,7 +57,7 @@ app.use(session({
   resave: true,
   saveUninitialized: true,
   cookie: {
-    maxAge: 60000
+    maxAge: 60000*10
   },
   store: new MongoStore({
     mongooseConnection: mongoose.connection,

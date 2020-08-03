@@ -11,9 +11,19 @@
         <div>
             <label for="city-input"> City </label>
             <select name="city" id="city-input">
-                {{#each business}}
+            {{#if business}}
+            {{#each business}}
                 <option value={{this}}>{{this}}</option>
-                {{/each}}
+            {{/each}}
+            {{/if}}
+            {{#if businessUnique}}
+            {{#each businessUnique}}
+                <option value={{this}}>{{this}}</option>
+            {{/each}}
+            {{/if}}
+              
+                
+                
             </select>
         </div>
         <div>
