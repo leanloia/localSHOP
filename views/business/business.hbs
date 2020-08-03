@@ -8,22 +8,20 @@
 
     <form action="/business" method="post">
 
-        <div>
+        <div class='business-search'>
             <label for="city-input"> City </label>
             <select name="city" id="city-input">
-            {{#if business}}
-            {{#each business}}
+                {{#if business}}
+                {{#each business}}
                 <option value={{this}}>{{this}}</option>
-            {{/each}}
-            {{/if}}
-            {{#if businessUnique}}
-            {{#each businessUnique}}
+                {{/each}}
+                {{/if}}
+                {{#if businessUnique}}
+                {{#each businessUnique}}
                 <option value={{this}}>{{this}}</option>
-            {{/each}}
-            {{/if}}
-              
-                
-                
+                {{/each}}
+                {{/if}}
+
             </select>
         </div>
         <div>
@@ -41,22 +39,22 @@
         </div>
         <button type="submit">Search</button>
 
-        <div>
+
+        <div class='business-targets'>
             {{#each bizz}}
-            <div>
+            <div class='business-results'>
+                <div class="img-business">
+                    <img src="{{image_url}}" alt="image">
+                </div>
                 <p>Name: {{name}} </p>
                 <p>City: {{city}} </p>
                 <p>Phone: {{phone}} </p>
                 <p>Webpage: {{webpage}} </p>
                 <p>About: {{about}} </p>
-                <img src="{{image_url}}" alt="image">
-                
+
+
                 <a href="/business/details/{{id}}">See more...</a>
             </div>
             {{/each}}
-        </div>
-
-        <div>
-            <a href='/'>Home</a>
         </div>
 </section>
