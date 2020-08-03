@@ -7,8 +7,8 @@
 {{/if}}
 
 <div>
-        <section>
-    <form action="/profile/{{user._id}}/editUser" method="post" enctype="multipart/form-data">
+    <section>
+        <form action="/profile/{{user._id}}/editUser" method="post" enctype="multipart/form-data">
             <h2>USER INFO</h2>
             <div>
                 <label for="profilePic-input">Profile image</label>
@@ -26,10 +26,10 @@
 
             <button type="submit"> Submit changes </button>
         </form>
-        </section>
+    </section>
 
-        <h2>MOTHERFUCKIN BUSINESS</h2>
-        <section>
+    <h2>MOTHERFUCKIN BUSINESS</h2>
+    <section>
         {{#each business}}
         <form action="/profile/{{owner}}/editBusiness/{{_id}}" method="post" enctype="multipart/form-data">
             <div>
@@ -64,11 +64,15 @@
                 <label for="about-input"> Something about your business </label>
                 <textarea name="about" id="about-input" value="{{about}}" cols="30" rows="10">{{about}}</textarea>
             </div>
-        <button type="submit"> Submit changes </button>
-    </form>
+            <button type="submit"> Submit changes </button>
+        </form>
+
+        <form action='/profile/{{_id}}/delete' method='post'>
+            <button type='submit' class='delete-button'>Delete</button>
+        </form>
         {{/each}}
 
-        </section>
+    </section>
 </div>
 
 

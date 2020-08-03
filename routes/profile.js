@@ -2,6 +2,7 @@ const express = require("express");
 const profileRouter = express.Router();
 const User = require("../models/user");
 const Business = require("../models/business");
+const Review = require('../models/review')
 const parser = require("./../config/cloudinary");
 
 //Comprobación de logueo, ruta privada para usuarios logueados
@@ -16,24 +17,40 @@ profileRouter.use((req, res, next) => {
 
 //GET profile/:name page
 
-profileRouter.get("/profile", async (req, res, next) => {
+profileRouter.get('/profile', async (req, res, next) => {
   const userId = req.session.currentUser._id;
   try {
-    let userFound = await User.findOne({ _id: userId });
-    let businessFound = await Business.find({ owner: userId });
-    if (businessFound && userFound) {
-      res.render("profile/profile", {
+    let userFound = await User.findOne({
+      _id: userId
+    });
+    let businessFound = await Business.find({
+      owner: userId
+    });
+    let reviewFound = await Review.find({
+      user: userId
+    })
+    if (businessFound && userFound && reviewFound) {
+      res.render('profile/profile', {
+        user: userFound,
+        business: businessFound,
+        review: reviewFound,
+      });
+      return;
+    } else if (!businessFound) {
+      res.render('profile/profile', {
+        user: userFound,
+        review: reviewFound,
+      });
+      return;
+    } else if (!reviewFound) {
+      res.render('profile/profile', {
         user: userFound,
         business: businessFound,
       });
       return;
-    } else if (!businessFound) {
-      res.render("profile/profile", { user: userFound });
-      return;
     }
-
     // if(userFound) {
-    //     res.render('profile/profile', {user: userFound});
+    //     res.render(‘profile/profile’, {user: userFound});
     //     return;
     // }
   } catch (error) {
@@ -103,6 +120,18 @@ profileRouter.post("/profile/:id/editBusiness/:businessId", parser.single("image
   } catch (error) {
     console.error(error);
     next(error);    
+  }
+});
+
+//POST Delete-Business
+profileRouter.post('/profile/:id/delete', async (req, res, next) => {
+  const businessId = req.params.id;
+  try {
+    const deleteBusiness = await Business.findByIdAndRemove(businessId)
+    res.redirect('/profile')
+  } catch (error) {
+    console.error(error);
+    next(error);
   }
 });
 
