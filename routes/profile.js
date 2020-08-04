@@ -27,11 +27,11 @@ profileRouter.get('/profile', async (req, res, next) => {
       owner: userId
     });
     let reviewFound = await Review.find({
-        user: userId
-      })
-/*       .populate('user')
- */    if (businessFound && userFound && reviewFound) {
-      console.log('REVIEEEEW', reviewFound)
+      user: userId
+    })
+    /*       .populate('user')
+     */
+    if (businessFound && userFound && reviewFound) {
       res.render('profile/profile', {
         user: userFound,
         business: businessFound,
@@ -130,8 +130,6 @@ profileRouter.post("/profile/:id/editBusiness/:businessId", parser.single("image
       webpage,
       about
     } = req.body;
-    console.log('HolaAAAAAAAAAAAAAA!!!!!!', req.body)
-
     const businessFound = await Business.findById(req.params.businessId);
 
     const image_url = req.file ? req.file.secure_url : businessFound.image_url

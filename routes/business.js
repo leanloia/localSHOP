@@ -38,11 +38,19 @@ businessRouter.post(
   "/add-business",
   parser.single("image_url"),
   async (req, res, next) => {
-    const { name, adress, city, phone, webpage, type, about } = req.body;
+    const {
+      name,
+      adress,
+      city,
+      phone,
+      webpage,
+      type,
+      about
+    } = req.body;
 
-    const image_url = req.file
-      ? req.file.secure_url
-      : "/images/default-business.jpg";
+    const image_url = req.file ?
+      req.file.secure_url :
+      "/images/default-business.jpg";
 
     if (
       name === "" ||
@@ -122,7 +130,10 @@ businessRouter.post("/business", async (req, res, next) => {
   //definimos constantes por input de filtro
 
   try {
-    const { city, type } = req.body;
+    const {
+      city,
+      type
+    } = req.body;
     //traigo lista completa de ciudades
     const businessCities = await Business.find();
     //traigo lista de ciudades que coiciden con input select
@@ -153,12 +164,17 @@ businessRouter.get("/business/details/:id", async (req, res, next) => {
     const businessFound = await Business.findById({
       _id: businessId,
     });
-    const reviewFound = await Review.find({ commentTo: businessId }).populate(
+    const reviewFound = await Review.find({
+      commentTo: businessId
+    }).populate(
       "user"
     );
 
     if (!req.session.currentUser) {
-      res.render("business/business-details", { businessFound, reviewFound });
+      res.render("business/business-details", {
+        businessFound,
+        reviewFound
+      });
       return;
       //creo condicional para saber si el user logueado es el owner del business que intenta ver (si lo es, no renderizo en el view el form de reviews)
     } else if (businessFound.owner == req.session.currentUser._id) {
@@ -190,7 +206,10 @@ businessRouter.get("/business/details/:id", async (req, res, next) => {
 
 //POST business/details/:id
 businessRouter.post("/business/details/:id", async (req, res, next) => {
-  const { reviewTitle, comment } = req.body;
+  const {
+    reviewTitle,
+    comment
+  } = req.body;
   try {
     let businessId = req.params.id;
     //primero buscamos business
@@ -227,7 +246,7 @@ businessRouter.post("/business/details/:id", async (req, res, next) => {
 //POST business/favourite/:id
 businessRouter.post("/business/favourite/:id", async (req, res, next) => {
   const businessId = req.params.id;
-  
+
   try {
     const businessFound = await Business.findById(businessId);
     if (!req.session.currentUser) {
@@ -236,33 +255,39 @@ businessRouter.post("/business/favourite/:id", async (req, res, next) => {
     }
     const userFound = await User.findById(req.session.currentUser._id);
 
-    const businessUpdated = await Business.findByIdAndUpdate(businessId, [
-      {
-        $set: {
-          favouriteBy: {
-            $cond: [
-              { $in: [userFound._id, businessFound.favouriteBy] },
-              { $setDifference: [businessFound.favouriteBy, [userFound._id]] },
-              { $concatArrays: [businessFound.favouriteBy, [userFound._id]] },
-            ],
-          },
+    const businessUpdated = await Business.findByIdAndUpdate(businessId, [{
+      $set: {
+        favouriteBy: {
+          $cond: [{
+              $in: [userFound._id, businessFound.favouriteBy]
+            },
+            {
+              $setDifference: [businessFound.favouriteBy, [userFound._id]]
+            },
+            {
+              $concatArrays: [businessFound.favouriteBy, [userFound._id]]
+            },
+          ],
         },
       },
-    ]);
+    }, ]);
 
-    const userUpdated = await User.findByIdAndUpdate(userFound._id, [
-      {
-        $set: {
-          favouriteBusiness: {
-            $cond: [
-              { $in: [businessFound._id, userFound.favouriteBusiness] },
-              { $setDifference: [userFound.favouriteBusiness, [businessFound._id]] },
-              { $concatArrays: [userFound.favouriteBusiness, [businessFound._id]] },
-            ],
-          },
+    const userUpdated = await User.findByIdAndUpdate(userFound._id, [{
+      $set: {
+        favouriteBusiness: {
+          $cond: [{
+              $in: [businessFound._id, userFound.favouriteBusiness]
+            },
+            {
+              $setDifference: [userFound.favouriteBusiness, [businessFound._id]]
+            },
+            {
+              $concatArrays: [userFound.favouriteBusiness, [businessFound._id]]
+            },
+          ],
         },
       },
-    ]);
+    }, ]);
 
     res.redirect("/business");
   } catch (error) {
@@ -270,38 +295,5 @@ businessRouter.post("/business/favourite/:id", async (req, res, next) => {
     next(error);
   }
 });
-// //// a dónde lo llevamos?
-
-// if(businessFound.favouriteBy.includes(userFound._id)){
-
-// }
-
-// // let searchFavourites = (user, business) => {
-//   for (var i = 0; i < business.favouriteBy.length; i++) {
-//     if (business.favouriteBy[i] == user._id) {
-//       business.favouriteBy.findByIdAndUpdate(businessId, { $pull: { favouriteBy: userFound._id }}, {new: true})
-//     } else {
-//       business.favouriteBy.findByIdAndUpdate(businessId, { $addToSet: { favouriteBy: userFound._id }}, {new: true})
-//     }
-//     // console.log("BUSINESSSSSSS", business);
-
-//   }
-
-//   for (var y = 0; y < user.favouriteBusiness.length; y++) {
-//     if (user.favouriteBusiness[i] == business._id) {
-//       user.favouriteBusiness.slice(i);
-//     } else {
-//       user.favouriteBusiness.push(business._id);
-//     }
-//   }
-
-//   business.save();
-//   user.save();
-
-//   return business, user;
-// };
-// searchFavourites(userFound, businessFound);
-// console.log('USERRRRRRRFOUNNNNNNNNNNNNNNND', userFound )
-// console.log('BUSINESSSSSSFOUND', businessFound )
 
 module.exports = businessRouter;
