@@ -175,6 +175,7 @@ businessRouter.get("/business/details/:id", async (req, res, next) => {
   }
 });
 
+
 //POST business/details/:id
 businessRouter.post("/business/details/:id", async (req, res, next) => {
   const {
