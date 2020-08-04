@@ -57,7 +57,6 @@ const businessSchema = new Schema({
     ref: "User",
   }]
 
-
 }, {
   timestamps: {
     createdAt: "createdAt",

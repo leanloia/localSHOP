@@ -27,14 +27,17 @@ nav {
   background: #c5c5c4;
   height: 80px;
   width: 100%;
+
   ul {
     float: right;
     margin-right: 20px;
   }
+
   li {
     display: inline-block;
     line-height: 80px;
     margin: 0 5px;
+
     a {
       color: white;
       font-size: 17px;
@@ -42,6 +45,7 @@ nav {
       border-radius: 3px;
       text-transform: uppercase;
     }
+
     a.active,
     a:hover {
       color: black;
@@ -151,36 +155,232 @@ nav {
 
 // business
 
-.business-targets {
+.business-container {
+  height: 30vh;
+  width: 100%;
+  background-color: tomato;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 
-  .business-results {
-    background-color: $primarycolor;
-    width: 80%;
+  .form-search {
+    color: white;
+    text-transform: uppercase;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    border-radius: 2rem;
+    justify-content: initial;
 
-    .img-business {
-      width: 100%;
+
+    h1 {
+      color: white;
+      font-weight: 600;
+      text-align: center;
+      font-size: 2rem;
+    }
+
+    .inputs-search {
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: center;
+      align-items: flex-start;
+
+      .search-btn {
+        align-self: center;
+        font-size: 1rem;
+        margin: 20px;
+        padding: 10px 30px;
+        border: none;
+        box-shadow: 2px 2px 4px black;
+      }
+    }
+
+
+  }
+
+
+}
+
+.container-card {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+
+  .card {
+    width: 330px;
+    height: 430px;
+    border-radius: 8px;
+    box-shadow: 0, 2px, rgba(0, 0, 0, .2);
+    overflow: hidden;
+    margin: 20px;
+    transition: all 0.25s;
+    display: flex;
+    align-items: center;
+    justify-content: initial;
+
+
+
+    .img-card {
+      width: 100%;
+      height: 50%;
 
       img {
+        object-fit: cover;
         width: 100%;
-        border: 3px solid $primarycolor;
-        border-top-left-radius: 2rem;
-        border-top-right-radius: 2rem;
+        max-height: 100%;
+
+      }
+    }
+
+    .info-card {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      text-align: center;
+      line-height: .5rem;
+      padding: 1rem;
+
+      h4 {
+        font-weight: 600;
+      }
+
+      p {
+        font-size: 16px;
+        font-weight: 300;
+      }
+
+      a {
+        padding-top: 1rem;
+        text-decoration: none;
+        color: $secondarycolor;
+      }
+
+      a:hover {
+        color: $primarycolor;
+      }
+
+      .favourite-btn {
+        color: $secondarycolor;
+        border: none;
+        background-color: white;
+        width: 16px;
+
       }
     }
   }
 }
+
+.card:hover {
+
+  transform: translateY(-15px);
+  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+
+}
+
+
+
+//business-details
+
+.business-info-container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+
+
+  .business-infocard {
+    border-radius: 8px;
+    box-shadow: 0, 2px, rgba(0, 0, 0, .2);
+    overflow: hidden;
+    margin: 20px;
+    transition: all 0.25s;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: initial;
+    width: 100%;
+
+    .business-img {
+      width: 100%;
+      height: 50%;
+
+      img {
+        object-fit: cover;
+        width: 100%;
+        max-height: 100%;
+
+      }
+    }
+  }
+
+  i {
+    font-size: 20px;
+    color: $secondarycolor
+  }
+}
+
+.info-business {
+  margin-top: 10px;
+  padding: 1rem;
+  width: 100%;
+  line-height: 1rem;
+  border-radius: 8px;
+  background-color: rgb(244, 245, 241);
+}
+
+//Review
+.review-title {
+  margin-top: 10px;
+  padding: 1rem;
+  background-color: rgb(244, 245, 241);
+  width: 100%;
+  line-height: 1rem;
+  border-radius: 8px;
+
+}
+
+.review-container {
+  margin-top: 10px;
+  padding: 1rem;
+  background-color: rgb(244, 245, 241);
+  width: 100%;
+  line-height: 1rem;
+  border-radius: 8px;
+
+  .date {
+    font-size: .6rem;
+  }
+
+  p {
+    width: 80%;
+  }
+}
+
+.form-review {
+  margin-top: 10px;
+  padding: 1rem;
+  background-color: rgb(244, 245, 241);
+  width: 100%;
+  line-height: 1rem;
+  border-radius: 8px;
+
+  button {
+    font-size: 1rem;
+    margin-top: 10px;
+    padding: 10px 30px;
+    border: none;
+    box-shadow: 2px 2px 4px black;
+  }
+}
+
 
 //mediaQueris
 
@@ -227,7 +427,72 @@ nav {
     color: #0082e6;
   }
 
-  #check:checked ~ ul {
+  #check:checked~ul {
     left: 0;
   }
+}
+
+@media (min-width: 858px) {
+  .business-infocard {
+    background-color: white;
+    width: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .info-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    border-radius: 0;
+  }
+
+  .info-business {
+    color: white;
+    border-radius: 0;
+    background: tomato;
+    max-width: 50%;
+    height: 300px;
+    margin: 0;
+    padding: 20px;
+
+    i {
+      color: white
+    }
+
+  }
+
+  .business-img {
+    max-width: 50%;
+    height: 60vh;
+    max-height: 300px;
+
+    img {
+      height: 300px;
+    }
+  }
+
+  .review-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .all-reviews {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    ;
+  }
+
+  .review-container {
+    margin: 5px;
+    width: 48%;
+  }
+
+
 }
