@@ -8,6 +8,18 @@
         <p>About: {{businessFound.about}} </p>
 
     </div>
+<div>
+    {{#each reviewFound}}
+    <div>
+        <p>Review title:{{reviewTitle}}</p>
+        <p>Reviewed by:{{user.name}}</p>
+        <p>Reviewed at:{{createdAt}}</p>
+        <p>Review:{{comment}}</p>
+    </div>
+    {{/each}}
+</div>
+
+
     {{#if currentUserInfo}}
     {{#unless userOwner}}
     <form action="/business/details/{{businessFound._id}}" method="post">

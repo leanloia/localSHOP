@@ -146,30 +146,39 @@ businessRouter.post("/business", async (req, res, next) => {
 //GET business/details/:id
 businessRouter.get("/business/details/:id", async (req, res, next) => {
   let businessId = req.params.id;
-
+  
   try {
     //declaro booleano
     let userOwner = false;
     const businessFound = await Business.findById({
       _id: businessId,
     });
-    //creo condicional para saber si el user logueado es el owner del business que intenta ver (si lo es, no renderizo en el view el form de reviews)
-    if (businessFound.owner == req.session.currentUser._id) {
+    const reviewFound = await Review.find({ commentTo: businessId }).populate('user')
+    
+    if (!req.session.currentUser) {
+      res.render("business/business-details", { businessFound, reviewFound })
+      return;
+      //creo condicional para saber si el user logueado es el owner del business que intenta ver (si lo es, no renderizo en el view el form de reviews)
+    } else if (businessFound.owner == req.session.currentUser._id) {
       userOwner = true;
     } else {
       userOwner = false;
     }
+    console.log('REVIEEEEEEEEEEEEEEEEEEEEWS', reviewFound[0].createdAt)
 
     if (businessFound && userOwner) {
       res.render("business/business-details", {
         businessFound,
         userOwner,
+        reviewFound,
       });
       return;
     } else {
       res.render("business/business-details", {
         businessFound,
-      });
+        reviewFound,
+      })
+      return;
     }
   } catch (error) {
     console.error(error);
@@ -213,57 +222,70 @@ businessRouter.post("/business/details/:id", async (req, res, next) => {
   }
 });
 
-// //POST business/favourite/:id
-// businessRouter.post("/business/favourite/:id", async (req, res, next) => {
-//   const businessId = req.params.id;
-//   try {
-//     const businessFound = await Business.findById(businessId);
-//     if (!req.session.currentUser) {
-//       res.redirect("/login");
-//       return;
-//     }
-//     const userFound = await User.findById(req.session.currentUser._id);
+//POST business/favourite/:id
+businessRouter.post("/business/favourite/:id", async (req, res, next) => {
+  const businessId = req.params.id;
+  try {
+    const businessFound = await Business.findById(businessId);
+    if (!req.session.currentUser) {
+      res.redirect("/login");
+      return;
+    }
+    const userFound = await User.findById(req.session.currentUser._id);
 
-//     //// a dónde lo llevamos?
+    Business.findByIdAndUpdate(businessId, [
+      {
+        $set: {
+          favouriteBy: {
+            $cond: [
+              { $in: [userFound._id, businessFound.favouriteBy] },
+              { $setDifference: [businessFound.favouriteBy, [userFound._id]] },
+              { $concatArrays: [businessFound.favouriteBy, [userFound._id]] },
+            ],
+          },
+        },
+      },
+    ]);
 
-//     // let searchFavourites = (user, business) => {
-//     //   for (var i = 0; i < business.favouriteBy.length; i++) {
-//     //     if (business.favouriteBy[i] == user._id) {
-//     //       business.favouriteBy.slice(i);
-//     //     } else {
-//     //       business.favouriteBy.push(user._id);
-//     //     }
-//     //     // console.log("BUSINESSSSSSS", business);
+    // //// a dónde lo llevamos?
 
-//     //   }
+    // if(businessFound.favouriteBy.includes(userFound._id)){
 
-//     //   for (var y = 0; y < user.favouriteBusiness.length; y++) {
-//     //     if (user.favouriteBusiness[i] == business._id) {
-//     //       user.favouriteBusiness.slice(i);
-//     //     } else {
-//     //       user.favouriteBusiness.push(business._id);
-//     //     }
-//     //   }
+    // }
 
-//     //   business.save();
-//     //   user.save();
+    // // let searchFavourites = (user, business) => {
+    //   for (var i = 0; i < business.favouriteBy.length; i++) {
+    //     if (business.favouriteBy[i] == user._id) {
+    //       business.favouriteBy.findByIdAndUpdate(businessId, { $pull: { favouriteBy: userFound._id }}, {new: true})
+    //     } else {
+    //       business.favouriteBy.findByIdAndUpdate(businessId, { $addToSet: { favouriteBy: userFound._id }}, {new: true})
+    //     }
+    //     // console.log("BUSINESSSSSSS", business);
 
-//     //   return business, user;
-//     // };
-//     // searchFavourites(userFound, businessFound);
-//     // console.log('USERRRRRRRFOUNNNNNNNNNNNNNNND', userFound )
-//     // console.log('BUSINESSSSSSFOUND', businessFound )
+    //   }
 
-//     db.inventory.update(
-//       { _id: 1 },
-//       { $addToSet: { tags: "accessories" } }
-//    )
+    //   for (var y = 0; y < user.favouriteBusiness.length; y++) {
+    //     if (user.favouriteBusiness[i] == business._id) {
+    //       user.favouriteBusiness.slice(i);
+    //     } else {
+    //       user.favouriteBusiness.push(business._id);
+    //     }
+    //   }
 
-//     res.redirect("/business");
-//   } catch (error) {
-//     console.error(error);
-//     next(error);
-//   }
-// });
+    //   business.save();
+    //   user.save();
+
+    //   return business, user;
+    // };
+    // searchFavourites(userFound, businessFound);
+    // console.log('USERRRRRRRFOUNNNNNNNNNNNNNNND', userFound )
+    // console.log('BUSINESSSSSSFOUND', businessFound )
+
+    res.redirect("/business");
+  } catch (error) {
+    console.error(error);
+    next(error);
+  }
+});
 
 module.exports = businessRouter;
