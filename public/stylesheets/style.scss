@@ -10,15 +10,10 @@ $primarycolor: #c5c5c4;
 $secondarycolor: #fa6400;
 
 body {
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 //navbar
-nav {
-  background: #c5c5c4;
-  height: 80px;
-  width: 100%;
-}
 
 label.logo {
   color: white;
@@ -28,29 +23,31 @@ label.logo {
   font-weight: bold;
 }
 
-nav ul {
-  float: right;
-  margin-right: 20px;
-}
-
-nav ul li {
-  display: inline-block;
-  line-height: 80px;
-  margin: 0 5px;
-}
-
-nav ul li a {
-  color: white;
-  font-size: 17px;
-  padding: 7px 13px;
-  border-radius: 3px;
-  text-transform: uppercase;
-}
-
-a.active,
-a:hover {
-  color: black;
-  transition: .5s;
+nav {
+  background: #c5c5c4;
+  height: 80px;
+  width: 100%;
+  ul {
+    float: right;
+    margin-right: 20px;
+  }
+  li {
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+    a {
+      color: white;
+      font-size: 17px;
+      padding: 7px 13px;
+      border-radius: 3px;
+      text-transform: uppercase;
+    }
+    a.active,
+    a:hover {
+      color: black;
+      transition: 0.5s;
+    }
+  }
 }
 
 .checkbtn {
@@ -66,7 +63,6 @@ a:hover {
 #check {
   display: none;
 }
-
 
 //home
 .container-home {
@@ -186,7 +182,6 @@ a:hover {
   }
 }
 
-
 //mediaQueris
 
 @media (max-width: 952px) {
@@ -213,7 +208,7 @@ a:hover {
     top: 80px;
     left: -100%;
     text-align: center;
-    transition: all .5s;
+    transition: all 0.5s;
   }
 
   nav ul li {
@@ -232,7 +227,7 @@ a:hover {
     color: #0082e6;
   }
 
-  #check:checked~ul {
+  #check:checked ~ ul {
     left: 0;
   }
 }

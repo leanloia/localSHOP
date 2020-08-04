@@ -52,8 +52,14 @@
                 <p>Webpage: {{webpage}} </p>
                 <p>About: {{about}} </p>
 
+                <form action='/business/favourite/{{id}}' method='post'>
+                    <button type="submit"><i class="fas fa-heart"></i></button>
+                </form>
 
-                <a href="/business/details/{{id}}">See more...</a>
+                <div>
+                    <a href="/business/details/{{id}}">See more...</a>
+                </div>
+
             </div>
             {{/each}}
         </div>
