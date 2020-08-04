@@ -5,7 +5,6 @@ const Business = require("../models/business");
 const Review = require("../models/review");
 const parser = require("./../config/cloudinary");
 
-
 //funciones auxiliares :D
 
 //función para poner el nombre de las ciudades primera mayus (e.g. Barcelona, Girona)
@@ -35,19 +34,15 @@ businessRouter.get("/add-business", (req, res, next) => {
 });
 
 //POST add-business
-businessRouter.post("/add-business", parser.single("image_url"),
+businessRouter.post(
+  "/add-business",
+  parser.single("image_url"),
   async (req, res, next) => {
-    const {
-      name,
-      adress,
-      city,
-      phone,
-      webpage,
-      type,
-      about
-    } = req.body;
+    const { name, adress, city, phone, webpage, type, about } = req.body;
 
-    const image_url = req.file ? req.file.secure_url : '/images/default-business.jpg'
+    const image_url = req.file
+      ? req.file.secure_url
+      : "/images/default-business.jpg";
 
     if (
       name === "" ||
@@ -100,7 +95,7 @@ businessRouter.post("/add-business", parser.single("image_url"),
       //guarda
       addBusinessToUser.save();
 
-      res.redirect(`/business/details/${newBussiness._id}`)
+      res.redirect(`/business/details/${newBussiness._id}`);
     } catch (error) {
       console.error(error);
       next(error);
@@ -127,10 +122,7 @@ businessRouter.post("/business", async (req, res, next) => {
   //definimos constantes por input de filtro
 
   try {
-    const {
-      city,
-      type
-    } = req.body;
+    const { city, type } = req.body;
     //traigo lista completa de ciudades
     const businessCities = await Business.find();
     //traigo lista de ciudades que coiciden con input select
@@ -139,16 +131,12 @@ businessRouter.post("/business", async (req, res, next) => {
       type,
     });
     //filtro con f(x) auxiliar para dejar un valor por cada ciudad (evitar que se repita si hay mas de una)
-    const businessUnique = await uniquifyCities(businessCities)
-    console.log('ACAAA', businessUnique)
+    const businessUnique = await uniquifyCities(businessCities);
 
     res.render("business/business", {
       bizz: businessFiltered,
-      businessUnique
-
+      businessUnique,
     });
-
-
   } catch (error) {
     console.error(error);
     next(error);
@@ -160,12 +148,36 @@ businessRouter.get("/business/details/:id", async (req, res, next) => {
   let businessId = req.params.id;
 
   try {
+    //declaro booleano
+    let userOwner = false;
     const businessFound = await Business.findById({
       _id: businessId,
     });
-    if (businessFound) {
+    const reviewFound = await Review.find({ commentTo: businessId }).populate(
+      "user"
+    );
+
+    if (!req.session.currentUser) {
+      res.render("business/business-details", { businessFound, reviewFound });
+      return;
+      //creo condicional para saber si el user logueado es el owner del business que intenta ver (si lo es, no renderizo en el view el form de reviews)
+    } else if (businessFound.owner == req.session.currentUser._id) {
+      userOwner = true;
+    } else {
+      userOwner = false;
+    }
+
+    if (businessFound && userOwner) {
       res.render("business/business-details", {
         businessFound,
+        userOwner,
+        reviewFound,
+      });
+      return;
+    } else {
+      res.render("business/business-details", {
+        businessFound,
+        reviewFound,
       });
       return;
     }
@@ -178,80 +190,118 @@ businessRouter.get("/business/details/:id", async (req, res, next) => {
 
 //POST business/details/:id
 businessRouter.post("/business/details/:id", async (req, res, next) => {
-  const {
-    reviewTitle,
-    comment
-  } = req.body;
+  const { reviewTitle, comment } = req.body;
   try {
     let businessId = req.params.id;
     //primero buscamos business
     const businessFound = await Business.findById({
-      _id: businessId
+      _id: businessId,
     });
     const userFound = await User.findById({
-      _id: req.session.currentUser._id
-    })
-    console.log('req.session.currentUser', userFound._id)
-    console.log('business ID', businessFound._id)
+      _id: req.session.currentUser._id,
+    });
+
     //creamos instancia de Review
     const newReview = await Review.create({
       user: userFound._id,
       reviewTitle,
       comment,
-      commentTo: businessFound._id
+      commentTo: businessFound._id,
     });
 
-    console.log('NEWREVIEW!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', newReview)
-
     //Empujamos id de review en objeto business que lo recibe
-    businessFound.reviews.push(newReview._id)
+    businessFound.reviews.push(newReview._id);
     //Empujamos id de review en objeto user que lo realiza
-    userFound.reviewsMade.push(newReview._id)
+    userFound.reviewsMade.push(newReview._id);
     //salvamos todo en BDD
     businessFound.save();
     userFound.save();
 
-    res.redirect(`/business/details/${businessId}`)
-
+    res.redirect(`/business/details/${businessId}`);
   } catch (error) {
     console.error(error);
     next(error);
-
   }
 });
 
 //POST business/favourite/:id
-businessRouter.post('/business/favourite/:id', async (req, res, next) => {
-  const businessId = req.params.id
+businessRouter.post("/business/favourite/:id", async (req, res, next) => {
+  const businessId = req.params.id;
+  
   try {
-    const businessFound = await Business.findById(businessId)
+    const businessFound = await Business.findById(businessId);
     if (!req.session.currentUser) {
-      res.redirect('/login')
+      res.redirect("/login");
       return;
     }
-    const userFound = await User.findById(req.session.currentUser._id)
+    const userFound = await User.findById(req.session.currentUser._id);
 
-    //// a dónde lo llevamos?
+    const businessUpdated = await Business.findByIdAndUpdate(businessId, [
+      {
+        $set: {
+          favouriteBy: {
+            $cond: [
+              { $in: [userFound._id, businessFound.favouriteBy] },
+              { $setDifference: [businessFound.favouriteBy, [userFound._id]] },
+              { $concatArrays: [businessFound.favouriteBy, [userFound._id]] },
+            ],
+          },
+        },
+      },
+    ]);
 
-    function searchFavorites(user, business) {
-      for (var i = 0; i < businessFound.favouriteBy.length; i++) {
+    const userUpdated = await User.findByIdAndUpdate(userFound._id, [
+      {
+        $set: {
+          favouriteBusiness: {
+            $cond: [
+              { $in: [businessFound._id, userFound.favouriteBusiness] },
+              { $setDifference: [userFound.favouriteBusiness, [businessFound._id]] },
+              { $concatArrays: [userFound.favouriteBusiness, [businessFound._id]] },
+            ],
+          },
+        },
+      },
+    ]);
 
-        if (business.favouriteBy[i] == user._id) {
-          business.favouriteBy.slice(i)
-          user.favouriteBusiness.slice(business._id)
-        } else {
-          bussines.favouriteBy.push(user._id)
-        }
-      }
-    }
-
-    userFound.favouriteBusiness.push(businessFound._id)
-    userFound.save()
-
+    res.redirect("/business");
   } catch (error) {
     console.error(error);
     next(error);
   }
-})
+});
+// //// a dónde lo llevamos?
+
+// if(businessFound.favouriteBy.includes(userFound._id)){
+
+// }
+
+// // let searchFavourites = (user, business) => {
+//   for (var i = 0; i < business.favouriteBy.length; i++) {
+//     if (business.favouriteBy[i] == user._id) {
+//       business.favouriteBy.findByIdAndUpdate(businessId, { $pull: { favouriteBy: userFound._id }}, {new: true})
+//     } else {
+//       business.favouriteBy.findByIdAndUpdate(businessId, { $addToSet: { favouriteBy: userFound._id }}, {new: true})
+//     }
+//     // console.log("BUSINESSSSSSS", business);
+
+//   }
+
+//   for (var y = 0; y < user.favouriteBusiness.length; y++) {
+//     if (user.favouriteBusiness[i] == business._id) {
+//       user.favouriteBusiness.slice(i);
+//     } else {
+//       user.favouriteBusiness.push(business._id);
+//     }
+//   }
+
+//   business.save();
+//   user.save();
+
+//   return business, user;
+// };
+// searchFavourites(userFound, businessFound);
+// console.log('USERRRRRRRFOUNNNNNNNNNNNNNNND', userFound )
+// console.log('BUSINESSSSSSFOUND', businessFound )
 
 module.exports = businessRouter;

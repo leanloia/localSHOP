@@ -8,8 +8,20 @@
         <p>About: {{businessFound.about}} </p>
 
     </div>
-    {{#if currentUserInfo}}
+<div>
+    {{#each reviewFound}}
+    <div>
+        <p>Review title:{{reviewTitle}}</p>
+        <p>Reviewed by:{{user.name}}</p>
+        <p>Reviewed at:{{createdAt}}</p>
+        <p>Review:{{comment}}</p>
+    </div>
+    {{/each}}
+</div>
 
+
+    {{#if currentUserInfo}}
+    {{#unless userOwner}}
     <form action="/business/details/{{businessFound._id}}" method="post">
         <label for="">User:</label>
         <input type="text" value="{{currentUserInfo.email}}" name="user" id="user-review" readonly>
@@ -23,7 +35,7 @@
         <button type="submit">Submit</button>
 
     </form>
-
+    {{/unless}}
     {{/if}}
 
 </div>
