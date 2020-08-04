@@ -7,13 +7,7 @@
 }
 
 body {
-  font-family: 'Raleway', sans-serif;
-}
-
-nav {
-  background: #c5c5c4;
-  height: 80px;
-  width: 100%;
+  font-family: "Raleway", sans-serif;
 }
 
 label.logo {
@@ -24,18 +18,24 @@ label.logo {
   font-weight: bold;
 }
 
+nav {
+  background: #c5c5c4;
+  height: 80px;
+  width: 100%;
+}
+
 nav ul {
   float: right;
   margin-right: 20px;
 }
 
-nav ul li {
+nav li {
   display: inline-block;
   line-height: 80px;
   margin: 0 5px;
 }
 
-nav ul li a {
+nav li a {
   color: white;
   font-size: 17px;
   padding: 7px 13px;
@@ -43,10 +43,10 @@ nav ul li a {
   text-transform: uppercase;
 }
 
-a.active,
-a:hover {
+nav li a.active,
+nav li a:hover {
   color: black;
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .checkbtn {
@@ -200,7 +200,7 @@ a:hover {
     top: 80px;
     left: -100%;
     text-align: center;
-    transition: all .5s;
+    transition: all 0.5s;
   }
   nav ul li {
     display: block;

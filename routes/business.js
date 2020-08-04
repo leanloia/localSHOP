@@ -29,31 +29,25 @@ function uniquifyCities(array) {
   return cities;
 }
 
-//función para el populate Business-User
-// getUserwithBusiness = (id, newBizz) => {
-//   User.findByIdAndUpdate({id}, { "$push": { "businessOwned": newBizz }}, {new: true} )
-//     .populate('businesses')
-//     // .exec((err, businesses) => console.log('Populated User '+ businesses))
-// };
-
 //GET add-business
 businessRouter.get("/add-business", (req, res, next) => {
   res.render("business/add-business");
 });
 
-// businessRouter.post('/endPointName', parser.single('profilepic'), (req, res, next) => {
-//   // thanks to multer, you have now access to the new object "req.file"
-
-//   // get the image URL to save it to the database and/or render the image in your view
-//   const image_url = req.file.secure_url;
-// })
-
 //POST add-business
 businessRouter.post("/add-business", parser.single("image_url"),
   async (req, res, next) => {
-    const { name, adress, city, phone, webpage, type, about } = req.body;
+    const {
+      name,
+      adress,
+      city,
+      phone,
+      webpage,
+      type,
+      about
+    } = req.body;
 
-    const image_url = req.file ? req.file.secure_url : './images/default-business.jpg'
+    const image_url = req.file ? req.file.secure_url : '/images/default-business.jpg'
 
     if (
       name === "" ||
@@ -133,7 +127,10 @@ businessRouter.post("/business", async (req, res, next) => {
   //definimos constantes por input de filtro
 
   try {
-    const { city, type } = req.body;
+    const {
+      city,
+      type
+    } = req.body;
     //traigo lista completa de ciudades
     const businessCities = await Business.find();
     //traigo lista de ciudades que coiciden con input select
@@ -143,14 +140,15 @@ businessRouter.post("/business", async (req, res, next) => {
     });
     //filtro con f(x) auxiliar para dejar un valor por cada ciudad (evitar que se repita si hay mas de una)
     const businessUnique = await uniquifyCities(businessCities)
-    
+    console.log('ACAAA', businessUnique)
+
     res.render("business/business", {
       bizz: businessFiltered,
       businessUnique
 
     });
 
-    
+
   } catch (error) {
     console.error(error);
     next(error);
@@ -165,7 +163,6 @@ businessRouter.get("/business/details/:id", async (req, res, next) => {
     const businessFound = await Business.findById({
       _id: businessId,
     });
-    console.log('HOLAAAAAAAAAAAAAAAAAAAAAAAA', businessFound)
     if (businessFound) {
       res.render("business/business-details", {
         businessFound,
@@ -180,23 +177,31 @@ businessRouter.get("/business/details/:id", async (req, res, next) => {
 
 //POST business/details/:id
 businessRouter.post("/business/details/:id", async (req, res, next) => {
-  const { comment } = req.body;
+  const {
+    reviewTitle,
+    comment
+  } = req.body;
   try {
     let businessId = req.params.id;
     //primero buscamos business
-    const businessFound = await Business.findById({ _id: businessId });
-    const userFound = await User.findById({_id: req.session.currentUser._id})
+    const businessFound = await Business.findById({
+      _id: businessId
+    });
+    const userFound = await User.findById({
+      _id: req.session.currentUser._id
+    })
     console.log('req.session.currentUser', userFound._id)
     console.log('business ID', businessFound._id)
     //creamos instancia de Review
     const newReview = await Review.create({
       user: userFound._id,
+      reviewTitle,
       comment,
       commentTo: businessFound._id
     });
 
     console.log('NEWREVIEW!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', newReview)
-    
+
     //Empujamos id de review en objeto business que lo recibe
     businessFound.reviews.push(newReview._id)
     //Empujamos id de review en objeto user que lo realiza
@@ -204,7 +209,7 @@ businessRouter.post("/business/details/:id", async (req, res, next) => {
     //salvamos todo en BDD
     businessFound.save();
     userFound.save();
-    
+
     res.redirect(`/business/details/${businessId}`)
 
   } catch (error) {
@@ -213,5 +218,39 @@ businessRouter.post("/business/details/:id", async (req, res, next) => {
 
   }
 });
+
+//POST business/favourite/:id
+businessRouter.post('/business/favourite/:id', async (req, res, next) => {
+  const businessId = req.params.id
+  try {
+    const businessFound = await Business.findById(businessId)
+    if (!req.session.currentUser) {
+      res.redirect('/login')
+      return;
+    }
+    const userFound = await User.findById(req.session.currentUser._id)
+
+    //// a dónde lo llevamos?
+
+    function searchFavorites(user, business) {
+      for (var i = 0; i < businessFound.favouriteBy.length; i++) {
+
+        if (business.favouriteBy[i] == user._id) {
+          business.favouriteBy.slice(i)
+          user.favouriteBusiness.slice(business._id)
+        } else {
+          bussines.favouriteBy.push(user._id)
+        }
+      }
+    }
+
+    userFound.favouriteBusiness.push(businessFound._id)
+    userFound.save()
+
+  } catch (error) {
+    console.error(error);
+    next(error);
+  }
+})
 
 module.exports = businessRouter;

@@ -1,27 +1,29 @@
 <div>
     <div>
+        <img src="{{businessFound.image_url}}" alt="image">
         <p>Name: {{businessFound.name}} </p>
         <p>City: {{businessFound.city}} </p>
         <p>Phone: {{businessFound.phone}} </p>
         <p>Webpage: {{businessFound.webpage}} </p>
         <p>About: {{businessFound.about}} </p>
-        <img src="{{businessFound.image_url}}" alt="image">
-        
+
     </div>
     {{#if currentUserInfo}}
-       
-            <form action="/business/details/{{businessFound._id}}" method="post">
-                <label for="">User:</label>
-                <input type="text" value="{{currentUserInfo.email}}" name="user" id="user-review" readonly>
-                <label for="">Comments:</label>
-                <textarea name="comment" id="comment-box" cols="30" rows="10"></textarea>
 
-                {{!-- puntaje en el review?? --}}
+    <form action="/business/details/{{businessFound._id}}" method="post">
+        <label for="">User:</label>
+        <input type="text" value="{{currentUserInfo.email}}" name="user" id="user-review" readonly>
+        <label for="">Title:</label>
+        <input type="text" name="reviewTitle" id="reviewTitle-review">
+        <label for="">Comments:</label>
+        <textarea name="comment" id="comment-box" cols="30" rows="10"></textarea>
 
-                <button type="submit">Submit</button>
+        {{!-- puntaje en el review?? --}}
 
-            </form>
-       
+        <button type="submit">Submit</button>
+
+    </form>
+
     {{/if}}
 
 </div>
