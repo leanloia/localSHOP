@@ -18,9 +18,13 @@ laundryAuth.get("/dashboard", (req, res, next) => {
   let query;
 
   if (req.session.currentUser.isLaunderer) {
-    query = { launderer: req.session.currentUser._id };
+    query = {
+      launderer: req.session.currentUser._id
+    };
   } else {
-    query = { user: req.session.currentUser._id };
+    query = {
+      user: req.session.currentUser._id
+    };
   }
 
   LaundryPickup.find(query)
@@ -32,7 +36,9 @@ laundryAuth.get("/dashboard", (req, res, next) => {
         next(err);
         return;
       }
-      res.render("laundry/dashboard", { pickups: pickupDocs });
+      res.render("laundry/dashboard", {
+        pickups: pickupDocs
+      });
     });
 });
 
@@ -62,10 +68,15 @@ laundryAuth.post("/launderers", async (req, res, next) => {
 laundryAuth.get("/launderers", async (req, res, next) => {
   try {
     const launderersUsers = await User.find({
-        $and : [
-            {isLaunderer: true},
-            {_id: {$ne : req.session.currentUser._id}}
-        ]
+      $and: [{
+          isLaunderer: true
+        },
+        {
+          _id: {
+            $ne: req.session.currentUser._id
+          }
+        }
+      ]
     })
     if (launderersUsers) {
       res.render("laundry/launderers", {
@@ -84,7 +95,9 @@ laundryAuth.get("/launderers/:id", async (req, res, next) => {
     const laundererId = req.params.id;
     const launderer = await User.findByIdAndUpdate(laundererId);
     if (launderer) {
-      res.render("laundry/launderer-profile", { theLaunderer: launderer });
+      res.render("laundry/launderer-profile", {
+        theLaunderer: launderer
+      });
     }
   } catch (error) {
     next(error);

@@ -6,7 +6,7 @@
 </p>
 {{/if}}
 
-<form action="/add-business" method="post">
+<form action="/add-business" method="post" enctype="multipart/form-data">
     <div>
         <label for="name-input"> Name </label>
         <input type="text" name="name" id="name-input" placeholder="Name">
@@ -16,9 +16,15 @@
         <label for="adress-input"> Businees adress </label>
         <input type="text" name="adress" id="adress-input" placeholder="Adress">
     </div>
+
+    <div>
+        <label for="city-input"> City </label>
+        <input type="text" name="city" id="city-input" placeholder="City">
+    </div>
+
     <div>
         <label for="image-input"> Add an image </label>
-        <input type="text" name="imageUrl" id="image-input" placeholder="ImageUrl">
+        <input type="file" name="image_url" id="image-input">
     </div>
     <div>
         <label for="phone-input"> Phone number </label>
@@ -44,7 +50,6 @@
     <div>
         <label for="about-input"> Something about your business </label>
         <textarea name="about" id="about-input" cols="30" rows="10" placeholder="About your business..."></textarea>
-        {{!-- <input type="" name="about" id="about-input" placeholder="About your business"> --}}
     </div>
 
     <button> Create New Business </button>

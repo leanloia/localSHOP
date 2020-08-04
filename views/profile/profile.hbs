@@ -1,0 +1,27 @@
+<h2>Profile</h2>
+
+<div>
+    <div>
+        <img src="{{user.profilePic}}">
+        <p>Name: {{user.name}} </p>
+        <p>Cualquier: {{user.email}} </p>
+        <p>Mierda</p>
+        <p>Es</p>
+        <p>Válida</p>
+    </div>
+    <a href="/profile/{{user._id}}/edit">Edit Profile Info</a>
+
+
+    <div>
+        {{#each business}}
+            <div>
+            <p>{{name}}</p>
+            
+            <a href="/profile/"></a>          
+            </div>
+
+        {{/each}}    
+    </div>
+        
+
+</div>

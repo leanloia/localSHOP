@@ -1,0 +1,84 @@
+<h2> Edit Profile </h2>
+
+{{#if errorMessage}}
+<p class="error-message">
+    {{ errorMessage }}
+</p>
+{{/if}}
+
+<div>
+    <section>
+        <form action="/profile/{{user._id}}/editUser" method="post" enctype="multipart/form-data">
+            <h2>USER INFO</h2>
+            <div>
+                <label for="profilePic-input">Profile image</label>
+                <input type="file" name="profilePic" value={{profilePic}} id="profilePic-input">
+            </div>
+            <div>
+                <label for="name-input"> Name </label>
+                <input type="text" name="name" id="name-input" value="{{user.name}}" placeholder="Name">
+            </div>
+
+            <div>
+                <label for="email-input"> Email </label>
+                <input type="email" name="email" id="email-input" value="{{user.email}}" placeholder="Email@email.com">
+            </div>
+
+            <button type="submit"> Submit changes </button>
+        </form>
+    </section>
+
+    <h2>MOTHERFUCKIN BUSINESS</h2>
+    <section>
+        {{#each business}}
+        <form action="/profile/{{owner}}/editBusiness/{{_id}}" method="post" enctype="multipart/form-data">
+            <div>
+                <label for="name-input"> Name </label>
+                <input type="text" value="{{name}}" name="name" id="name-input" readonly>
+            </div>
+
+            <div>
+                <label for="adress-input"> Businees adress </label>
+                <input type="text" name="adress" value="{{adress}}" id="adress-input">
+            </div>
+
+            <div>
+                <label for="city-input"> City </label>
+                <input type="text" name="city" value="{{city}}" id="city-input">
+            </div>
+
+            <div>
+                <label for="image-input"> Add an image </label>
+                <input type="file" name="image_url" value="{{image_url}}" id="image-input">
+            </div>
+            <div>
+                <label for="phone-input"> Phone number </label>
+                <input type="text" name="phone" value="{{phone}}" id="phone-input">
+            </div>
+            <div>
+                <label for="webpage-input"> Webpage </label>
+                <input type="text" name="webpage" value="{{webpage}}" id="webpage-input">
+            </div>
+
+            <div>
+                <label for="about-input"> Something about your business </label>
+                <textarea name="about" id="about-input" value="{{about}}" cols="30" rows="10">{{about}}</textarea>
+            </div>
+            <button type="submit"> Submit changes </button>
+        </form>
+
+        <form action='/profile/{{_id}}/delete' method='post'>
+            <button type='submit' class='delete-button'>Delete</button>
+        </form>
+        {{/each}}
+
+    </section>
+</div>
+
+
+
+<p>
+    <a href="/profile">
+        Go back
+    </a>
+</p>

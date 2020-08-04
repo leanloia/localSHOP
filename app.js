@@ -15,7 +15,7 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 
 mongoose
-  .connect('mongodb+srv://leanmarina:ironhack2020@cluster0.dmf7o.mongodb.net/localSHOP?retryWrites=true&w=majority', {
+  .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
@@ -30,6 +30,9 @@ mongoose
 
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
+const businessRouter = require('./routes/business');
+const profileRouter = require('./routes/profile');
+
 // const laundryRouter = require('./routes/laundry');
 
 
@@ -42,7 +45,9 @@ app.set('view engine', 'hbs');
 // Middleware Setup
 
 app.use(logger('dev'));
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({
+  extended: false
+}));
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
@@ -51,10 +56,12 @@ app.use(session({
   secret: 'never do your own laundry again',
   resave: true,
   saveUninitialized: true,
-  cookie: {maxAge: 60000},
+  cookie: {
+    maxAge: 60000*10
+  },
   store: new MongoStore({
     mongooseConnection: mongoose.connection,
-    ttl: 24*60*60
+    ttl: 24 * 60 * 60
   })
 }));
 
@@ -73,15 +80,18 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 app.use('/', indexRouter);
 app.use('/', authRouter);
+app.use('/', businessRouter);
+app.use('/', profileRouter)
+
 // app.use('/', laundryRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

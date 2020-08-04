@@ -1,0 +1,60 @@
+<h1>Business</h1>
+<section>
+    {{#if errorMessage}}
+    <p class="error-message">
+        {{ errorMessage }}
+    </p>
+    {{/if}}
+
+    <form action="/business" method="post">
+
+        <div class='business-search'>
+            <label for="city-input"> City </label>
+            <select name="city" id="city-input">
+                {{#if business}}
+                {{#each business}}
+                <option value={{this}}>{{this}}</option>
+                {{/each}}
+                {{/if}}
+                {{#if businessUnique}}
+                {{#each businessUnique}}
+                <option value={{this}}>{{this}}</option>
+                {{/each}}
+                {{/if}}
+
+            </select>
+        </div>
+        <div>
+            <label for="type-input"> Type of business </label>
+            <select name="type" id="type-input">
+                <option value="Bookstore">Bookstore</option>
+                <option value="Clothing">Clothing</option>
+                <option value="Coffee shop">Coffee shop</option>
+                <option value="Fruits and Vegetables">Fruits and Vegetables</option>
+                <option value="Hairdress">Hairdress</option>
+                <option value="Restaurant">Restaurant</option>
+                <option value="Shoe store">Shoes</option>
+                <option value="Toy store">Toys</option>
+            </select>
+        </div>
+        <button type="submit">Search</button>
+
+
+        <div class='business-targets'>
+            {{#each bizz}}
+            <div class='business-results'>
+                <div class="img-business">
+                    <img src="{{image_url}}" alt="image">
+                </div>
+                <p>Name: {{name}} </p>
+                <p>City: {{city}} </p>
+                <p>Phone: {{phone}} </p>
+                <p>Webpage: {{webpage}} </p>
+                <p>About: {{about}} </p>
+
+
+                <a href="/business/details/{{id}}">See more...</a>
+            </div>
+            {{/each}}
+        </div>
+</section>

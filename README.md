@@ -33,12 +33,13 @@ It gives you the oportunity, as a local business, for register as one and share 
 | `POST`     | `/login`                       | Sends Login form data to the server.                                     | { email, password }       |
 | `GET`      | `/signup`                      | Renders `signup` form view.                                              |                           |
 | `POST`     | `/signup`                      | Sends Sign Up info to the server and creates user in the DB.             | { name, email, password } |
-| `GET`      | `/private/profile`             | Private route. Renders `profile` form view.                              |                           |
-| `GET`      | `/private/edit-profile`        | Private route. Renders `edit-profile` form view.                         |                           |
-| `PUT`      | `/private/edit-profile`        | Private route. Sends edit-profile info to server and updates user in DB. | { name, email, password } |
-| `DELETE`   | `/private/profile/:businessId` | Private route. Deletes the existing favorite from the current user.      |
+| `GET`      | `/profile/:name`             | Private route. Renders `profile` form view.                              |                           |
+| `GET`      | `/profile/:name/edit`        | Private route. Renders `edit` form view.                         |                           |
+| `PUT`      | `/profile/:name/edit`        | Private route. Sends edit-profile info to server and updates user in DB. | { name, email, password } |
+| `DELETE`   | `/profile/:name/:businessId` | Private route. Deletes the existing favorite from the current user.      |
 | `GET`      | `/business`                    | Renders `business-list` view.                                            |                           |
 | `GET`      | `/business/details/:id`        | Render `business-details` view for the particular business.              |                           |
+| `POST`     | `/business/details/:id`        | Send review info from form in business-details view                      |                           |
 | `GET`      | `/add-business`                | Render `add-business` view.                                              |                           |
 | `POST`     | `/add-business`                | Sends info through forms from `add-business` view.                       |                           |
 
@@ -77,6 +78,10 @@ Favorites model
 ## Backlog
 
 [See the Trello board.]
+
+- añadir sistema de valoracion para reviews de comercios
+
+
 
 <br>
 
