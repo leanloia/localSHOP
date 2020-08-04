@@ -146,18 +146,19 @@ businessRouter.post("/business", async (req, res, next) => {
 //GET business/details/:id
 businessRouter.get("/business/details/:id", async (req, res, next) => {
   let businessId = req.params.id;
-  
+
   try {
+    //declaro booleano
     let userOwner = false;
     const businessFound = await Business.findById({
       _id: businessId,
     });
-    
-    if(businessFound.owner == req.session.currentUser._id) {
+    //creo condicional para saber si el user logueado es el owner del business que intenta ver (si lo es, no renderizo en el view el form de reviews)
+    if (businessFound.owner == req.session.currentUser._id) {
       userOwner = true;
     } else {
       userOwner = false;
-    };
+    }
 
     if (businessFound && userOwner) {
       res.render("business/business-details", {
@@ -166,9 +167,9 @@ businessRouter.get("/business/details/:id", async (req, res, next) => {
       });
       return;
     } else {
-      res.render('business/business-details', {
+      res.render("business/business-details", {
         businessFound,
-      })
+      });
     }
   } catch (error) {
     console.error(error);
@@ -233,7 +234,7 @@ businessRouter.post("/business/details/:id", async (req, res, next) => {
 //     //       business.favouriteBy.push(user._id);
 //     //     }
 //     //     // console.log("BUSINESSSSSSS", business);
-        
+
 //     //   }
 
 //     //   for (var y = 0; y < user.favouriteBusiness.length; y++) {
@@ -253,13 +254,11 @@ businessRouter.post("/business/details/:id", async (req, res, next) => {
 //     // console.log('USERRRRRRRFOUNNNNNNNNNNNNNNND', userFound )
 //     // console.log('BUSINESSSSSSFOUND', businessFound )
 
-
 //     db.inventory.update(
 //       { _id: 1 },
 //       { $addToSet: { tags: "accessories" } }
 //    )
 
-   
 //     res.redirect("/business");
 //   } catch (error) {
 //     console.error(error);
