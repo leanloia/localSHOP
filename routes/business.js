@@ -119,11 +119,11 @@ businessRouter.get("/business", async (req, res, next) => {
   const consultaBusiness = await Business.find();
   // toma todos los business y trae los valores (sin repetir) de las ciudades que existen
   var uniqueCities = await uniquifyCities(consultaBusiness);
-
   //traiga los valores según el input de ciudades y/o tipo de producto
 
   res.render("business/business", {
     business: uniqueCities,
+    bizz: consultaBusiness,
   });
 });
 
