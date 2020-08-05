@@ -86,6 +86,7 @@ video {
   font: inherit;
   vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -100,17 +101,21 @@ nav,
 section {
   display: block;
 }
+
 body {
   line-height: 1;
 }
+
 ol,
 ul {
   list-style: none;
 }
+
 blockquote,
 q {
   quotes: none;
 }
+
 blockquote:before,
 blockquote:after,
 q:before,
@@ -118,6 +123,7 @@ q:after {
   content: "";
   content: none;
 }
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -343,7 +349,7 @@ nav {
     justify-content: initial;
 
     h4 {
-      font-size: 1.7rem;
+      font-size: 1.5rem;
       line-height: 2rem;
     }
 
@@ -378,8 +384,10 @@ nav {
       }
 
       p {
-        font-size: 16px;
-        font-weight: 300;
+        font-size: 14px;
+        font-weight: 500;
+        text-align: left;
+        line-height: 1.2rem;
       }
 
       a {
@@ -407,6 +415,14 @@ nav {
   box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
 }
 
+.name-fav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
 //business-details
 
 .section-details {
@@ -430,7 +446,9 @@ nav {
 
     .img-details {
       width: 100%;
-      height: 50%;
+      // min-height: 50%;
+      max-height: 60%;
+
 
       img {
         object-fit: cover;
@@ -438,9 +456,10 @@ nav {
         max-height: 100%;
       }
     }
+
     .directions {
       width: 100%;
-      padding: 10px;
+      padding: 2rem 0 0 1rem;
 
       h2 {
         font-size: 1.7rem;
@@ -452,11 +471,26 @@ nav {
         line-height: 2rem;
         font-size: 1.3rem;
       }
+
       p {
         line-height: 1.6rem;
+        margin: 1rem 0;
       }
     }
+
+    
   }
+      .details-map {
+        width: 100%;
+        height: 100%;
+        padding: 0 20px;
+          
+        img {
+          box-shadow: 0px 2px 6px black;
+          width: 100%;
+          height: 100%;
+        }
+      }
 
   i {
     font-size: 20px;
@@ -466,7 +500,7 @@ nav {
 
 //Review
 .review-title {
-  margin: 0 20px;
+  margin: 1px 20px;
   padding: 1rem;
   background-color: rgb(244, 245, 241);
   width: 100%;
@@ -496,6 +530,7 @@ nav {
     line-height: 1.5rem;
   }
 }
+
 h4 {
   font-weight: 600;
   font-size: 1.2rem;
@@ -563,11 +598,68 @@ h4 {
     color: #0082e6;
   }
 
-  #check:checked ~ ul {
+  #check:checked~ul {
     left: 0;
   }
 }
 
 @media (min-width: 858px) {
   //business-details
+  .section-details {
+    width: 100%;
+    // max-width: 1200px;
+    display: flex;
+    
+   
+    
+    .info-details {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: initial;
+      width: 100%;
+      
+      background-color: rgb(244, 245, 241);
+  
+      .img-details {
+        width: 50%;
+        max-width: 50%;
+        height: 100%;
+        max-height: unset;
+  
+  
+        img {
+          object-fit: unset;
+          width: 100%;
+          height: 100%;
+        }
+      }
+  
+      .directions {
+        width: 50%;
+        max-width: 50%;
+        padding: 25px 10px 0 20px;
+  
+        h2 {
+          font-size: 1.7rem;
+          font-weight: 600;
+          line-height: 1.7rem;
+        }
+  
+        h5 {
+          line-height: 2rem;
+          font-size: 1.3rem;
+        }
+  
+        p {
+          line-height: 1.6rem;
+          margin: 1rem 0;
+        }
+      }
+  
+      
+    }
+  
+  }
+
 }
