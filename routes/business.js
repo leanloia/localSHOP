@@ -124,6 +124,7 @@ businessRouter.get("/business", async (req, res, next) => {
 
   res.render("business/business", {
     business: uniqueCities,
+    bizz: consultaBusiness,
   });
 });
 

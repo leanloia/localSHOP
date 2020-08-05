@@ -1,16 +1,18 @@
 <section class='profile-section'>
-    <div class="foto-edit">
-        <div class='profile-img'>
-            <img src="{{user.profilePic}}">
+
+    <div class='personal-info'>
+        <div class="foto-edit">
+            <div class='profile-img'>
+                <img src="{{user.profilePic}}">
+            </div>
+            <a href="/profile/{{user._id}}/edit">EDIT PROFILE</a>
         </div>
-        <a href="/profile/{{user._id}}/edit">EDIT PROFILE</a>
-    </div>
-    <div class='profile-info'>
-        <p><b>Name:</b> {{user.name}} </p>
-        <p><b>Email: </b>{{user.email}} </p>
-    </div>
+        <div class='profile-info'>
+            <p><b>Name:</b> {{user.name}} </p>
+            <p><b>Email: </b>{{user.email}} </p>
+        </div>
 
-
+    </div>
     <div class="my-business-title">
         <h3><i class="fas fa-business-time"></i> My business</h3>
     </div>
