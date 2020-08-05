@@ -137,40 +137,29 @@ table {
   box-sizing: border-box;
 }
 
-b {
-  font-weight: 600;
-}
-
 body {
   font-family: "Raleway", sans-serif;
 }
 
 label.logo {
   color: white;
-  font-size: 35px;
+  font-size: 2rem;
   line-height: 80px;
-  padding: 0 100px;
   font-weight: bold;
 }
 
-nav {
+.navbar {
   background: #c5c5c4;
   height: 80px;
   width: 100%;
 }
 
-nav ul {
+.navbar ul {
   float: right;
   margin-right: 20px;
 }
 
-nav li {
-  display: inline-block;
-  line-height: 80px;
-  margin: 0 5px;
-}
-
-nav li a {
+.navbar a {
   color: white;
   font-size: 17px;
   padding: 7px 13px;
@@ -178,10 +167,16 @@ nav li a {
   text-transform: uppercase;
 }
 
-nav li a.active,
-nav li a:hover {
-  color: black;
+.navbar a.active,
+.navbar a:hover {
+  color: tomato;
   transition: 0.5s;
+}
+
+.navbar li {
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 5px;
 }
 
 .checkbtn {
@@ -347,7 +342,7 @@ nav li a:hover {
 }
 
 .container-card .card h4 {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   line-height: 2rem;
 }
 
@@ -383,10 +378,8 @@ nav li a:hover {
 }
 
 .container-card .card .info-card p {
-  font-size: 14px;
-  font-weight: 500;
-  text-align: left;
-  line-height: 1.2rem;
+  font-size: 16px;
+  font-weight: 300;
 }
 
 .container-card .card .info-card a {
@@ -409,14 +402,6 @@ nav li a:hover {
 .card:hover {
   transform: translateY(-15px);
   box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
-}
-
-.name-fav {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
 }
 
 .section-details {
@@ -442,7 +427,7 @@ nav li a:hover {
 
 .section-details .info-details .img-details {
   width: 100%;
-  max-height: 60%;
+  height: 50%;
 }
 
 .section-details .info-details .img-details img {
@@ -453,7 +438,7 @@ nav li a:hover {
 
 .section-details .info-details .directions {
   width: 100%;
-  padding: 2rem 0 0 1rem;
+  padding: 10px;
 }
 
 .section-details .info-details .directions h2 {
@@ -469,19 +454,6 @@ nav li a:hover {
 
 .section-details .info-details .directions p {
   line-height: 1.6rem;
-  margin: 1rem 0;
-}
-
-.section-details .details-map {
-  width: 100%;
-  height: 100%;
-  padding: 0 20px;
-}
-
-.section-details .details-map img {
-  box-shadow: 0px 2px 6px black;
-  width: 100%;
-  height: 100%;
 }
 
 .section-details i {
@@ -490,7 +462,7 @@ nav li a:hover {
 }
 
 .review-title {
-  margin: 1px 20px;
+  margin: 0 20px;
   padding: 1rem;
   background-color: #f4f5f1;
   width: 100%;
@@ -543,176 +515,17 @@ h4 {
   box-shadow: 2px 2px 4px black;
 }
 
-.profile-section {
-  margin: 5px;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.foto-edit {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  margin: 5px;
-}
-
-.foto-edit a {
-  margin: 10px;
-}
-
-.profile-img {
-  width: 250px;
-  height: 250px;
-  border-radius: 150px;
-}
-
-.profile-img img {
-  object-fit: cover;
-  width: 250px;
-  height: 250px;
-  border-radius: 150px;
-}
-
-.profile-info {
-  margin-top: 10px;
-  padding: 1rem;
-  width: 95%;
-  background-color: #f4f5f1;
-  line-height: 1rem;
-  border-radius: 8px;
-  font-size: 1.2rem;
-  line-height: 2rem;
-}
-
-.my-business-title,
-.my-reviews-title {
-  font-weight: 600;
-  font-size: 1.5rem;
-  padding: .5rem;
-}
-
-.my-business-title i,
-.my-reviews-title i {
-  color: tomato;
-}
-
-.all-my-business {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  width: 90%;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-.my-business {
-  padding-top: 5px;
-  margin-bottom: 10px;
-  width: 46%;
-  margin: 5px;
-  background-color: #f4f5f1;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: 0, 12px, rgba(0, 0, 0, 0.9);
-}
-
-.my-business p {
-  padding-top: 2%;
-  text-align: center;
-  font-size: 1.2rem;
-  height: 45px;
-  margin: 5px;
-  font-weight: 600;
-  line-height: 1.2rem;
-}
-
-.my-business a {
-  color: black;
-  text-align: center;
-  width: 100%;
-}
-
-.my-business a:hover {
-  text-decoration: none;
-}
-
-.my-business:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
-}
-
-.img-business-profile {
-  width: 100%;
-  height: 150px;
-  border-radius: 8px;
-}
-
-.img-business-profile img {
-  object-fit: cover;
-  width: 100%;
-  height: 150px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-}
-
-.review-profile {
-  margin: 5px;
-  padding: 15px;
-  width: 90%;
-  background-color: #f4f5f1;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  box-shadow: 0, 12px, rgba(0, 0, 0, 0.9);
-}
-
-.review-profile h5 {
-  padding: 10px;
-  font-weight: 600;
-  font-size: 1.2rem;
-}
-
-.review-profile p {
-  padding: 0 10px;
-}
-
-.review-profile button {
-  background-color: #f4f5f1;
-  border: none;
-}
-
-.review-profile i {
-  font-size: 1.5rem;
-  padding: 10px;
-  color: tomato;
-}
-
-.review-profile i:hover {
-  color: black;
-}
-
-@media (max-width: 952px) {
-  label.logo {
-    font-size: 30px;
-    padding-left: 50px;
-  }
-  nav ul li a {
-    font-size: 16px;
-  }
-}
-
 @media (max-width: 858px) {
-  .checkbtn {
-    display: block;
+  label.logo {
+    font-size: 1.5rem;
+    padding-right: 5%;
   }
-  ul {
+  .navbar {
+    background: #c5c5c4;
+    height: 80px;
+    width: 100%;
+  }
+  .navbar ul {
     position: fixed;
     width: 100%;
     height: 100vh;
@@ -722,64 +535,22 @@ h4 {
     text-align: center;
     transition: all 0.5s;
   }
-  nav ul li {
+  .navbar a {
+    font-size: 20px;
+  }
+  .navbar a.active,
+  .navbar a:hover {
+    transition: 0.5s;
+  }
+  .navbar li {
     display: block;
     margin: 50px 0;
     line-height: 30px;
   }
-  nav ul li a {
-    font-size: 20px;
-  }
-  nav ul li a a:hover,
-  nav ul li a a.active {
-    background: none;
-    color: #0082e6;
+  .checkbtn {
+    display: block;
   }
   #check:checked ~ ul {
     left: 0;
-  }
-}
-
-@media (min-width: 858px) {
-  .section-details {
-    width: 100%;
-    display: flex;
-  }
-  .section-details .info-details {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: initial;
-    width: 100%;
-    background-color: #f4f5f1;
-  }
-  .section-details .info-details .img-details {
-    width: 50%;
-    max-width: 50%;
-    height: 100%;
-    max-height: unset;
-  }
-  .section-details .info-details .img-details img {
-    object-fit: unset;
-    width: 100%;
-    height: 100%;
-  }
-  .section-details .info-details .directions {
-    width: 50%;
-    max-width: 50%;
-    padding: 25px 10px 0 20px;
-  }
-  .section-details .info-details .directions h2 {
-    font-size: 1.7rem;
-    font-weight: 600;
-    line-height: 1.7rem;
-  }
-  .section-details .info-details .directions h5 {
-    line-height: 2rem;
-    font-size: 1.3rem;
-  }
-  .section-details .info-details .directions p {
-    line-height: 1.6rem;
-    margin: 1rem 0;
   }
 }
