@@ -1,41 +1,64 @@
-<div>
-    <div>
-        <img src="{{businessFound.image_url}}" alt="image">
-        <p>Name: {{businessFound.name}} </p>
-        <p>City: {{businessFound.city}} </p>
-        <p>Phone: {{businessFound.phone}} </p>
-        <p>Webpage: {{businessFound.webpage}} </p>
-        <p>About: {{businessFound.about}} </p>
+<section class='section-details'>
 
+    <div class='info-details'>
+        <div class='img-details'>
+            <img src="{{businessFound.image_url}}" alt="image">
+        </div>
+        <div class='directions'>
+            <h2>{{businessFound.name}}</h2>
+            <h5>{{businessFound.city}} </h5>
+            <p><i class="fas fa-address-book"></i> {{businessFound.adress}} </p>
+            <p><i class="fas fa-phone-alt"></i> {{businessFound.phone}} </p>
+            <p><i class="far fa-compass"></i> {{businessFound.webpage}}</p>
+            <p><b>About us:</b> {{businessFound.about}} </p>
+        </div>
     </div>
-<div>
+
+    {{!-- Reviews
+ --}}
+    <div class="review-title" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+        aria-controls="collapseExample">
+        <h5> View reviews <i class="fas fa-angle-down"></i></h5>
+    </div>
+
+
     {{#each reviewFound}}
-    <div>
-        <p>Review title:{{reviewTitle}}</p>
-        <p>Reviewed by:{{user.name}}</p>
-        <p>Reviewed at:{{createdAt}}</p>
-        <p>Review:{{comment}}</p>
+    <div class="buttons-search collapse review-container" id="collapseExample">
+        <h4>{{reviewTitle}}</h4>
+        <p class='date'>Reviewed at: {{createdAt}}</p>
+        <p><b>By:</b> {{user.name}}</p>
+        <p class="comment">{{comment}}</p>
     </div>
     {{/each}}
-</div>
+
+
 
 
     {{#if currentUserInfo}}
     {{#unless userOwner}}
-    <form action="/business/details/{{businessFound._id}}" method="post">
-        <label for="">User:</label>
-        <input type="text" value="{{currentUserInfo.email}}" name="user" id="user-review" readonly>
-        <label for="">Title:</label>
-        <input type="text" name="reviewTitle" id="reviewTitle-review">
-        <label for="">Comments:</label>
-        <textarea name="comment" id="comment-box" cols="30" rows="10"></textarea>
-
-        {{!-- puntaje en el review?? --}}
-
-        <button type="submit">Submit</button>
-
-    </form>
+    <div class='review-write'>
+        <form action="/business/details/{{businessFound._id}}" method="post">
+            <div>
+                <label for="">User:</label>
+                <input type="text" value="{{currentUserInfo.email}}" name="user" id="user-review" readonly>
+            </div>
+            <div>
+                <label for="">Title:</label>
+                <input type="text" name="reviewTitle" id="reviewTitle-review">
+            </div>
+            <div>
+                <div><label for="">Comments:</label></div>
+                <textarea name="comment" id="comment-box" cols="30" rows="10"></textarea>
+            </div>
+            {{!-- puntaje en el review?? --}}
+            <div>
+                <button type="submit">Send</button>
+            </div>
+        </form>
+    </div>
     {{/unless}}
     {{/if}}
 
-</div>
+</section>
+
+
