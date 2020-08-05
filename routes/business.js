@@ -40,7 +40,8 @@ businessRouter.post(
   async (req, res, next) => {
     const {
       name,
-      adress,
+      streetName,
+      streetNumber,
       city,
       phone,
       webpage,
@@ -54,8 +55,9 @@ businessRouter.post(
 
     if (
       name === "" ||
-      adress === "" ||
       city === "" ||
+      streetName === "" ||
+      streetNumber === "" ||
       phone === "" ||
       webpage === "" ||
       type === "" ||
@@ -82,7 +84,8 @@ businessRouter.post(
 
       const newBussiness = await Business.create({
         name,
-        adress,
+        streetName,
+        streetNumber,
         city: formatCityName(city),
         image_url,
         phone,

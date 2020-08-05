@@ -7,12 +7,24 @@
         <div class='directions'>
             <h2>{{businessFound.name}}</h2>
             <h5>{{businessFound.city}} </h5>
-            <p><i class="fas fa-address-book"></i> {{businessFound.adress}} </p>
+            <p><i class="fas fa-address-book"></i> {{businessFound.streetName}}, {{businessFound.streetNumber}} </p>
             <p><i class="fas fa-phone-alt"></i> {{businessFound.phone}} </p>
             <p><i class="far fa-compass"></i> {{businessFound.webpage}}</p>
-            <p><b>About us:</b> {{businessFound.about}} </p>
+            <p><i class="fas fa-info-circle"></i> {{businessFound.about}} </p>
         </div>
     </div>
+        <div class='details-map'>
+            <img src="https://image.maps.ls.hereapi.com/mia/1.6/mapview?apiKey=mDA_yXeIKxqT2Axm3tkwPsWT3yKkzuEL5_DvPmCYUcg
+            &co=Spain
+            &ci={{businessFound.city}}
+            &s={{businessFound.streetName}}
+            &n={{businessFound.streetNumber}}
+            &z=17
+            &h=800
+            &ppi=250
+            &w=1280
+            &f=1" alt="business map">
+        </div>
 
     {{!-- Reviews
  --}}
@@ -59,6 +71,6 @@
     {{/unless}}
     {{/if}}
 
+
+
 </section>
-
-
