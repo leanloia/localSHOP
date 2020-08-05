@@ -28,7 +28,7 @@ const businessSchema = new Schema({
   type: {
     type: String,
     enum: [
-      "Hairdress",
+      `Hairdress`,
       `Clothing`,
       `Coffee shop`,
       `Restaurant`,
