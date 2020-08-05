@@ -1,5 +1,4 @@
-[
-  {
+[{
     "name": "Intermission",
     "city": "Barcelona",
     "streetName": "Passeig de Gracia",
@@ -303,7 +302,7 @@
     "city": "Girona",
     "streetName": "Joan Miró i Ferrà",
     "streetNumber": 5,
-    "image_url": "/images/images-bdd-simulation/041_hd.jpg",
+    "image_url": "/images/images-bdd-simulation/041_hf.jpg",
     "phone": 872648548,
     "webpage": "www.perruqueriamiralls.com",
     "type": "Hairdress",
@@ -311,17 +310,73 @@
   },
 
   {
-    "name": "Perruqueria Miralls",
+    "name": "Salón Reme",
     "city": "Girona",
-    "streetName": "Joan Miró i Ferrà",
+    "streetName": "Avinguda del Mediterrani",
     "streetNumber": 5,
-    "image_url": "/images/images-bdd-simulation/042_hd.jpg",
-    "phone": 872648548,
-    "webpage": "www.perruqueriamiralls.com",
+    "image_url": "/images/images-bdd-simulation/042_hf.jpg",
+    "phone": 973648843,
+    "webpage": "www.salonreme.com",
     "type": "Hairdress",
-    "about": "We are Perruqueria Miralls, a salon founded in 1995 in Girona. We stand out in the sector because we provide our clients with all our experience in hairdressing and aesthetics. We give personalized treatment with the aim of achieving excellent results."
+    "about": "Unisex Beauty, Hairdressing and Aesthetics Salon."
   },
 
+  {
+    "name": "New Look",
+    "city": "Barcelona",
+    "streetName": "Plaza de la Virreina",
+    "streetNumber": 7,
+    "image_url": "/images/images-bdd-simulation/043_hf.jpg",
+    "phone": 969751165,
+    "webpage": "www.newlook.com",
+    "type": "Hairdress",
+    "about": "Since it opened its doors in 1983, New Look has been combining the needs and preferences of each client with the latest hair trends."
+  },
+  {
+    "name": "Bajomisombrero",
+    "city": "Barcelona",
+    "streetName": "Avenida Madrid",
+    "streetNumber": 135,
+    "image_url": "/images/images-bdd-simulation/044_hf.jpg",
+    "phone": 939765845,
+    "webpage": "www.bajomisombrero.com",
+    "type": "Hairdress",
+    "about": "He defines himself as the hair boutique, a space where to live a unique experience and find excellent service. Beauty Salon, Hairdresser and Unisex Aesthetics."
+  },
+  {
+    "name": "BO Beauty Obsession",
+    "city": "Barcelona",
+    "streetName": "Carrer de Bori i Fontestà",
+    "streetNumber": 14,
+    "image_url": "/images/images-bdd-simulation/045_hf.jpg",
+    "phone": 939765845,
+    "webpage": "www.beautyobsession.com",
+    "type": "Hairdress",
+    "about": "A space of contrasts, in which wood predominates, so you can relax in a calm atmosphere."
+  },
+
+  {
+    "name": "Carol Bruguera",
+    "city": "Barcelona",
+    "streetName": "Santa Caterina",
+    "streetNumber": 55,
+    "image_url": "/images/images-bdd-simulation/046_hf.jpg",
+    "phone": 697696785,
+    "webpage": "www.carolbruguera.com",
+    "type": "Hairdress",
+    "about": "Since it was founded in 1962 and with nearly twenty salons spread throughout Barcelona, ​​Carol Bruguera has represented the avant-garde and innovation together with tradition."
+  },
+  {
+    "name": "The Comb",
+    "city": "Barcelona",
+    "streetName": "Rambla Catalunya",
+    "streetNumber": 117,
+    "image_url": "/images/images-bdd-simulation/046_hf.jpg",
+    "phone": 979898653,
+    "webpage": "www.thecomb.com",
+    "type": "Hairdress",
+    "about": "At the head of The Comb is the famous stylist Alex Torres who, after extensive national and international training, founded his own salon with the aim of implanting the philosophy of Los Angeles salons."
+  },
   {
     "name": "Pere Shoes",
     "city": "Girona",
@@ -552,14 +607,213 @@
   },
 
   {
-    "name": "Pell Tolrà",
+    "name": "RC Tècnic",
     "city": "Barcelona",
-    "streetName": "Passeig de Gràcia",
-    "streetNumber": 38,
+    "streetName": "Calvet",
+    "streetNumber": 63,
     "image_url": "/images/images-bdd-simulation/033_ty.jpg",
-    "phone": 9346482656,
-    "webpage": "www.pelltolra.com",
+    "phone": 938794564,
+    "webpage": "www.rctecnic.com",
     "type": "Toy store",
-    "about": "In this store you will find a varied catalog of shoes designed by Blahnik himself and which follow a timeless, elegant and 100% feminine aesthetic "
+    "about": "RC Técnic is the dream of every child who likes radio-controlled technology and toys: drones, cars, motorcycles and remote-controlled helicopters, little robots that will obey your basic commands."
+  },
+  {
+    "name": "Bateau Lune",
+    "city": "Barcelona",
+    "streetName": "Plaça del Vi",
+    "streetNumber": 2,
+    "image_url": "/images/images-bdd-simulation/034_ty.jpg",
+    "phone": 938697625,
+    "webpage": "www.bateaulune.com",
+    "type": "Toy store",
+    "about": "Another beautiful Barri de Gràcia store where you can find lifelong toys, those that educate and have fun at the same time: traditional, natural wooden toys for young children and older children."
+  },
+
+  {
+    "name": "Nap-Buf",
+    "city": "Barcelona",
+    "streetName": "Santaló",
+    "streetNumber": 51,
+    "image_url": "/images/images-bdd-simulation/035_ty.jpg",
+    "phone": 634978562,
+    "webpage": "www.napbuf.com",
+    "type": "Toy store",
+    "about": "Many of the Nap-Buf toys are self-made and exclusive, so you can find that different, unique and original gift."
+  },
+  {
+    "name": "Palau",
+    "city": "Barcelona",
+    "streetName": "Ronda Sant Antoni",
+    "streetNumber": 61,
+    "image_url": "/images/images-bdd-simulation/063_ty.jpg",
+    "phone": 667982431,
+    "webpage": "www.napbuf.com",
+    "type": "Toy store",
+    "about": "Toys like electric trains, scalextrics, slots, wooden boats, miniatures, radio control ... all for collectors and fans."
+  },
+  {
+    "name": "Juguijuga",
+    "city": "Barcelona",
+    "streetName": "Passeig de Sant Joan",
+    "streetNumber": 35,
+    "image_url": "/images/images-bdd-simulation/064_ty.jpg",
+    "phone": 666798413,
+    "webpage": "www.juguijuga.com",
+    "type": "Toy store",
+    "about": "They have a complete selection of toys from all over the world (French wooden kitchens, German bicycles, original soft toys for babies ...) Don't miss it!"
+  },
+  {
+    "name": "Joguines Somnis Girona",
+    "city": "Girona",
+    "streetName": "Ferran Soldevila i Zubiburu",
+    "streetNumber": 4,
+    "image_url": "/images/images-bdd-simulation/065_ty.jpg",
+    "phone": 666798413,
+    "webpage": "www.somnisgirona.com",
+    "type": "Toy store",
+    "about": "Joguines Somnis is a chain of toy stores with several stores in Catalonia. We offer toy reserves, the best prices and a professional and open treatment."
+  },
+  {
+    "name": "La Carpa",
+    "city": "Girona",
+    "streetName": "Carrer Hortes",
+    "streetNumber": 11,
+    "image_url": "/images/images-bdd-simulation/066_ty.jpg",
+    "phone": 972212002,
+    "webpage": "www.lacarpa.com",
+    "type": "Toy store",
+    "about": "This cozy corner sells antique and tin games, craft supplies, and music boxes."
+  },
+  {
+    "name": "Juper",
+    "city": "Girona",
+    "streetName": "Carrer de la Sèquia",
+    "streetNumber": 11,
+    "image_url": "/images/images-bdd-simulation/067_ty.jpg",
+    "phone": 972212845,
+    "webpage": "www.juper.com",
+    "type": "Toy store",
+    "about": "Toys like electric trains, scalextrics, slots, wooden boats, miniatures, radio control ... all for collectors and fans."
+  },
+  {
+    "name": "Casa Male",
+    "city": "Girona",
+    "streetName": "Carrer Marquès de Caldes de Montbui",
+    "streetNumber": 65,
+    "image_url": "/images/images-bdd-simulation/068_ty.jpg",
+    "phone": 972410876,
+    "webpage": "www.casamale.com",
+    "type": "Toy store",
+    "about": "They have a complete selection of toys from all over the world (French wooden kitchens, German bicycles, original soft toys for babies ...) Don't miss it!"
+  },
+  {
+    "name": "Corinto",
+    "city": "Barcelona",
+    "streetName": "Carrer d'Aragó",
+    "streetNumber": 311,
+    "image_url": "/images/images-bdd-simulation/036_fr.jpg",
+    "phone": 934583777,
+    "webpage": "www.corinto.com",
+    "type": "Fruits and Vegetables",
+    "about": "Corinto, in the Concepció market, offers a wide range of fruit (seasonal, exotic ...) and vegetables, as well as aromatic herbs, mushrooms and berries, truffle ..."
+  },
+  {
+    "name": "Fruites i Verdures Cris ",
+    "city": "Barcelona",
+    "streetName": "Travessera de les Corts",
+    "streetNumber": 215,
+    "image_url": "/images/images-bdd-simulation/037_fr.jpg",
+    "phone": 934583777,
+    "webpage": "www.verdurescris.com",
+    "type": "Fruits and Vegetables",
+    "about": "In Cristina's fruit shop we will find all kinds of vegetables cut and prepared for cooking, as well as seasonal, tropical fruit, berries, various fruit tubs, natural juices ..."
+  },
+  {
+    "name": "Mercè del Prat",
+    "city": "Barcelona",
+    "streetName": "Carrer de la Creu Coberta",
+    "streetNumber": 93,
+    "image_url": "/images/images-bdd-simulation/038_fr.jpg",
+    "phone": 934310428,
+    "webpage": "www.mercedelprat.com",
+    "type": "Fruits and Vegetables",
+    "about": "The origins of Mercè del Prat go back to 1888, when it became the first peasant with its own position. Today there are three brothers who are dedicated to selling peas, havas, chard..."
+  },
+  {
+    "name": "Fruits i Verdures Giró",
+    "city": "Barcelona",
+    "streetName": "Carrer del Comte d'Urgell",
+    "streetNumber": 2,
+    "image_url": "/images/images-bdd-simulation/039_fr.jpg",
+    "phone": 933254700,
+    "webpage": "www.verduresgiro.com",
+    "type": "Fruits and Vegetables",
+    "about": "Fruits i Verdures Giro is a small stop at the Mercat de Sant Antoni that offers a wide assortment of national and exotic fruits."
+  },
+  {
+    "name": "Loan Fruits",
+    "city": "Barcelona",
+    "streetName": "Carrer de Francesc Pérez-Cabrero",
+    "streetNumber": 6,
+    "image_url": "/images/images-bdd-simulation/069_fr.jpg",
+    "phone": 697863145,
+    "webpage": "www.loanfruits.com",
+    "type": "Fruits and Vegetables",
+    "about": "Next to the Turó Parc offers a wide selection of seasonal fruits and vegetables. They also have a small selection of delicatessen products, such as salt or Maldon pepper."
+  },
+  {
+    "name": "Fruites Campdora",
+    "city": "Girona",
+    "streetName": "Rambla de Xavier Cugat",
+    "streetNumber": 14,
+    "image_url": "/images/images-bdd-simulation/070_fr.jpg",
+    "phone": 644863148,
+    "webpage": "www.loanfruits.com",
+    "type": "Fruits and Vegetables",
+    "about": "Botiga de fruites i verdures a Girona, Spain"
+  },
+  {
+    "name": "NuFruit",
+    "city": "Girona",
+    "streetName": "Camp Gurnau",
+    "streetNumber": 4,
+    "image_url": "/images/images-bdd-simulation/071_fr.jpg",
+    "phone": 978641258,
+    "webpage": "www.nufruit.cat",
+    "type": "Fruits and Vegetables",
+    "about": "En NuFruit les asesoramos sobre los productos de temporada de que disponemos."
+  },
+  {
+    "name": "Can Prats",
+    "city": "Girona",
+    "streetName": "Marquès de Caldes de Montbui",
+    "streetNumber": 81,
+    "image_url": "/images/images-bdd-simulation/072_fr.jpg",
+    "phone": 634798654,
+    "webpage": "www.canprats.cat",
+    "type": "Fruits and Vegetables",
+    "about": "We offer natural products of kilometer zero, artisan products, of small producers and Catalan cooperatives.."
+  },
+  {
+    "name": "Mercat del Lleó",
+    "city": "Girona",
+    "streetName": "Plaça Calvet i Rubalcaba",
+    "streetNumber": 15,
+    "image_url": "/images/images-bdd-simulation/073_fr.jpg",
+    "phone": 634798654,
+    "webpage": "www.mercatdellleo.cat",
+    "type": "Fruits and Vegetables",
+    "about": "The Mercat del Lleó is the municipal market of Girona. Every day we offer you fresh and top quality products: meat, fish, sausages, fruits and vegetables, groceries, cooked dishes…"
+  },
+  {
+    "name": "Superverd",
+    "city": "Girona",
+    "streetName": "Francesc Ciurana",
+    "streetNumber": 7,
+    "image_url": "/images/images-bdd-simulation/074_fr.jpg",
+    "phone": 972203232,
+    "webpage": "www.superverd.cat",
+    "type": "Fruits and Vegetables",
+    "about": "Our goal remains intact from day one: we want to offer our customers the best fruits and vegetables, guaranteeing the quality of our products and at a very competitive price"
   }
 ]
