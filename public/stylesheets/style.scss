@@ -1,3 +1,128 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -172,7 +297,6 @@ nav {
     align-items: center;
     justify-content: initial;
 
-
     h1 {
       color: white;
       font-weight: 600;
@@ -195,11 +319,7 @@ nav {
         box-shadow: 2px 2px 4px black;
       }
     }
-
-
   }
-
-
 }
 
 .container-card {
@@ -214,7 +334,7 @@ nav {
     width: 330px;
     height: 430px;
     border-radius: 8px;
-    box-shadow: 0, 2px, rgba(0, 0, 0, .2);
+    box-shadow: 0, 2px, rgba(0, 0, 0, 0.2);
     overflow: hidden;
     margin: 20px;
     transition: all 0.25s;
@@ -222,7 +342,15 @@ nav {
     align-items: center;
     justify-content: initial;
 
+    h4 {
+      font-size: 1.7rem;
+      line-height: 2rem;
+    }
 
+    p {
+      font-size: 1rem;
+      line-height: 1.5rem;
+    }
 
     .img-card {
       width: 100%;
@@ -232,7 +360,6 @@ nav {
         object-fit: cover;
         width: 100%;
         max-height: 100%;
-
       }
     }
 
@@ -243,7 +370,7 @@ nav {
       align-items: flex-start;
       justify-content: center;
       text-align: center;
-      line-height: .5rem;
+      line-height: 0.5rem;
       padding: 1rem;
 
       h4 {
@@ -270,24 +397,19 @@ nav {
         border: none;
         background-color: white;
         width: 16px;
-
       }
     }
   }
 }
 
 .card:hover {
-
   transform: translateY(-15px);
   box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
-
 }
-
-
 
 //business-details
 
-.business-info-container {
+.section-details {
   width: 100%;
   max-width: 1200px;
   display: flex;
@@ -295,20 +417,18 @@ nav {
   justify-content: center;
   margin: auto;
 
-
-  .business-infocard {
+  .info-details {
     border-radius: 8px;
-    box-shadow: 0, 2px, rgba(0, 0, 0, .2);
     overflow: hidden;
     margin: 20px;
-    transition: all 0.25s;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: initial;
     width: 100%;
+    background-color: rgb(244, 245, 241);
 
-    .business-img {
+    .img-details {
       width: 100%;
       height: 50%;
 
@@ -316,39 +436,51 @@ nav {
         object-fit: cover;
         width: 100%;
         max-height: 100%;
+      }
+    }
+    .directions {
+      width: 100%;
+      padding: 10px;
 
+      h2 {
+        font-size: 1.7rem;
+        font-weight: 600;
+        line-height: 1.7rem;
+      }
+
+      h5 {
+        line-height: 2rem;
+        font-size: 1.3rem;
+      }
+      p {
+        line-height: 1.6rem;
       }
     }
   }
 
   i {
     font-size: 20px;
-    color: $secondarycolor
+    color: $secondarycolor;
   }
-}
-
-.info-business {
-  margin-top: 10px;
-  padding: 1rem;
-  width: 100%;
-  line-height: 1rem;
-  border-radius: 8px;
-  background-color: rgb(244, 245, 241);
 }
 
 //Review
 .review-title {
-  margin-top: 10px;
+  margin: 0 20px;
   padding: 1rem;
   background-color: rgb(244, 245, 241);
   width: 100%;
   line-height: 1rem;
   border-radius: 8px;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
 }
 
 .review-container {
-  margin-top: 10px;
+  margin: 5px 20px;
   padding: 1rem;
   background-color: rgb(244, 245, 241);
   width: 100%;
@@ -356,16 +488,21 @@ nav {
   border-radius: 8px;
 
   .date {
-    font-size: .6rem;
+    font-size: 0.6rem;
   }
 
   p {
-    width: 80%;
+    width: 100%;
+    line-height: 1.5rem;
   }
 }
+h4 {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
 
-.form-review {
-  margin-top: 10px;
+.review-write {
+  margin: 9px 20px;
   padding: 1rem;
   background-color: rgb(244, 245, 241);
   width: 100%;
@@ -380,7 +517,6 @@ nav {
     box-shadow: 2px 2px 4px black;
   }
 }
-
 
 //mediaQueris
 
@@ -427,72 +563,11 @@ nav {
     color: #0082e6;
   }
 
-  #check:checked~ul {
+  #check:checked ~ ul {
     left: 0;
   }
 }
 
 @media (min-width: 858px) {
-  .business-infocard {
-    background-color: white;
-    width: 800px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .info-container {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    border-radius: 0;
-  }
-
-  .info-business {
-    color: white;
-    border-radius: 0;
-    background: tomato;
-    max-width: 50%;
-    height: 300px;
-    margin: 0;
-    padding: 20px;
-
-    i {
-      color: white
-    }
-
-  }
-
-  .business-img {
-    max-width: 50%;
-    height: 60vh;
-    max-height: 300px;
-
-    img {
-      height: 300px;
-    }
-  }
-
-  .review-title {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .all-reviews {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    ;
-  }
-
-  .review-container {
-    margin: 5px;
-    width: 48%;
-  }
-
-
+  //business-details
 }

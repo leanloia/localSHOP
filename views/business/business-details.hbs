@@ -1,67 +1,64 @@
-<div class='business-info-container'>
+<section class='section-details'>
 
-    <div class="business-infocard">
-        <div class='info-container'>
-            <div class="business-img">
-                <img src="{{businessFound.image_url}}" alt="image">
-            </div>
-            <div class="info-business">
-                <h2>{{businessFound.name}}</h2>
-                <h5>{{businessFound.city}} </h5>
-                <p><i class="fas fa-address-book"></i> {{businessFound.adress}} </p>
-                <p><i class="fas fa-phone-alt"></i> {{businessFound.phone}} </p>
-                <p><i class="far fa-compass"></i> {{businessFound.webpage}}</p>
-                <p><b>About us:</b> {{businessFound.about}} </p>
-            </div>
+    <div class='info-details'>
+        <div class='img-details'>
+            <img src="{{businessFound.image_url}}" alt="image">
         </div>
-        <div class="review-title" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
-            aria-controls="collapseExample">
-            <h5> View reviews <i class="fas fa-angle-down"></i></h5>
+        <div class='directions'>
+            <h2>{{businessFound.name}}</h2>
+            <h5>{{businessFound.city}} </h5>
+            <p><i class="fas fa-address-book"></i> {{businessFound.adress}} </p>
+            <p><i class="fas fa-phone-alt"></i> {{businessFound.phone}} </p>
+            <p><i class="far fa-compass"></i> {{businessFound.webpage}}</p>
+            <p><b>About us:</b> {{businessFound.about}} </p>
         </div>
+    </div>
 
-        <div class='all-reviews'>
-            {{#each reviewFound}}
-            <div class="buttons-search collapse review-container" id="collapseExample">
-                <div class="review-container">
-                    <h5>{{reviewTitle}}</h5>
-                    <p class='date'>Reviewed at: {{createdAt}}</p>
-                    <p><b>By:</b> {{user.name}}</p>
-                    <p>{{comment}}</p>
-                </div>
+    {{!-- Reviews
+ --}}
+    <div class="review-title" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+        aria-controls="collapseExample">
+        <h5> View reviews <i class="fas fa-angle-down"></i></h5>
+    </div>
+
+
+    {{#each reviewFound}}
+    <div class="buttons-search collapse review-container" id="collapseExample">
+        <h4>{{reviewTitle}}</h4>
+        <p class='date'>Reviewed at: {{createdAt}}</p>
+        <p><b>By:</b> {{user.name}}</p>
+        <p class="comment">{{comment}}</p>
+    </div>
+    {{/each}}
+
+
+
+
+    {{#if currentUserInfo}}
+    {{#unless userOwner}}
+    <div class='review-write'>
+        <form action="/business/details/{{businessFound._id}}" method="post">
+            <div>
+                <label for="">User:</label>
+                <input type="text" value="{{currentUserInfo.email}}" name="user" id="user-review" readonly>
             </div>
-            {{/each}}
-        </div>
-
-
-
-        {{#if currentUserInfo}}
-        {{#unless userOwner}}
-        <div class='form-review'>
-            <div class='write-review'>
-                <form action="/business/details/{{businessFound._id}}" method="post">
-                    <div>
-                        <label for="">User:</label>
-                        <input type="text" value="{{currentUserInfo.email}}" name="user" id="user-review" readonly>
-                    </div>
-                    <div>
-                        <label for="">Title:</label>
-                        <input type="text" name="reviewTitle" id="reviewTitle-review">
-                    </div>
-                    <div>
-                        <div><label for="">Comments:</label></div>
-                        <textarea name="comment" id="comment-box" cols="30" rows="10"></textarea>
-                    </div>
-                    {{!-- puntaje en el review?? --}}
-
-                    <button type="submit">Send</button>
-
-                </form>
+            <div>
+                <label for="">Title:</label>
+                <input type="text" name="reviewTitle" id="reviewTitle-review">
             </div>
-        </div>
+            <div>
+                <div><label for="">Comments:</label></div>
+                <textarea name="comment" id="comment-box" cols="30" rows="10"></textarea>
+            </div>
+            {{!-- puntaje en el review?? --}}
+            <div>
+                <button type="submit">Send</button>
+            </div>
+        </form>
     </div>
     {{/unless}}
     {{/if}}
 
+</section>
 
-</div>
-</div>
+
