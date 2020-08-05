@@ -22,7 +22,8 @@ profileRouter.get('/profile', async (req, res, next) => {
   try {
     let userFound = await User.findOne({
       _id: userId
-    });
+    }).populate('favouriteBusiness');
+    console.log(userFound.favouriteBusiness)
     let businessFound = await Business.find({
       owner: userId
     });

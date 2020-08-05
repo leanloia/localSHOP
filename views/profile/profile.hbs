@@ -1,39 +1,75 @@
-<h2>Profile</h2>
+<section class='profile-section'>
+    <div class="foto-edit">
+        <div class='profile-img'>
+            <img src="{{user.profilePic}}">
+        </div>
+        <a href="/profile/{{user._id}}/edit">EDIT PROFILE</a>
+    </div>
+    <div class='profile-info'>
+        <p><b>Name:</b> {{user.name}} </p>
+        <p><b>Email: </b>{{user.email}} </p>
+    </div>
 
-<div>
-    <div>
-        <img src="{{user.profilePic}}">
-        <p>Name: {{user.name}} </p>
-        <p>Email: {{user.email}} </p>
 
-        <h3>Our business</h3>
+    <div class="my-business-title">
+        <h3><i class="fas fa-business-time"></i> My business</h3>
+    </div>
+
+    <div class="all-my-business">
+
         {{#each business}}
-        <div>
-            <p>{{name}}</p>
-
-            <a href="/profile/"></a>
+        <div class="my-business">
+            <a href="business/details/{{id}}">
+                <div>
+                    <p>{{name}}</p>
+                </div>
+                <div class='img-business-profile'>
+                    <img src="{{image_url}}">
+                </div>
+            </a>
         </div>
         {{/each}}
 
+    </div>
 
-        <h3>Our reviews</h3>
-        {{#each review}}
+    <div class="my-business-title">
+        <h3><i class="fas fa-heart"></i> My favourite business</h3>
+    </div>
 
-        <div>
-            <p>Title: {{reviewTitle}}</p>
-            <p>Comment: {{comment}}</p>
+    <div class="all-my-business">
+        {{#each user.favouriteBusiness}}
 
-            <form action='/profile/delete/review/{{id}}' method='post'>
-                <button type='submit'>Delete</button>
-            </form>
+        <div class="my-business">
+            <a href="business/details/{{id}}">
+                <div>
+                    <p>{{name}}</p>
+                </div>
 
+                <div class='img-business-profile'>
+                    <img src="{{image_url}}">
+
+
+                </div>
+            </a>
         </div>
         {{/each}}
     </div>
 
-</div>
-<a href="/profile/{{user._id}}/edit">Edit Profile Info</a>
 
+    <div class='my-business-title'>
+        <h3><i class="fas fa-comment-alt"></i> My reviews</h3>
+    </div>
 
-<div>
-</div>
+    {{#each review}}
+    <div class='review-profile'>
+
+        <h5>{{reviewTitle}}</h5>
+        <p>{{comment}}</p>
+
+        <form action='/profile/delete/review/{{id}}' method='post'>
+            <button type='submit'><i class="fas fa-trash-alt"></i></button>
+        </form>
+    </div>
+    {{/each}}
+
+</section>
