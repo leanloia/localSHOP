@@ -27,8 +27,9 @@
             <button type="submit"> Submit changes </button>
         </form>
     </section>
-
-    <h2>MOTHERFUCKIN BUSINESS</h2>
+    {{#if business}}
+    <h2>BUSINESS</h2>
+    {{/if}}
     <section>
         {{#each business}}
         <form action="/profile/{{owner}}/editBusiness/{{_id}}" method="post" enctype="multipart/form-data">
@@ -64,7 +65,7 @@
                 <label for="about-input"> Something about your business </label>
                 <textarea name="about" id="about-input" value="{{about}}" cols="30" rows="10">{{about}}</textarea>
             </div>
-            <button type="submit"> Submit changes </button>
+            <button type="submit"> Save changes </button>
         </form>
 
         <form action='/profile/{{_id}}/delete' method='post'>

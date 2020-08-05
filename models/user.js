@@ -22,6 +22,11 @@ const userSchema = new Schema({
   reviewsMade: [{
     type: Schema.Types.ObjectId,
     ref: 'Review'
+  }],
+
+  favouriteBusiness: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Business'
   }]
 
 });

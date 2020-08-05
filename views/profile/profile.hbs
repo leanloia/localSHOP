@@ -4,24 +4,36 @@
     <div>
         <img src="{{user.profilePic}}">
         <p>Name: {{user.name}} </p>
-        <p>Cualquier: {{user.email}} </p>
-        <p>Mierda</p>
-        <p>Es</p>
-        <p>Válida</p>
-    </div>
-    <a href="/profile/{{user._id}}/edit">Edit Profile Info</a>
+        <p>Email: {{user.email}} </p>
 
-
-    <div>
+        <h3>Our business</h3>
         {{#each business}}
-            <div>
+        <div>
             <p>{{name}}</p>
-            
-            <a href="/profile/"></a>          
-            </div>
 
-        {{/each}}    
+            <a href="/profile/"></a>
+        </div>
+        {{/each}}
+
+
+        <h3>Our reviews</h3>
+        {{#each review}}
+
+        <div>
+            <p>Title: {{reviewTitle}}</p>
+            <p>Comment: {{comment}}</p>
+
+            <form action='/profile/delete/review/{{id}}' method='post'>
+                <button type='submit'>Delete</button>
+            </form>
+
+        </div>
+        {{/each}}
     </div>
-        
 
+</div>
+<a href="/profile/{{user._id}}/edit">Edit Profile Info</a>
+
+
+<div>
 </div>

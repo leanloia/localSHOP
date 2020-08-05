@@ -1,60 +1,67 @@
-<h1>Business</h1>
-<section>
+<section class="business-container">
     {{#if errorMessage}}
     <p class="error-message">
         {{ errorMessage }}
     </p>
     {{/if}}
 
-    <form action="/business" method="post">
-
-        <div class='business-search'>
-            <label for="city-input"> City </label>
-            <select name="city" id="city-input">
-                {{#if business}}
-                {{#each business}}
-                <option value={{this}}>{{this}}</option>
-                {{/each}}
-                {{/if}}
-                {{#if businessUnique}}
-                {{#each businessUnique}}
-                <option value={{this}}>{{this}}</option>
-                {{/each}}
-                {{/if}}
-
-            </select>
-        </div>
+    <div class='form-search'>
         <div>
-            <label for="type-input"> Type of business </label>
-            <select name="type" id="type-input">
-                <option value="Bookstore">Bookstore</option>
-                <option value="Clothing">Clothing</option>
-                <option value="Coffee shop">Coffee shop</option>
-                <option value="Fruits and Vegetables">Fruits and Vegetables</option>
-                <option value="Hairdress">Hairdress</option>
-                <option value="Restaurant">Restaurant</option>
-                <option value="Shoe store">Shoes</option>
-                <option value="Toy store">Toys</option>
-            </select>
+            <h1>Search your next localSHOP! </h1>
         </div>
-        <button type="submit">Search</button>
+        <div class='inputs-search'>
+            <div class='city-search'>
+                <form action="/business" method="post">
 
+                    <select name="city" id="city-input">
+                        {{#if business}}
+                        {{#each business}}
+                        <option value={{this}}>{{this}}</option>
+                        {{/each}}
+                        {{/if}}
+                        {{#if businessUnique}}
+                        {{#each businessUnique}}
+                        <option value={{this}}>{{this}}</option>
+                        {{/each}}
+                        {{/if}}
 
-        <div class='business-targets'>
-            {{#each bizz}}
-            <div class='business-results'>
-                <div class="img-business">
-                    <img src="{{image_url}}" alt="image">
-                </div>
-                <p>Name: {{name}} </p>
-                <p>City: {{city}} </p>
-                <p>Phone: {{phone}} </p>
-                <p>Webpage: {{webpage}} </p>
-                <p>About: {{about}} </p>
-
-
-                <a href="/business/details/{{id}}">See more...</a>
+                    </select>
             </div>
-            {{/each}}
+            <div class='typeofbusiness-search'>
+
+                <select name="type" id="type-input">
+                    <option value="Bookstore">Bookstore</option>
+                    <option value="Clothing">Clothing</option>
+                    <option value="Coffee shop">Coffee shop</option>
+                    <option value="Fruits and Vegetables">Fruits and Vegetables</option>
+                    <option value="Hairdress">Hairdress</option>
+                    <option value="Restaurant">Restaurant</option>
+                    <option value="Shoe store">Shoes</option>
+                    <option value="Toy store">Toys</option>
+                </select>
+            </div>
+            <button class="search-btn" type="submit">Search</button>
+            </form>
         </div>
+    </div>
+</section>
+
+<div class='container-card'>
+    {{#each bizz}}
+    <div class='card'>
+        <div class='img-card'>
+            <img src="{{image_url}}" alt="image">
+        </div>
+        <div class='info-card'>
+            <h4>{{name}} </h4>
+            <p>{{city}}</p>
+            <p>{{about}}</p>
+            <form action='/business/favourite/{{id}}' method='post'>
+                <button class="favourite-btn" type="submit"><i class="fas fa-heart"></i></button>
+            </form>
+            <a href="/business/details/{{id}}">See more...</a>
+        </div>
+    </div>
+    {{/each}}
+</div>
 </section>
