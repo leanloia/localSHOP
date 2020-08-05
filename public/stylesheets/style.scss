@@ -138,7 +138,7 @@ table {
 }
 
 $primarycolor: #c5c5c4;
-$secondarycolor: #fa6400;
+$secondarycolor: tomato;
 
 b {
   font-weight: 600;
@@ -154,14 +154,16 @@ body {
 
 label.logo {
   color: white;
-  font-size: 35px;
-  line-height: 80px;
-  padding: 0 100px;
+  font-size: 30px;
   font-weight: bold;
 }
 
+<<<<<<< HEAD
 
 nav {
+=======
+.navbar {
+>>>>>>> 77d8e2a5ec0adbae521238739ad4ab3e924557f1
   background: #c5c5c4;
   height: 80px;
   width: 100%;
@@ -183,14 +185,15 @@ nav {
       border-radius: 3px;
       text-transform: uppercase;
     }
+  }
 
-    a.active,
-    a:hover {
-      color: black;
-      transition: 0.5s;
-    }
+  a.active,
+  a:hover {
+    color: $secondarycolor;
+    transition: 0.5s;
   }
 }
+
 
 .checkbtn {
   font-size: 30px;
@@ -485,19 +488,20 @@ nav {
       }
     }
 
-    
+
   }
-      .details-map {
-        width: 100%;
-        height: 100%;
-        padding: 0 20px;
-          
-        img {
-          box-shadow: 0px 2px 6px black;
-          width: 100%;
-          height: 100%;
-        }
-      }
+
+  .details-map {
+    width: 100%;
+    height: 100%;
+    padding: 0 20px;
+
+    img {
+      box-shadow: 0px 2px 6px black;
+      width: 100%;
+      height: 100%;
+    }
+  }
 
   i {
     font-size: 20px;
@@ -725,46 +729,46 @@ h4 {
 
 //mediaQueris
 
-@media (max-width: 952px) {
-  label.logo {
-    font-size: 30px;
-    padding-left: 50px;
-  }
-
-  nav ul li a {
-    font-size: 16px;
-  }
-}
 
 @media (max-width: 858px) {
+  label.logo {
+    font-size: 1.3rem;
+  }
+
   .checkbtn {
     display: block;
   }
 
-  ul {
-    position: fixed;
+  .navbar {
+    background: #c5c5c4;
+    height: 80px;
     width: 100%;
-    height: 100vh;
-    background: #2c3e50;
-    top: 80px;
-    left: -100%;
-    text-align: center;
-    transition: all 0.5s;
-  }
 
-  nav ul li {
-    display: block;
-    margin: 50px 0;
-    line-height: 30px;
-  }
+    ul {
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      background: #2c3e50;
+      top: 80px;
+      left: -100%;
+      text-align: center;
+      transition: all 0.5s;
+    }
 
-  nav ul li a {
-    font-size: 20px;
+    li {
+      display: block;
+      margin: 50px 0;
+      line-height: 30px;
+    }
 
-    a:hover,
-    a.active {
+    a {
+      font-size: 20px;
+    }
+
+    a.active,
+    a:hover {
       background: none;
-      color: #0082e6;
+      color: tomato;
     }
   }
 
@@ -774,62 +778,187 @@ h4 {
 }
 
 @media (min-width: 858px) {
+
   //business-details
   .section-details {
     width: 100%;
     // max-width: 1200px;
     display: flex;
-    
-   
-    
+
+
+
     .info-details {
       display: flex;
       flex-direction: row;
       align-items: flex-start;
       justify-content: initial;
       width: 100%;
-      
+
       background-color: rgb(244, 245, 241);
-  
+
       .img-details {
         width: 50%;
         max-width: 50%;
         height: 100%;
         max-height: unset;
-  
-  
+
+
         img {
           object-fit: unset;
           width: 100%;
           height: 100%;
         }
       }
-  
+
       .directions {
         width: 50%;
         max-width: 50%;
         padding: 25px 10px 0 20px;
-  
+
         h2 {
           font-size: 1.7rem;
           font-weight: 600;
           line-height: 1.7rem;
         }
-  
+
         h5 {
           line-height: 2rem;
           font-size: 1.3rem;
         }
-  
+
         p {
           line-height: 1.6rem;
           margin: 1rem 0;
         }
       }
-  
-      
+
+
     }
-  
+
+  }
+
+  //profile
+
+  .personal-info {
+    margin: 20px;
+    width: 1200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .foto-edit {
+
+    a:hover {
+      color: tomato;
+    }
+  }
+
+
+  .profile-info {
+    width: 30%;
+    background-color: white;
+
+  }
+
+  .my-business-title {
+    font-size: 2rem;
+  }
+
+  .all-my-business {
+    width: 1200px;
+
+  }
+
+  .my-business {
+    padding-top: 5px;
+    margin-bottom: 10px;
+    width: 30%;
+    margin: 5px;
+    background-color: rgb(244, 245, 241);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0, 12px, rgba(0, 0, 0, 0.9);
+
+    p {
+      padding-top: 2%;
+      text-align: center;
+      font-size: 1.2rem;
+      height: 45px;
+      margin: 5px;
+      font-weight: 600;
+      line-height: 1.2rem;
+    }
+
+    a {
+      color: black;
+      text-align: center;
+      width: 100%;
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+  }
+
+  .my-business:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .img-business-profile {
+    width: 100%;
+    height: 150px;
+    border-radius: 8px;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 150px;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+  }
+
+  .review-profile {
+    margin: 5px;
+    padding: 15px;
+    width: 90%;
+    background-color: rgb(244, 245, 241);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 0, 12px, rgba(0, 0, 0, 0.9);
+
+    h5 {
+      padding: 10px;
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+
+    p {
+      padding: 0 10px;
+    }
+
+    button {
+      background-color: rgb(244, 245, 241);
+      border: none;
+
+    }
+
+    i {
+      font-size: 1.5rem;
+      padding: 10px;
+      color: tomato;
+    }
+
+    i:hover {
+      color: black;
+    }
+
   }
 
 }
