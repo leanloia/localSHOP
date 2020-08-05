@@ -1,0 +1,565 @@
+[
+  {
+    "name": "Intermission",
+    "city": "Barcelona",
+    "streetName": "Passeig de Gracia",
+    "streetNumber": 40,
+    "image_url": "/images/images-bdd-simulation/001_r.jpg",
+    "phone": 223005522,
+    "webpage": "www.intermission-resto.es",
+    "type": "Restaurant",
+    "about": "Small and modern restaurant for sharing and trying new things."
+  },
+  {
+    "name": "Coffee House",
+    "city": "Barcelona",
+    "streetName": "Carrer de Bonavista",
+    "streetNumber": 10,
+    "image_url": "/images/images-bdd-simulation/002_r.jpg",
+    "phone": 568998561,
+    "webpage": "www.tch.es",
+    "type": "Restaurant",
+    "about": "Merge between the best of the food and the coffee world."
+  },
+  {
+    "name": "C-4",
+    "city": "Barcelona",
+    "streetName": "Carrer de Francisco de Giner",
+    "streetNumber": 22,
+    "image_url": "/images/images-bdd-simulation/003_r.jpg",
+    "phone": 669999556,
+    "webpage": "www.c4-restaurant-es",
+    "type": "Restaurant",
+    "about": "A restaurant from and for fish lovers."
+  },
+  {
+    "name": "La vinya nostra",
+    "city": "Barcelona",
+    "streetName": "Carrer de Bonavista",
+    "streetNumber": 17,
+    "image_url": "/images/images-bdd-simulation/004_r.jpg",
+    "phone": 978552103,
+    "webpage": "www.vinyanostra.cat",
+    "type": "Restaurant",
+    "about": "Small bodega managed by a family."
+  },
+  {
+    "name": "Modernbia",
+    "city": "Barcelona",
+    "streetName": "Carrer de Berlin",
+    "streetNumber": 70,
+    "image_url": "/images/images-bdd-simulation/005_r.jpg",
+    "phone": 668556622,
+    "webpage": "www.modernbia.es",
+    "type": "Restaurant",
+    "about": "Small and modern restaurant for sharing and trying new things."
+  },
+  {
+    "name": "Green life",
+    "city": "Barcelona",
+    "streetName": "Carrer de Puigmarti",
+    "streetNumber": 10,
+    "image_url": "/images/images-bdd-simulation/006_r.jpg",
+    "phone": 668897962,
+    "webpage": "www.green-liferesto.net",
+    "type": "Restaurant",
+    "about": "Green and sustainable methods."
+  },
+  {
+    "name": "Le paramours",
+    "city": "Barcelona",
+    "streetName": "Carrer de la Fusina",
+    "streetNumber": 10,
+    "image_url": "/images/images-bdd-simulation/007_r.jpg",
+    "phone": 661524782,
+    "webpage": "www.leparamours.es",
+    "type": "Restaurant",
+    "about": "French cuisine accesible to everyone."
+  },
+  {
+    "name": "Quiet",
+    "city": "Barcelona",
+    "streetName": "Carrer del Poeta Cabanyes",
+    "streetNumber": 15,
+    "image_url": "/images/images-bdd-simulation/008_r.jpg",
+    "phone": 661456856,
+    "webpage": "www.quiet-restaurant.es",
+    "type": "Restaurant",
+    "about": "We're a group of friends who try to emulate the closeness and warm of a dinner in house your house, with your loving ones."
+  },
+  {
+    "name": "Treat yourself",
+    "city": "Barcelona",
+    "streetName": "Carrer del Miracle",
+    "streetNumber": 45,
+    "image_url": "/images/images-bdd-simulation/009_cof.jpg",
+    "phone": 661524782,
+    "webpage": "www.treat-yourself.com",
+    "type": "Coffee shop",
+    "about": "A young place to treat yourself with one of our specialities."
+  },
+  {
+    "name": "Bread it",
+    "city": "Barcelona",
+    "streetName": "Plaça de Sant Pere",
+    "streetNumber": 5,
+    "image_url": "/images/images-bdd-simulation/010_cof.jpg",
+    "phone": 661577402,
+    "webpage": "www.bread-bakery.com",
+    "type": "Coffee shop",
+    "about": "Bakery and coffee shop."
+  },
+  {
+    "name": "Cafe Baguette",
+    "city": "Barcelona",
+    "streetName": "Carrer de Sostres",
+    "streetNumber": 12,
+    "image_url": "/images/images-bdd-simulation/011_cof.jpg",
+    "phone": 656455582,
+    "webpage": "www.baguettecafe.es",
+    "type": "Coffee shop",
+    "about": "The oldest Cafe in the neighbourhood, with the youngest spirit."
+  },
+  {
+    "name": "Natsu Sushi",
+    "city": "Barcelona",
+    "streetName": "Carrer d'En Giralt el Pellicer",
+    "streetNumber": 30,
+    "image_url": "/images/images-bdd-simulation/012_r.jpg",
+    "phone": 652778412,
+    "webpage": "www.natsu-sushi.es",
+    "type": "Restaurant",
+    "about": "Sushi house project from a german couple who traveled around the globe."
+  },
+  {
+    "name": "Taberna Pep",
+    "city": "Vic",
+    "streetName": "Carrer del Gurb",
+    "streetNumber": 20,
+    "image_url": "/images/images-bdd-simulation/014_r.jpg",
+    "phone": 987851123,
+    "webpage": "www.taberna-pep.es",
+    "type": "Restaurant",
+    "about": "Tabern in the heart of Vic."
+  },
+  {
+    "name": "Alto Perú",
+    "city": "Sabadell",
+    "streetName": "Carrer de la Rosa",
+    "streetNumber": 18,
+    "image_url": "/images/images-bdd-simulation/015_r.jpg",
+    "phone": 956484116,
+    "webpage": "www.alto-perú-resto",
+    "type": "Restaurant",
+    "about": "Peruvian food for the world."
+  },
+  {
+    "name": "KAFE",
+    "city": "Barcelona",
+    "streetName": "Carrer de Blasco de Garay",
+    "streetNumber": 35,
+    "image_url": "/images/images-bdd-simulation/016_cof.jpg",
+    "phone": 645223577,
+    "webpage": "www.k-afe.es",
+    "type": "Coffee shop",
+    "about": "A coffee shop of the future anchored in the past."
+  },
+  {
+    "name": "Cafecito",
+    "city": "Barcelona",
+    "streetName": "Carrer de Joan Güell",
+    "streetNumber": 75,
+    "image_url": "/images/images-bdd-simulation/017_cof.jpg",
+    "phone": 648784152,
+    "webpage": "www.cafecito-cafe.es",
+    "type": "Coffee shop",
+    "about": "A Coffee shop ensamble by pieces of everyone's life"
+  },
+  {
+    "name": "Roast Cafe",
+    "city": "Barcelona",
+    "streetName": "Carrer de Salvà",
+    "streetNumber": 30,
+    "image_url": "/images/images-bdd-simulation/018_cof.jpg",
+    "phone": 648214852,
+    "webpage": "www.roast-coffee.es",
+    "type": "Coffee shop",
+    "about": "A small and modern Coffee shop"
+  },
+  {
+    "name": "Nat-Coffee",
+    "city": "Barcelona",
+    "streetName": "Carrer de la Riera Alta",
+    "streetNumber": 45,
+    "image_url": "/images/images-bdd-simulation/019_cof.jpg",
+    "phone": 611785552,
+    "webpage": "www.natcoffee.es",
+    "type": "Coffee shop",
+    "about": "Nature and coffee by the hand."
+  },
+  {
+    "name": "Anna",
+    "city": "Barcelona",
+    "streetName": "Carrer de Pere Serafí",
+    "streetNumber": 4,
+    "image_url": "/images/images-bdd-simulation/023_cl.jpg",
+    "phone": 648784152,
+    "webpage": "www.anna-design.es",
+    "type": "Clothing",
+    "about": "Hello, my name is Anna and i'm a fashion designer. This is my little showroom, come on in!"
+  },
+  {
+    "name": "FTR CLTHNG",
+    "city": "Barcelona",
+    "streetName": "Carrer de Gravina",
+    "streetNumber": 14,
+    "image_url": "/images/images-bdd-simulation/024_cl.jpg",
+    "phone": 648662115,
+    "webpage": "www.ftr-clothing.es",
+    "type": "Clothing",
+    "about": "Future clothing for future people."
+  },
+  {
+    "name": "Shourum",
+    "city": "Barcelona",
+    "streetName": "Carrer de la Freneria",
+    "streetNumber": 2,
+    "image_url": "/images/images-bdd-simulation/026_cl.jpg",
+    "phone": 697562115,
+    "webpage": "www.shourum.es",
+    "type": "Clothing",
+    "about": "Small showroom of a group of fashion design students."
+  },
+  {
+    "name": "Gala",
+    "city": "Barcelona",
+    "streetName": "Carrer del Brosolí",
+    "streetNumber": 3,
+    "image_url": "/images/images-bdd-simulation/027_cl.jpg",
+    "phone": 697562115,
+    "webpage": "www.gala-showroom.es",
+    "type": "Clothing",
+    "about": "Clothes and accessories."
+  },
+  {
+    "name": "Dona",
+    "city": "Girona",
+    "streetName": "Ronda Sant Antoni Maria Claret",
+    "streetNumber": 19,
+    "image_url": "/images/images-bdd-simulation/028_cl.jpg",
+    "phone": 698755155,
+    "webpage": "www.dona-clothes.es",
+    "type": "Clothing",
+    "about": "Clothes and accessories."
+  },
+  {
+    "name": "El jardí",
+    "city": "Barcelona",
+    "streetName": "Carrer de França",
+    "streetNumber": 21,
+    "image_url": "/images/images-bdd-simulation/040_cof.jpg",
+    "phone": 615752857,
+    "webpage": "www.el-jardi-coffee.es",
+    "type": "Coffee shop",
+    "about": "An almost hidden coffee shop in a small terrace"
+  },
+  {
+    "name": "Perruqueria Margot",
+    "city": "Girona",
+    "streetName": "Carrer Josep Tarradellas",
+    "streetNumber": 24,
+    "image_url": "/images/images-bdd-simulation/020_hd.jpg",
+    "phone": 976454452,
+    "webpage": "www.perruqueriamargot.com",
+    "type": "Hairdress",
+    "about": "Peluquería Margot is a center where we know the importance of a job well done and of satisfied customers."
+  },
+
+  {
+    "name": "Nuduka",
+    "city": "Girona",
+    "streetName": "Avinguda de Lluís Pericot",
+    "streetNumber": 39,
+    "image_url": "/images/images-bdd-simulation/021_hd.jpg",
+    "phone": 872648548,
+    "webpage": "www.nuduka.com",
+    "type": "Hairdress",
+    "about": "From our facilities in the city of Girona we offer you a wide range of services, which brings together both hairdressing services and aesthetic treatments, professional makeup and personalized designs of hairpieces and wigs according to each need."
+  },
+
+  {
+    "name": "David Perruquers",
+    "city": "Girona",
+    "streetName": "Joan Maragall",
+    "streetNumber": 41,
+    "image_url": "/images/images-bdd-simulation/022_hd.jpg",
+    "phone": 872648548,
+    "webpage": "www.daviperruquers.com",
+    "type": "Hairdress",
+    "about": "At David Perruquers we keep abreast of the most avant-garde fashion in the hairdressing sector. Our establishment was founded in 1997 and since then we have become known for our professionalism and good taste."
+  },
+  {
+    "name": "Perruqueria Miralls",
+    "city": "Girona",
+    "streetName": "Joan Miró i Ferrà",
+    "streetNumber": 5,
+    "image_url": "/images/images-bdd-simulation/041_hd.jpg",
+    "phone": 872648548,
+    "webpage": "www.perruqueriamiralls.com",
+    "type": "Hairdress",
+    "about": "We are Perruqueria Miralls, a salon founded in 1995 in Girona. We stand out in the sector because we provide our clients with all our experience in hairdressing and aesthetics. We give personalized treatment with the aim of achieving excellent results."
+  },
+
+  {
+    "name": "Perruqueria Miralls",
+    "city": "Girona",
+    "streetName": "Joan Miró i Ferrà",
+    "streetNumber": 5,
+    "image_url": "/images/images-bdd-simulation/042_hd.jpg",
+    "phone": 872648548,
+    "webpage": "www.perruqueriamiralls.com",
+    "type": "Hairdress",
+    "about": "We are Perruqueria Miralls, a salon founded in 1995 in Girona. We stand out in the sector because we provide our clients with all our experience in hairdressing and aesthetics. We give personalized treatment with the aim of achieving excellent results."
+  },
+
+  {
+    "name": "Pere Shoes",
+    "city": "Girona",
+    "streetName": "Sant Morí",
+    "streetNumber": 3,
+    "image_url": "/images/images-bdd-simulation/013_sho.jpg",
+    "phone": 697648644,
+    "webpage": "www.pereshoes.com",
+    "type": "Shoe store",
+    "about": "It is a family business that offers its services within the town of Olot. We offer you the best alternatives in terms of men's footwear. We have excellent quality products for you and a value for money that will surprise you."
+  },
+  {
+    "name": "Peacock Sabateries",
+    "city": "Girona",
+    "streetName": "Carrer Nou",
+    "streetNumber": 15,
+    "image_url": "/images/images-bdd-simulation/048_sho.jpg",
+    "phone": 972226848,
+    "webpage": "www.peacock.com",
+    "type": "Shoe store",
+    "about": "At Peacock you will find a wide selection of the best footwear brands to choose the one that best suits your personality, need or budget."
+  },
+  {
+    "name": "Giralt",
+    "city": "Girona",
+    "streetName": "Rambla de la Llibertat",
+    "streetNumber": 22,
+    "image_url": "/images/images-bdd-simulation/049_sho.jpg",
+    "phone": 972414492,
+    "webpage": "www.giralt.com",
+    "type": "Shoe store",
+    "about": "Since 1965 we have been committed to offering women's footwear adjusted in quality and price."
+  },
+
+  {
+    "name": "Baró Zapaterías",
+    "city": "Girona",
+    "streetName": "Avinguda de Sant Francesc",
+    "streetNumber": 7,
+    "image_url": "/images/images-bdd-simulation/050_sho.jpg",
+    "phone": 972416448,
+    "webpage": "www.barozapaterias.com",
+    "type": "Shoe store",
+    "about": "Every season we look for the best footwear for your feet."
+  },
+
+  {
+    "name": "Pikolinos Gerona",
+    "city": "Girona",
+    "streetName": "Carrer de Joan Maragall",
+    "streetNumber": 22,
+    "image_url": "/images/images-bdd-simulation/051_sho.jpg",
+    "phone": 972614562,
+    "webpage": "www.pikolinos.com",
+    "type": "Shoe store",
+    "about": "A unique shopping experience where the feeling of comfort permeates all visitors."
+  },
+
+  {
+    "name": "La Central",
+    "city": "Barcelona",
+    "streetName": "Mallorca",
+    "streetNumber": 237,
+    "image_url": "/images/images-bdd-simulation/029_book.jpg",
+    "phone": 937984648,
+    "webpage": "www.lacentral.com",
+    "type": "Bookstore",
+    "about": "La Central has become one of the reference spaces for readers, authors and publishers. You can find titles in anthropology, architecture and design, art and cinema, photography, but also references to poetry and performing arts, among others."
+  },
+  {
+    "name": "Norma Comics",
+    "city": "Barcelona",
+    "streetName": "Passeig de Sant Joan",
+    "streetNumber": 9,
+    "image_url": "/images/images-bdd-simulation/030_book.jpg",
+    "phone": 939796798,
+    "webpage": "www.normacomics.com",
+    "type": "Bookstore",
+    "about": "Without any discussion, the most complete store in Barcelona. Here you will find a brutal overview of all related genres and pop events: from dolls to gaming history books."
+  },
+  {
+    "name": "Llibreria Calders",
+    "city": "Barcelona",
+    "streetName": "Passatge Pere Calders",
+    "streetNumber": 9,
+    "image_url": "/images/images-bdd-simulation/031_book.jpg",
+    "phone": 979514862,
+    "webpage": "www.calders.com",
+    "type": "Bookstore",
+    "about": "Isabel Sucunza and the bookseller Abel Cutillas opened a bookstore in 2014 in Passatge Calders that has become a reference for the sector. Created where there used to be a button factory, Calders is defined as a bookstore specializing in books."
+  },
+  {
+    "name": "Llibreria Nollegiu",
+    "city": "Barcelona",
+    "streetName": "Pons i Subirà",
+    "streetNumber": 3,
+    "image_url": "/images/images-bdd-simulation/032_book.jpg",
+    "phone": 976877454,
+    "webpage": "www.lollegiu.com",
+    "type": "Bookstore",
+    "about": "From the very beginning, the bookstore has had a vocation: to be an active agent in the dissemination of reading. For this reason, the Nollegiu organizes daily events related to books in the form of recitals, presentations, theater, music, performances…"
+  },
+  {
+    "name": "Taifa",
+    "city": "Barcelona",
+    "streetName": "Verdi",
+    "streetNumber": 12,
+    "image_url": "/images/images-bdd-simulation/057_book.jpg",
+    "phone": 969767846,
+    "webpage": "www.taifa.com",
+    "type": "Bookstore",
+    "about": "Mandatory stop in the neighborhood, where people fill in the gaps between sessions of the Verdi, the time before the glass of the Châtelet or after the ice cream cone in the Plaza Revolució."
+  },
+
+  {
+    "name": "Llibreria 22",
+    "city": "Girona",
+    "streetName": "de les Hortes",
+    "streetNumber": 22,
+    "image_url": "/images/images-bdd-simulation/058_book.jpg",
+    "phone": 969767846,
+    "webpage": "www.llibreria22.com",
+    "type": "Bookstore",
+    "about": "It is a general bookstore, specialized in humanities: We find it from geography, history, art, cinema, architecture, philosophy, law, philology, pedagogy or psychology. Not to mention, of course, national and international narrative and poetry."
+  },
+  {
+    "name": "Llibreria Geli",
+    "city": "Girona",
+    "streetName": "Argenteria",
+    "streetNumber": 18,
+    "image_url": "/images/images-bdd-simulation/059_book.jpg",
+    "phone": 969767846,
+    "webpage": "www.llibreriageli.com",
+    "type": "Bookstore",
+    "about": "The staff is friendly, the place is beautiful, the books are well displayed and there is a ladder available for guests to climb the shelves in search of forgotten treasures. They accept orders to search for second-hand or foreign books. The children's section is wonderful."
+  },
+  {
+    "name": "Sweet Books",
+    "city": "Girona",
+    "streetName": "Ferreries Velles",
+    "streetNumber": 14,
+    "image_url": "/images/images-bdd-simulation/060_book.jpg",
+    "phone": 9764531865,
+    "webpage": "www.sweetbooks.com",
+    "type": "Bookstore",
+    "about": "You can find from a beautifully bound 1905 edition of the complete works of Jacint Verdaguer to a Catalan version of Hoffmann’s Perot l’Escabellat with illustrations by Mercè Llimona that was discontinued decades ago. And, of course, you will also find the thrill of discovering that rarity on a secluded shelf. A whole adventure without leaving the Old Quarter."
+  },
+  {
+    "name": "Lliberia Ulyssus",
+    "city": "Girona",
+    "streetName": "Cort Reial",
+    "streetNumber": 3,
+    "image_url": "/images/images-bdd-simulation/061_book.jpg",
+    "phone": 9697451646,
+    "webpage": "www.ulyssus.com",
+    "type": "Bookstore",
+    "about": "Travel stories from all eras, maps, hiking and mountain publications, balls of the world, a children's section of discovery of the world and nature and a careful section of travel gadgets are complemented by a section of discovery of the environment of Girona that you will hardly find anywhere else."
+  },
+  {
+    "name": "Lliberia Les Voltes",
+    "city": "Girona",
+    "streetName": "Plaça del Vi",
+    "streetNumber": 2,
+    "image_url": "/images/images-bdd-simulation/062_book.jpg",
+    "phone": 9697844624,
+    "webpage": "www.lesvoltes.com",
+    "type": "Bookstore",
+    "about": "The venue itself is also of great interest, as we can find original pieces by some of the Girona artists who took part in its foundation: Emília Xargay, Enric Marquès and Torres Monsó, among others."
+  },
+
+  {
+    "name": "4Sabaters",
+    "city": "Barcelona",
+    "streetName": "Amigó",
+    "streetNumber": 39,
+    "image_url": "/images/images-bdd-simulation/052_sho.jpg",
+    "phone": 934144406,
+    "webpage": "www.4sabaters.com",
+    "type": "Shoe store",
+    "about": "4Sabaters is a women's shoe store that offers exclusive designs and models and, of course, at VERY affordable prices!"
+  },
+
+  {
+    "name": "Tacones",
+    "city": "Barcelona",
+    "streetName": "Cucurulla",
+    "streetNumber": 7,
+    "image_url": "/images/images-bdd-simulation/053_sho.jpg",
+    "phone": 936453164,
+    "webpage": "www.tacones.com",
+    "type": "Shoe store",
+    "about": "Tacones is one of the classic shoe stores in the center of Barcelona, ​​very close to Plaza Catalunya. In this store they offer a wide variety of models designed, always, for modern and current women but, yes, they have the same common denominator: heels!"
+  },
+
+  {
+    "name": "Little Shoes",
+    "city": "Barcelona",
+    "streetName": "Bruc",
+    "streetNumber": 126,
+    "image_url": "/images/images-bdd-simulation/054_sho.jpg",
+    "phone": 934144406,
+    "webpage": "www.littleshoes.com",
+    "type": "Shoe store",
+    "about": "Little Shoes is a store specialized in boys, girls and baby shoes. Because they know how important it is to wear comfortable, breathable and resistant footwear during the first years, in their stock you will find a wide range of products of the best quality"
+  },
+
+  {
+    "name": "Tretze Sabaters",
+    "city": "Barcelona",
+    "streetName": "Passeig Bonanova",
+    "streetNumber": 116,
+    "image_url": "/images/images-bdd-simulation/055_sho.jpg",
+    "phone": 936411645,
+    "webpage": "www.tretzesabaters.com",
+    "type": "Shoe store",
+    "about": "With a large selection of shoes, the Tretze Sabates shoe store in the Sarrià - Sant Gervasi neighborhood offers you one of the best experiences in the upper neighborhood of Barcelona when it comes to buying shoes."
+  },
+  {
+    "name": "Pell Tolrà",
+    "city": "Barcelona",
+    "streetName": "Passeig de Gràcia",
+    "streetNumber": 38,
+    "image_url": "/images/images-bdd-simulation/056_sho.jpg",
+    "phone": 9346482656,
+    "webpage": "www.pelltolra.com",
+    "type": "Shoe store",
+    "about": "In this store you will find a varied catalog of shoes designed by Blahnik himself and which follow a timeless, elegant and 100% feminine aesthetic "
+  },
+
+  {
+    "name": "Pell Tolrà",
+    "city": "Barcelona",
+    "streetName": "Passeig de Gràcia",
+    "streetNumber": 38,
+    "image_url": "/images/images-bdd-simulation/033_ty.jpg",
+    "phone": 9346482656,
+    "webpage": "www.pelltolra.com",
+    "type": "Toy store",
+    "about": "In this store you will find a varied catalog of shoes designed by Blahnik himself and which follow a timeless, elegant and 100% feminine aesthetic "
+  }
+]
