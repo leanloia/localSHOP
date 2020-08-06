@@ -23,9 +23,15 @@
     <ul>
       <li><a href="/">Home</a></li>
       <li><a href="/business">Search</a></li>
+      {{#unless currentUserInfo}}
       <li><a href="/login">Log in</a></li>
       <li><a href="/signup">Sign up</a></li>
-      <li><a href="/add-business">Add your business here!</a></li>
+      {{/unless}}
+      {{#if currentUserInfo}}
+      <li><a href="/logout">Log out</a></li>
+      <li><a href="/profile">Profile</a></li>
+      {{/if}}
+      <li><a href="/add-business">Add your business!</a></li>
     </ul>
   </nav>
 
@@ -35,18 +41,27 @@
   <footer>
     <nav class="navbar-footer">
       <ul>
-        <a href="/">
-          <li>Home</li>
-        </a>
+        
         <a href="/business">
           <li>Search</li>
+        </a>
+        {{#unless currentUserInfo}}
+        <a href="/login">
+          <li>Log in</li>
+        </a>
+        <a href="/signup">
+          <li>Sign up</li>
+        </a>
+        {{/unless}}
+        {{#if currentUserInfo}}
+        <a href="/logout">
+          <li>Log out</li>
         </a>
         <a href="/profile">
           <li>My profile</li>
         </a>
-        <a href="/logout">
-          <li>Log out</li>
-        </a>
+        {{/if}}
+        
 
       </ul>
     </nav>
