@@ -781,6 +781,13 @@ h4 {
 }
 
 .signup-sct {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 675px;
+}
+
 .signup-sct .form-signup {
   display: flex;
   flex-direction: column;
