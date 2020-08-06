@@ -1,16 +1,18 @@
 <section class='profile-section'>
-    <div class="foto-edit">
-        <div class='profile-img'>
-            <img src="{{user.profilePic}}">
+
+    <div class='personal-info'>
+        <div class="foto-edit">
+            <div class='profile-img'>
+                <img src="{{user.profilePic}}">
+            </div>
+            <a href="/profile/{{user._id}}/edit">EDIT PROFILE</a>
         </div>
-        <a href="/profile/{{user._id}}/edit">EDIT PROFILE</a>
-    </div>
-    <div class='profile-info'>
-        <p><b>Name:</b> {{user.name}} </p>
-        <p><b>Email: </b>{{user.email}} </p>
-    </div>
+        <div class='profile-info'>
+            <h3>{{user.name}} </h3>
+            <p>{{user.email}} </p>
+        </div>
 
-
+    </div>
     <div class="my-business-title">
         <h3><i class="fas fa-business-time"></i> My business</h3>
     </div>
@@ -60,16 +62,17 @@
         <h3><i class="fas fa-comment-alt"></i> My reviews</h3>
     </div>
 
-    {{#each review}}
-    <div class='review-profile'>
+    <div class="reviews-container">
+        {{#each review}}
+        <div class='review-profile'>
 
-        <h5>{{reviewTitle}}</h5>
-        <p>{{comment}}</p>
+            <h5>{{reviewTitle}}</h5>
+            <p>{{comment}}</p>
 
-        <form action='/profile/delete/review/{{id}}' method='post'>
-            <button type='submit'><i class="fas fa-trash-alt"></i></button>
-        </form>
+            <form action='/profile/delete/review/{{id}}' method='post'>
+                <button type='submit'><i class="fas fa-trash-alt"></i></button>
+            </form>
+        </div>
+        {{/each}}
     </div>
-    {{/each}}
-
 </section>

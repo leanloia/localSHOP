@@ -138,7 +138,7 @@ table {
 }
 
 $primarycolor: #c5c5c4;
-$secondarycolor: #fa6400;
+$secondarycolor: tomato;
 
 b {
   font-weight: 600;
@@ -152,13 +152,11 @@ body {
 
 label.logo {
   color: white;
-  font-size: 35px;
-  line-height: 80px;
-  padding: 0 100px;
+  font-size: 30px;
   font-weight: bold;
 }
 
-nav {
+.navbar {
   background: #c5c5c4;
   height: 80px;
   width: 100%;
@@ -180,12 +178,12 @@ nav {
       border-radius: 3px;
       text-transform: uppercase;
     }
+  }
 
-    a.active,
-    a:hover {
-      color: black;
-      transition: 0.5s;
-    }
+  a.active,
+  a:hover {
+    color: $secondarycolor;
+    transition: 0.5s;
   }
 }
 
@@ -452,10 +450,6 @@ nav {
       width: 100%;
       // min-height: 50%;
       max-height: 60%;
-<<<<<<< HEAD
-=======
-
->>>>>>> 88a59d6bf33e6ad1957378beef3bd2399a81d6a6
 
       img {
         object-fit: cover;
@@ -484,10 +478,8 @@ nav {
         margin: 1rem 0;
       }
     }
-
-    
   }
-<<<<<<< HEAD
+
   .details-map {
     width: 100%;
     height: 100%;
@@ -499,7 +491,19 @@ nav {
       height: 100%;
     }
   }
-=======
+
+  .details-map {
+    width: 100%;
+    height: 100%;
+    padding: 0 20px;
+
+    img {
+      box-shadow: 0px 2px 6px black;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
       .details-map {
         width: 100%;
         height: 100%;
@@ -511,7 +515,7 @@ nav {
           height: 100%;
         }
       }
->>>>>>> 88a59d6bf33e6ad1957378beef3bd2399a81d6a6
+
 
   i {
     font-size: 20px;
@@ -609,15 +613,29 @@ h4 {
   }
 }
 
+.personal-info {
+  width: 95%;
+}
+
 .profile-info {
   margin-top: 10px;
   padding: 1rem;
   width: 95%;
-  background-color: rgb(244, 245, 241);
   line-height: 1rem;
   border-radius: 8px;
   font-size: 1.2rem;
   line-height: 2rem;
+
+  p {
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
+
+  h3 {
+    font-size: 3rem;
+    line-height: 4rem;
+  }
+
 }
 
 .my-business-title,
@@ -730,52 +748,125 @@ h4 {
   }
 }
 
-//mediaQueris
+//edit-profile
+.edit-profile-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-@media (max-width: 952px) {
-  label.logo {
-    font-size: 30px;
-    padding-left: 50px;
+  h3 {
+    font-weight: 600;
+    font-size: 3rem;
+    margin: 20px;
+    color: $secondarycolor;
   }
 
-  nav ul li a {
-    font-size: 16px;
+  h4 {
+    font-weight: 600;
+    font-size: 2rem;
+
+    color: $secondarycolor;
   }
 }
 
+.edit-profile {
+  border-radius: 8px;
+  width: 95%;
+  background-color: rgb(244, 245, 241);
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  margin: 20px;
+  font-size: 1rem;
+
+  input {
+    height: 30px;
+    border: none;
+  }
+
+  textarea {
+    border: none;
+  }
+
+  div {
+    padding-top: 10px;
+  }
+
+  button {
+    margin-top: 15px;
+    align-self: center;
+    font-size: 1rem;
+    padding: 10px 30px;
+    border: none;
+    box-shadow: 2px 2px 4px black;
+  }
+
+  button:hover {
+    color: $secondarycolor;
+  }
+
+  .delete-button {
+    border: none;
+    background-color: none;
+    color: $secondarycolor;
+    box-shadow: none;
+    background-color: rgb(244, 245, 241);
+    font-size: 2rem;
+    padding: 0;
+  }
+
+  .title-bizz-edit {
+    color: black;
+  }
+}
+
+//mediaQueris
+
 @media (max-width: 858px) {
+  label.logo {
+    font-size: 1.3rem;
+  }
+
   .checkbtn {
     display: block;
   }
 
-  ul {
-    position: fixed;
+  .navbar {
+    background: #c5c5c4;
+    height: 80px;
     width: 100%;
-    height: 100vh;
-    background: #2c3e50;
-    top: 80px;
-    left: -100%;
-    text-align: center;
-    transition: all 0.5s;
-  }
 
-  nav ul li {
-    display: block;
-    margin: 50px 0;
-    line-height: 30px;
-  }
+    ul {
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      background: #2c3e50;
+      top: 80px;
+      left: -100%;
+      text-align: center;
+      transition: all 0.5s;
+      z-index: 2;
+    }
 
-  nav ul li a {
-    font-size: 20px;
+    li {
+      display: block;
+      margin: 50px 0;
+      line-height: 30px;
+    }
 
-    a:hover,
-    a.active {
+    a {
+      font-size: 20px;
+    }
+
+    a.active,
+    a:hover {
       background: none;
-      color: #0082e6;
+      color: tomato;
     }
   }
 
-  #check:checked~ul {
+  #check:checked ~ ul {
     left: 0;
   }
 }
@@ -786,57 +877,102 @@ h4 {
     width: 100%;
     // max-width: 1200px;
     display: flex;
-    
-   
-    
+
     .info-details {
       display: flex;
       flex-direction: row;
       align-items: flex-start;
       justify-content: initial;
       width: 100%;
-      
+
       background-color: rgb(244, 245, 241);
-  
+
       .img-details {
         width: 50%;
         max-width: 50%;
         height: 100%;
         max-height: unset;
-  
-  
+
         img {
           object-fit: unset;
           width: 100%;
           height: 100%;
         }
       }
-  
+
       .directions {
         width: 50%;
         max-width: 50%;
         padding: 25px 10px 0 20px;
-  
+
         h2 {
           font-size: 1.7rem;
           font-weight: 600;
           line-height: 1.7rem;
         }
-  
+
         h5 {
           line-height: 2rem;
           font-size: 1.3rem;
         }
-  
+
         p {
           line-height: 1.6rem;
           margin: 1rem 0;
         }
       }
-  
-      
     }
-  
   }
 
+  //profile
+  .profile-section {
+    margin: 5px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .personal-info {
+    min-width: 850px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .foto-edit {
+    a:hover {
+      color: tomato;
+    }
+  }
+
+  .profile-info {
+    width: 40%;
+    background-color: white;
+  }
+
+  .my-business-title {
+    font-size: 2rem;
+    margin-top: 1rem;
+  }
+
+  .all-my-business {
+    min-width: 850px;
+    margin: 20px;
+  }
+
+  .reviews-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 95%;
+    justify-content: space-between;
+  }
+
+  .review-profile {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
