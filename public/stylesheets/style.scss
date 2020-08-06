@@ -771,6 +771,43 @@ h4 {
 
     color: $secondarycolor;
   }
+
+  input {
+    height: 30px;
+    border: none;
+  }
+
+  textarea {
+    border: none;
+  }
+
+  div {
+    padding-top: 10px;
+  }
+
+  button {
+    margin-top: 15px;
+    align-self: center;
+    font-size: 1rem;
+    padding: 10px 30px;
+    border: none;
+    box-shadow: 2px 2px 4px black;
+  }
+
+  button:hover {
+    color: $secondarycolor;
+  }
+
+  .delete-button {
+    border: none;
+    background-color: none;
+    color: $secondarycolor;
+    box-shadow: none;
+    background-color: rgb(244, 245, 241);
+    font-size: 2rem;
+    padding: 0;
+  }
+
 }
 
 .edit-profile {
@@ -925,6 +962,8 @@ h4 {
     box-shadow: 0px 0px 6px $primarycolor;
     border-radius: 25px;
 
+
+
     h2 {
       font-size: 2rem;
       padding-top: 2rem;
@@ -961,38 +1000,12 @@ h4 {
 //       text-align: center;
 //     }
 
-//     label {
-//       padding: 0.5rem;
-//       text-align: center;
-//     }
 
-//     .error-message {
-//       padding: 2rem 0;
-//       color: $secondarycolor;
-//       border-radius: 15px;
-//       margin: 1rem 4rem;
-//       text-align: center;
-//       box-shadow: 0px 0px 3px $primarycolor;
-//       font-weight: bold;
-//     }
-  
-//   }
-  
+}
 
-// input {
-//   height: 30px;
-//   border: none;
-// }
-
-// textarea {
-//   border: none;
-// }
-
-// }
-
-
-
-  
+.title-bizz-edit {
+  color: black;
+}
 
 
 //mediaQueris

@@ -754,6 +754,42 @@ h4 {
   color: tomato;
 }
 
+.edit-profile-container input {
+  height: 30px;
+  border: none;
+}
+
+.edit-profile-container textarea {
+  border: none;
+}
+
+.edit-profile-container div {
+  padding-top: 10px;
+}
+
+.edit-profile-container button {
+  margin-top: 15px;
+  align-self: center;
+  font-size: 1rem;
+  padding: 10px 30px;
+  border: none;
+  box-shadow: 2px 2px 4px black;
+}
+
+.edit-profile-container button:hover {
+  color: tomato;
+}
+
+.edit-profile-container .delete-button {
+  border: none;
+  background-color: none;
+  color: tomato;
+  box-shadow: none;
+  background-color: #f4f5f1;
+  font-size: 2rem;
+  padding: 0;
+}
+
 .signup-sct {
   display: flex;
   flex-direction: column;
@@ -782,11 +818,11 @@ h4 {
 .signup-sct .form-signup div {
   display: flex;
   flex-direction: column;
-  padding: 0.5rem 0;
+  padding: .5rem 0;
 }
 
 .signup-sct .form-signup button {
-  padding: 0.7rem;
+  padding: .7rem;
   margin: 1rem;
   color: white;
   font-weight: bold;
@@ -848,11 +884,11 @@ h4 {
 .login-sct .form-login div {
   display: flex;
   flex-direction: column;
-  padding: 0.5rem 0;
+  padding: .5rem 0;
 }
 
 .login-sct .form-login button {
-  padding: 0.7rem;
+  padding: .7rem;
   margin: 1rem;
   color: white;
   font-weight: bold;
@@ -884,42 +920,6 @@ h4 {
   text-align: center;
   box-shadow: 0px 0px 3px #c5c5c4;
   font-weight: bold;
-}
-
-input {
-  height: 30px;
-  border: none;
-}
-
-textarea {
-  border: none;
-}
-
-div {
-  padding-top: 10px;
-}
-
-button {
-  margin-top: 15px;
-  align-self: center;
-  font-size: 1rem;
-  padding: 10px 30px;
-  border: none;
-  box-shadow: 2px 2px 4px black;
-}
-
-button:hover {
-  color: tomato;
-}
-
-.delete-button {
-  border: none;
-  background-color: none;
-  color: tomato;
-  box-shadow: none;
-  background-color: #f4f5f1;
-  font-size: 2rem;
-  padding: 0;
 }
 
 .title-bizz-edit {
@@ -1032,18 +1032,6 @@ button:hover {
   }
   .foto-edit a:hover {
     color: tomato;
-  }
-  .my-business {
-    padding-top: 5px;
-    margin-bottom: 10px;
-    width: 30%;
-    margin: 5px;
-    background-color: #f4f5f1;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0, 12px, rgba(0, 0, 0, 0.9);
   }
   .profile-info {
     width: 40%;
