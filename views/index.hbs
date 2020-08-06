@@ -13,10 +13,18 @@
     </div>
 
     <div class="banner-add">
+        {{#if currentUserInfo}}
         <div class="text-add">
             <h2>Do you want to add your business?</h2>
             <a href="/add-business"><button>Add business</button></a>
         </div>
+        {{/if}}
+        {{#unless currentUserInfo}}
+        <div class="text-add">
+            <h2>Do you want to add your business?</h2>
+            <a href="/login"><button>Add business</button></a>
+        </div>
+        {{/unless}}
     </div>
 
 
