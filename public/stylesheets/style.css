@@ -284,6 +284,8 @@ label.logo {
   height: 30vh;
   width: 100%;
   background-color: tomato;
+  background-image: url("");
+  object-fit: cover;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -969,6 +971,11 @@ h4 {
   width: 280px;
   height: 35px;
   text-align: center;
+}
+
+.addbusiness-sct .form-addbusiness div select {
+  width: 280px;
+  height: 35px;
 }
 
 .addbusiness-sct .form-addbusiness div label {
