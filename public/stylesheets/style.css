@@ -196,62 +196,110 @@ label.logo {
   display: none;
 }
 
-.container-home {
-  background: url(../images/home-image.jpg) no-repeat center center/cover;
+.home .container-home .top {
+  height: 150px;
   width: 100%;
-  height: 60vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background-color: #f4f4f4;
 }
 
-.container-home .title-home {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(255, 255, 255, 0.6);
+.home .container-home .bottom {
+  height: 300px;
+  width: 100%;
+  background: url(../images/home-image.jpg) no-repeat center center/cover;
+}
+
+.home .container-home #banner {
+  position: absolute;
+  top: 150px;
+  left: 20%;
   width: 80%;
+  height: 300px;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 50px;
 }
 
-.container-home h1 {
-  font-weight: 700;
+.home .container-home #banner h1 {
   font-size: 2.5rem;
-  padding: 20px;
+  font-weight: 600;
+  padding-bottom: 10px;
 }
 
-.container-home h3 {
-  width: 80%;
-  font-size: 1rem;
+.home .container-home #banner p {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  padding: 10px;
 }
 
-.container-home button {
+.home .container-home button {
   font-size: 1rem;
-  margin: 20px;
   padding: 10px 30px;
   border: none;
   box-shadow: 2px 2px 4px black;
 }
 
-.about-home {
+.home .banner-add {
+  padding-top: 20px;
+  width: 100%;
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.home .banner-add .text-add {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.home .banner-add .text-add h2 {
+  font-size: 2rem;
+  text-align: center;
+  padding: .5rem;
+  border-bottom: 4px solid tomato;
   margin: 20px;
+  font-weight: 600;
+}
+
+.home .banner-add .text-add button {
+  font-size: 1rem;
+  padding: 10px 30px;
+  border: none;
+  box-shadow: 2px 2px 4px black;
+}
+
+.home .about-us {
+  background-color: #f4f4f4;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
 
-.about-home h3 {
-  font-weight: 700;
+.home .about-us .text-about h2 {
+  font-weight: 600;
   font-size: 1.5rem;
-  text-transform: uppercase;
-  border-bottom: 1.5px solid tomato;
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom: 5px;
 }
 
-.about-home p {
-  text-align: center;
-  margin: 10px;
+.home .about-us .text-about p {
+  padding-left: 20px;
+  line-height: 1.2rem;
+  padding-bottom: 20px;
+}
+
+.home .about-us .about-us-photo {
+  height: 200px;
+  background: url(../images/about-us.jpg) no-repeat center center/cover;
 }
 
 .navbar-footer {
@@ -1288,5 +1336,57 @@ label.logo {
   .edit-profile-container .all-business {
     margin-top: 50px;
     max-width: 40%;
+  }
+  .home .container-home #banner {
+    top: 150px;
+    left: 40%;
+    width: 80%;
+    height: 300px;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 50px;
+  }
+  .home .container-home #banner h1 {
+    font-size: 3.5rem;
+  }
+  .home .container-home #banner p {
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+  .home .banner-add {
+    height: 200px;
+  }
+  .home .about-us {
+    margin-top: 20px;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 300px;
+  }
+  .home .about-us .text-about {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .home .about-us .text-about h2 {
+    font-weight: 600;
+    font-size: 1.5rem;
+    padding-left: 20px;
+  }
+  .home .about-us .text-about p {
+    font-size: 1.2rem;
+    padding-bottom: 20px;
+    line-height: 1.6rem;
+  }
+  .home .about-us .about-us-photo {
+    width: 50%;
+    height: 300px;
+    background: url(../images/about-us.jpg) no-repeat center center/cover;
   }
 }
