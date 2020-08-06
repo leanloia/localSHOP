@@ -1,5 +1,5 @@
 <section class="addbusiness-sct" >
-<form action="/add-business" method="post" enctype="multipart/form-data">
+<form class="form-addbusiness" action="/add-business" method="post" enctype="multipart/form-data">
 <h2> Add Business </h2>
     <div>
         <label for="name-input"> Name </label>
@@ -16,6 +16,7 @@
     <div>
         <label for="streetNumber-input"> Street number</label>
         <input type="text" name="streetNumber" id="streetNumber-input" placeholder="Street number">
+    </div>
     <div>
         <label for="image-input"> Add an image </label>
         <input type="file" name="image_url" id="image-input">
@@ -43,7 +44,7 @@
     </div>
     <div>
         <label for="about-input"> Something about your business </label>
-        <textarea name="about" id="about-input" cols="30" rows="10" placeholder="About your business..."></textarea>
+        <textarea name="about" id="about-input" cols="30" rows="8" placeholder="About your business..."></textarea>
     </div>
 
     <button> Create New Business </button>
