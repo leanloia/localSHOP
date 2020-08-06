@@ -782,6 +782,7 @@ h4 {
   padding: 20px;
   margin: 20px;
   font-size: 1rem;
+}
 
   input {
     height: 30px;
@@ -822,7 +823,7 @@ h4 {
   .title-bizz-edit {
     color: black;
   }
-}
+
 
 //signup
 
@@ -954,40 +955,40 @@ h4 {
 
     }
 
-    input {
-      width: 260px;
-      height: 40px;
-      text-align: center;
-    }
+//     input {
+//       width: 260px;
+//       height: 40px;
+//       text-align: center;
+//     }
 
-    label {
-      padding: 0.5rem;
-      text-align: center;
-    }
+//     label {
+//       padding: 0.5rem;
+//       text-align: center;
+//     }
 
-    .error-message {
-      padding: 2rem 0;
-      color: $secondarycolor;
-      border-radius: 15px;
-      margin: 1rem 4rem;
-      text-align: center;
-      box-shadow: 0px 0px 3px $primarycolor;
-      font-weight: bold;
-    }
+//     .error-message {
+//       padding: 2rem 0;
+//       color: $secondarycolor;
+//       border-radius: 15px;
+//       margin: 1rem 4rem;
+//       text-align: center;
+//       box-shadow: 0px 0px 3px $primarycolor;
+//       font-weight: bold;
+//     }
   
-  }
+//   }
   
 
-input {
-  height: 30px;
-  border: none;
-}
+// input {
+//   height: 30px;
+//   border: none;
+// }
 
-textarea {
-  border: none;
-}
+// textarea {
+//   border: none;
+// }
 
-}
+// }
 
 
 
