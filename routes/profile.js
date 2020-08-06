@@ -28,10 +28,10 @@ profileRouter.get('/profile', async (req, res, next) => {
       owner: userId
     });
     let reviewFound = await Review.find({
-      user: userId
-    })
-    /*       .populate('user')
-     */
+        user: userId
+      })
+      .populate('commentTo')
+
     if (businessFound && userFound && reviewFound) {
       res.render('profile/profile', {
         user: userFound,

@@ -13,10 +13,11 @@
         </div>
 
     </div>
+    {{#if business}}
     <div class="my-business-title">
         <h3><i class="fas fa-business-time"></i> My business</h3>
     </div>
-
+    {{/if}}
     <div class="all-my-business">
 
         {{#each business}}
@@ -34,10 +35,11 @@
 
     </div>
 
+    {{#if user.favouriteBusiness}}
     <div class="my-business-title">
         <h3><i class="fas fa-heart"></i> My favourite business</h3>
     </div>
-
+    {{/if}}
     <div class="all-my-business">
         {{#each user.favouriteBusiness}}
 
@@ -57,17 +59,18 @@
         {{/each}}
     </div>
 
-
+    {{#if review}}
     <div class='my-business-title'>
         <h3><i class="fas fa-comment-alt"></i> My reviews</h3>
     </div>
-
+    {{/if}}
     <div class="container-reviews">
         {{#each review}}
         <div class='review-profile'>
 
             <h5>{{reviewTitle}}</h5>
             <p>{{comment}}</p>
+            <p>Reviewed to: <a href='/business/details/{{commentTo._id}}'>{{commentTo.name}}</a></p>
 
             <form action='/profile/delete/review/{{id}}' method='post'>
                 <button type='submit'><i class="fas fa-trash-alt"></i></button>

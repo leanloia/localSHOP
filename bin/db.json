@@ -804,16 +804,6 @@
     "webpage": "www.mercatdellleo.cat",
     "type": "Fruits and Vegetables",
     "about": "The Mercat del Lleó is the municipal market of Girona. Every day we offer you fresh and top quality products: meat, fish, sausages, fruits and vegetables, groceries, cooked dishes…"
-  },
-  {
-    "name": "Superverd",
-    "city": "Girona",
-    "streetName": "Francesc Ciurana",
-    "streetNumber": 7,
-    "image_url": "/images/images-bdd-simulation/074_fr.jpg",
-    "phone": 972203232,
-    "webpage": "www.superverd.cat",
-    "type": "Fruits and Vegetables",
-    "about": "Our goal remains intact from day one: we want to offer our customers the best fruits and vegetables, guaranteeing the quality of our products and at a very competitive price"
   }
+
 ]
