@@ -1,33 +1,34 @@
-<h2> Sign Up </h2>
+<section class="signup-sct">
+    <form class="form-signup" action="/signup" method="post">
+        <h2> Sign Up </h2>
+        <div>
+            <label for="name-input"> Name </label>
+            <input type="text" name="name" id="name-input" placeholder="Name">
+        </div>
 
-{{#if errorMessage}}
-<p class="error-message">
-    {{ errorMessage }}
-</p>
-{{/if}}
+        <div>
+            <label for="email-input"> Email </label>
+            <input type="email" name="email" id="email-input" placeholder="Email@email.com">
+        </div>
 
-<form action="/signup" method="post">
-    <div>
-        <label for="name-input"> Name </label>
-        <input type="text" name="name" id="name-input" placeholder="Name">
-    </div>
+        <div>
+            <label for="password-input"> Password </label>
+            <input type="password" name="password" id="password-input" placeholder="********">
+        </div>
 
-    <div>
-        <label for="email-input"> Email </label>
-        <input type="email" name="email" id="email-input" placeholder="Email@email.com">
-    </div>
+        <button> Create New Account </button>
+        <p>
+            Already have an account?
+            <a href="/login">
+                Log in.
+            </a>
+        </p>
+    {{#if errorMessage}}
+    <p class="error-message">
+        {{ errorMessage }}
+    </p>
+    {{/if}}
+    </form>
 
-    <div>
-        <label for="password-input"> Password </label>
-        <input type="password" name="password" id="password-input" placeholder="********">
-    </div>
 
-    <button> Create New Account </button>
-</form>
-
-<p>
-    Already have an account?
-    <a href="/login">
-        Log in.
-    </a>
-</p>
+</section>
