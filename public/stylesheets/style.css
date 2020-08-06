@@ -546,11 +546,6 @@ label.logo {
   line-height: 1.5rem;
 }
 
-h4 {
-  font-weight: 600;
-  font-size: 1.2rem;
-}
-
 .review-write {
   margin: 9px 20px;
   padding: 1rem;
@@ -736,6 +731,20 @@ h4 {
   color: black;
 }
 
+.container-reviews {
+  width: 95%;
+  line-height: 1rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container-reviews p {
+  width: 100%;
+  line-height: 1.5rem;
+}
+
 .edit-profile-container {
   display: flex;
   flex-direction: column;
@@ -743,30 +752,66 @@ h4 {
   align-items: center;
 }
 
+.edit-profile-container .all-profile-edit {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-profile-container .name h3 {
+  font-weight: 600;
+  font-size: 2rem;
+  color: black;
+}
+
+.edit-profile-container .all-business {
+  border: 2px solid yellow;
+  margin-top: 20px;
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-profile-container .all-business h4 {
+  font-weight: 600;
+  font-size: 2rem;
+  color: black;
+}
+
+.edit-profile-container .all-business h4 i {
+  color: tomato;
+}
+
+.edit-profile-container .form-edit {
+  box-shadow: 0px 0px 6px #c5c5c4;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 10px;
+  width: 350px;
+}
+
+.edit-profile-container .form-edit .file {
+  width: 35%;
+}
+
+.edit-profile-container .form-edit .inputs {
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.edit-profile-container .form-edit label {
+  padding-bottom: 0.2rem;
+}
+
 .edit-profile-container h3 {
   font-weight: 600;
   font-size: 3rem;
-  margin: 20px;
-  color: tomato;
-}
-
-.edit-profile-container h4 {
-  font-weight: 600;
-  font-size: 2rem;
-  color: tomato;
-}
-
-.edit-profile-container input {
-  height: 30px;
-  border: none;
-}
-
-.edit-profile-container textarea {
-  border: none;
-}
-
-.edit-profile-container div {
-  padding-top: 10px;
+  margin-left: 10px;
+  color: black;
 }
 
 .edit-profile-container button {
@@ -788,7 +833,7 @@ h4 {
   color: tomato;
   box-shadow: none;
   background-color: #f4f5f1;
-  font-size: 2rem;
+  font-size: 1.5rem;
   padding: 0;
 }
 
@@ -835,11 +880,11 @@ h4 {
 .signup-sct .form-signup div {
   display: flex;
   flex-direction: column;
-  padding: .5rem 0;
+  padding: 0.5rem 0;
 }
 
 .signup-sct .form-signup button {
-  padding: .7rem;
+  padding: 0.7rem;
   margin: 1rem;
   color: white;
   font-weight: bold;
@@ -901,11 +946,11 @@ h4 {
 .login-sct .form-login div {
   display: flex;
   flex-direction: column;
-  padding: .5rem 0;
+  padding: 0.5rem 0;
 }
 
 .login-sct .form-login button {
-  padding: .7rem;
+  padding: 0.7rem;
   margin: 1rem;
   color: white;
   font-weight: bold;
@@ -1104,6 +1149,12 @@ h4 {
     justify-content: space-around;
     align-items: center;
   }
+  .all-my-business {
+    min-width: 850px;
+  }
+  .my-business {
+    width: 45%;
+  }
   .foto-edit a:hover {
     color: tomato;
   }
@@ -1122,14 +1173,15 @@ h4 {
   .reviews-container {
     display: flex;
     flex-wrap: wrap;
-    width: 95%;
-    justify-content: space-between;
+    width: 90%;
+    justify-content: center;
   }
   .review-profile {
     width: 45%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: 10px;
   }
   .addbusiness-sct {
     height: 700px;
@@ -1181,5 +1233,29 @@ h4 {
     text-align: center;
     box-shadow: 0px 0px 3px #c5c5c4;
     font-weight: bold;
+  }
+  .container-reviews {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: initial;
+    justify-content: center;
+  }
+  .edit-profile-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: initial;
+  }
+  .edit-profile-container .all-profile-edit {
+    margin-top: 50px;
+    display: flex;
+    height: 50%;
+    max-width: 40%;
+  }
+  .edit-profile-container .all-business {
+    margin-top: 50px;
+    max-width: 40%;
   }
 }

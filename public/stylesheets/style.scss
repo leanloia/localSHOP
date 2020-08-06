@@ -150,8 +150,6 @@ body {
 
 //navbar
 
-
-
 label.logo {
   color: white;
   font-size: 30px;
@@ -521,7 +519,6 @@ label.logo {
     }
   }
 
-
   i {
     font-size: 20px;
     color: $secondarycolor;
@@ -559,11 +556,6 @@ label.logo {
     width: 100%;
     line-height: 1.5rem;
   }
-}
-
-h4 {
-  font-weight: 600;
-  font-size: 1.2rem;
 }
 
 .review-write {
@@ -640,7 +632,6 @@ h4 {
     font-size: 3rem;
     line-height: 4rem;
   }
-
 }
 
 .my-business-title,
@@ -753,6 +744,20 @@ h4 {
   }
 }
 
+.container-reviews {
+  width: 95%;
+  line-height: 1rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  p {
+    width: 100%;
+    line-height: 1.5rem;
+  }
+}
+
 //edit-profile
 .edit-profile-container {
   display: flex;
@@ -760,31 +765,68 @@ h4 {
   justify-content: center;
   align-items: center;
 
+  .all-profile-edit {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .name {
+    h3 {
+      font-weight: 600;
+      font-size: 2rem;
+      color: black;
+    }
+  }
+
+  .all-business {
+    
+    margin-top: 20px;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    h4 {
+      font-weight: 600;
+      font-size: 2rem;
+      color: black;
+
+      i {
+        color: $secondarycolor;
+      }
+    }
+  }
+
+  .form-edit {
+    box-shadow: 0px 0px 6px $primarycolor;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 10px;
+    width: 350px;
+
+    .file {
+      width: 35%;
+    }
+
+    .inputs {
+      padding-bottom: 10px;
+      padding-top: 10px;
+    }
+
+    label {
+      padding-bottom: 0.2rem;
+    }
+  }
+
   h3 {
     font-weight: 600;
     font-size: 3rem;
-    margin: 20px;
-    color: $secondarycolor;
-  }
-
-  h4 {
-    font-weight: 600;
-    font-size: 2rem;
-
-    color: $secondarycolor;
-  }
-
-  input {
-    height: 30px;
-    border: none;
-  }
-
-  textarea {
-    border: none;
-  }
-
-  div {
-    padding-top: 10px;
+    margin-left: 10px;
+    color: black;
   }
 
   button {
@@ -806,7 +848,7 @@ h4 {
     color: $secondarycolor;
     box-shadow: none;
     background-color: rgb(244, 245, 241);
-    font-size: 2rem;
+    font-size: 1.5rem;
     padding: 0;
   }
 
@@ -839,8 +881,6 @@ h4 {
   align-items: center;
   height: 675px;
 
-
-
   .form-signup {
     display: flex;
     flex-direction: column;
@@ -852,24 +892,20 @@ h4 {
     box-shadow: 0px 0px 6px $primarycolor;
     border-radius: 25px;
 
-
-
     h2 {
       font-size: 2rem;
       padding-top: 2rem;
       margin-bottom: 1rem;
-
     }
 
     div {
       display: flex;
       flex-direction: column;
-      padding: .5rem 0;
-
+      padding: 0.5rem 0;
     }
 
     button {
-      padding: .7rem;
+      padding: 0.7rem;
       margin: 1rem;
       color: white;
       font-weight: bold;
@@ -881,8 +917,6 @@ h4 {
       border: 2px solid $secondarycolor;
       transform: translateY(-2px);
       box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
-
-
     }
 
     input {
@@ -905,10 +939,7 @@ h4 {
       box-shadow: 0px 0px 3px $primarycolor;
       font-weight: bold;
     }
-
   }
-
-
 }
 
 //login
@@ -930,24 +961,20 @@ h4 {
     box-shadow: 0px 0px 6px $primarycolor;
     border-radius: 25px;
 
-
-
     h2 {
       font-size: 2rem;
       padding-top: 2rem;
       margin-bottom: 1rem;
-
     }
 
     div {
       display: flex;
       flex-direction: column;
-      padding: .5rem 0;
-
+      padding: 0.5rem 0;
     }
 
     button {
-      padding: .7rem;
+      padding: 0.7rem;
       margin: 1rem;
       color: white;
       font-weight: bold;
@@ -959,7 +986,6 @@ h4 {
       border: 2px solid $secondarycolor;
       transform: translateY(-2px);
       box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
-
     }
 
     input {
@@ -986,7 +1012,6 @@ h4 {
 
   }
 }
-
 
 // add-business
 
@@ -1082,7 +1107,6 @@ h4 {
       text-align: center;
       transition: all 0.5s;
       z-index: 2;
-
     }
 
     li {
@@ -1117,7 +1141,6 @@ h4 {
 
     .details-map {
       height: 300px;
-
 
       img {
         object-fit: cover;
@@ -1188,6 +1211,14 @@ h4 {
     align-items: center;
   }
 
+  .all-my-business {
+    min-width: 850px;
+  }
+
+  .my-business {
+    width: 45%;
+  }
+
   .foto-edit {
     a:hover {
       color: tomato;
@@ -1212,8 +1243,8 @@ h4 {
   .reviews-container {
     display: flex;
     flex-wrap: wrap;
-    width: 95%;
-    justify-content: space-between;
+    width: 90%;
+    justify-content: center;
   }
 
   .review-profile {
@@ -1221,25 +1252,10 @@ h4 {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: 10px;
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   //add-business
-
   .addbusiness-sct {
 
     height: 700px;
@@ -1304,8 +1320,34 @@ h4 {
 
 
   }
-
-
   //end add-business
 
+  .container-reviews {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: initial;
+    justify-content: center;
+  }
+
+  //edit profile
+  .edit-profile-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: initial;
+
+    .all-profile-edit {
+      margin-top: 50px;
+      display: flex;
+      height: 50%;
+      max-width: 40%;
+    }
+
+    .all-business {
+      margin-top: 50px;
+      max-width: 40%;
+    }
+  }
 }
