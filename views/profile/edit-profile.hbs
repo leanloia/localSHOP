@@ -4,102 +4,103 @@
         {{ errorMessage }}
     </p>
     {{/if}}
-    <div>
-        {{#each user}}
-        <h3>{{name}}</h3>
-        {{/each}}
-    </div>
-    <div class="edit-profile">
-        <div class='form-edit'>
-            <form action="/profile/{{user._id}}/editUser" method="post" enctype="multipart/form-data">
-                <div>
-                    <div><label for="name-input"> <b>Change your profile picture: </b></label></div>
-                    <div><input type="file" name="profilePic" value={{profilePic}} id="profilePic-input">
+    <div class="all-profile-edit">
+        <div class='name'>
+            {{#each user}}
+            <h3>{{name}}</h3>
+            {{/each}}
+        </div>
+        <div class="edit-profile">
+            <div class='form-edit'>
+                <form action="/profile/{{user._id}}/editUser" method="post" enctype="multipart/form-data">
+                    <div class='inputs'>
+                        <label for="name-input"> <b>Change your profile picture: </b></label>
+                        <input class="file" type="file" name="profilePic" value={{profilePic}} id="profilePic-input">
+
                     </div>
-                </div>
-                <div>
-                    <label for="name-input"> <b>Name: </b></label>
-                    <input type="text" name="name" id="name-input" value="{{user.name}}" placeholder="Name">
-                </div>
+                    <div class='inputs'>
+                        <label for="name-input"> <b>Name: </b></label>
+                        <input type="text" name="name" id="name-input" value="{{user.name}}" placeholder="Name">
 
-                <div>
-                    <label for="email-input"><b>Email: </b> </label>
-                    <input type="email" name="email" id="email-input" value="{{user.email}}"
-                        placeholder="Email@email.com">
-                </div>
+                    </div>
 
-                <button type="submit"> Submit changes </button>
-            </form>
+                    <div class='inputs'>
+                        <label for="email-input"><b>Email: </b> </label>
+                        <input type="email" name="email" id="email-input" value="{{user.email}}"
+                            placeholder="Email@email.com">
+                    </div>
+                    <div>
+                        <button type="submit"> Submit changes </button></div>
+                </form>
+            </div>
         </div>
+
     </div>
 
 
+    <div class='all-business'>
 
-    {{#if business}}
-    <h4><i class="fas fa-business-time"></i> My business</h4>
-    {{/if}}
+        {{#if business}}
+        <h4><i class="fas fa-business-time"></i> My business</h4>
+        {{/if}}
 
-    {{#each business}}
-    <div class='edit-profile'>
-        <div class="form-edit">
-            <form action="/profile/{{owner}}/editBusiness/{{_id}}" method="post" enctype="multipart/form-data">
+        {{#each business}}
+        <div class='edit-profile'>
+            <div class="form-edit">
+                <form action="/profile/{{owner}}/editBusiness/{{_id}}" method="post" enctype="multipart/form-data">
 
-                <div>
-                    <h4 class='title-bizz-edit'>{{name}}</h4>
-                </div>
-                <div>
-                    <label for="name-input"> <b>Name: </b> </label>
-                    <input type="text" value="{{name}}" name="name" id="name-input" readonly>
-                </div>
+                    <div class='inputs'>
+                        <h4 class='title-bizz-edit'>{{name}}</h4>
 
-                <div>
-                    <label for="adress-input"> <b>Businees adress: </b> </label>
-                    <input type="text" name="adress" value="{{adress}}" id="adress-input">
-                </div>
+                        <div class='inputs'>
+                            <label for="name-input"> <b>Name: </b> </label>
+                            <input type="text" value="{{name}}" name="name" id="name-input" readonly>
+                        </div>
 
-                <div>
-                    <label for="city-input"> <b>City: </b> </label>
-                    <input type="text" name="city" value="{{city}}" id="city-input">
-                </div>
+                        <div class='inputs'>
+                            <label for="adress-input"> <b>Businees adress: </b> </label>
+                            <input type="text" name="adress" value="{{streetName}}" id="adress-input">
+                        </div>
 
-                <div>
-                    <div><label for="image-input"><b>Add an image: </b> </label></div>
-                    <div><input type="file" name="image_url" value="{{image_url}}" id="image-input"></div>
-                </div>
-                <div>
-                    <label for="phone-input"> <b>Phone number: </b> </label>
-                    <input type="text" name="phone" value="{{phone}}" id="phone-input">
-                </div>
-                <div>
-                    <label for="webpage-input"><b> Webpage: </b> </label>
-                    <input type="text" name="webpage" value="{{webpage}}" id="webpage-input">
-                </div>
+                        <div class='inputs'>
+                            <label for="city-input"> <b>City: </b> </label>
+                            <input type="text" name="city" value="{{city}}" id="city-input">
+                        </div>
 
-                <div>
-                    <div><label for="about-input"> <b>Something about your business: </b></label></div>
-                    <div><textarea name="about" id="about-input" value="{{about}}" cols="30"
-                            rows="10">{{about}}</textarea></div>
-                </div>
-                <button type="submit"> Save changes </button>
-            </form>
+                        <div class='inputs'>
+                            <div><label for="image-input"><b>Add an image: </b> </label></div>
+                            <div><input type="file" class="file" name="image_url" value="{{image_url}}"
+                                    id="image-input">
+                            </div>
 
-            <form action='/profile/{{_id}}/delete' method='post'>
-                <button type='submit' class='delete-button'><i class="fas fa-trash-alt"></i></button>
-            </form>
+                        </div>
+                        <div class='inputs'>
+                            <label for="phone-input"> <b>Phone number: </b> </label>
+                            <input type="text" name="phone" value="{{phone}}" id="phone-input">
+                        </div>
+                        <div class='inputs'>
+                            <label for="webpage-input"><b> Webpage: </b> </label>
+                            <input type="text" name="webpage" value="{{webpage}}" id="webpage-input">
+                        </div>
+
+                        <div class='inputs'>
+                            <div><label for="about-input"> <b>Something about your business: </b></label></div>
+                            <div><textarea name="about" id="about-input" value="{{about}}" cols="30"
+                                    rows="10">{{about}}</textarea></div>
+                        </div class='inputs'>
+                        <button type="submit"> Save changes </button>
+                </form>
+                <div class='inputs'>
+                    <form action='/profile/{{_id}}/delete' method='post'>
+                        <button type='submit' class='delete-button'><i class="fas fa-trash-alt"></i></button>
+                    </form>
+                </div>
+            </div>
         </div>
+
+
     </div>
-
-
     {{/each}}
-
-
-
-
-
-    <p>
-        <a href="/profile">
-            Go back
-        </a>
-    </p>
+    </div>
 
 </section>
