@@ -462,7 +462,7 @@ label.logo {
 
     .directions {
       width: 100%;
-      padding: 2rem 0 0 1rem;
+      padding: 2rem 1rem 0 1rem;
 
       h2 {
         font-size: 1.7rem;
@@ -478,6 +478,18 @@ label.logo {
       p {
         line-height: 1.6rem;
         margin: 1rem 0;
+      }
+      .cont-favourite {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .favourite-btn {
+          border: none;
+          background-color: transparent;
+          width: 16px;
+          padding: 0 1rem
+        }
       }
     }
   }
@@ -1189,6 +1201,12 @@ label.logo {
         p {
           line-height: 1.6rem;
           margin: 1rem 0;
+        }
+
+        .favourite-btn {
+          border: none;
+          background-color: transparent;
+          width: 16px;
         }
       }
     }

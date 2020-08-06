@@ -5,7 +5,14 @@
             <img src="{{businessFound.image_url}}" alt="image">
         </div>
         <div class='directions'>
-            <h2>{{businessFound.name}}</h2>
+            {{!-- <h2>{{businessFound.name}} <form action='/business/favourite/{{businessFound._id}}' method='post'>  {{businessFound.favouriteBy.length}}</p></h2> --}}
+            
+            <span>
+            <form action='/business/favourite/{{businessFound._id}}' method='post'>
+            <div class="cont-favourite"><h2>{{businessFound.name}}</h2> <h2><button class="favourite-btn" type="submit"><i class="far fa-heart"></i></button>            {{businessFound.favouriteBy.length}}</h2></div>
+            </form>
+           
+            </span>
             <h5>{{businessFound.city}} </h5>
             <p><i class="fas fa-address-book"></i> {{businessFound.streetName}}, {{businessFound.streetNumber}} </p>
             <p><i class="fas fa-phone-alt"></i> {{businessFound.phone}} </p>

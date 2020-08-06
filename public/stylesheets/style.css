@@ -453,7 +453,7 @@ label.logo {
 
 .section-details .info-details .directions {
   width: 100%;
-  padding: 2rem 0 0 1rem;
+  padding: 2rem 1rem 0 1rem;
 }
 
 .section-details .info-details .directions h2 {
@@ -470,6 +470,19 @@ label.logo {
 .section-details .info-details .directions p {
   line-height: 1.6rem;
   margin: 1rem 0;
+}
+
+.section-details .info-details .directions .cont-favourite {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.section-details .info-details .directions .cont-favourite .favourite-btn {
+  border: none;
+  background-color: transparent;
+  width: 16px;
+  padding: 0 1rem;
 }
 
 .section-details .details-map {
@@ -1133,6 +1146,11 @@ label.logo {
   .section-details .info-details .directions p {
     line-height: 1.6rem;
     margin: 1rem 0;
+  }
+  .section-details .info-details .directions .favourite-btn {
+    border: none;
+    background-color: transparent;
+    width: 16px;
   }
   .profile-section {
     margin: 5px;
