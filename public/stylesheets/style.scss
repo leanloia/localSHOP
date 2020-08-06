@@ -187,7 +187,6 @@ label.logo {
   }
 }
 
-
 .checkbtn {
   font-size: 30px;
   color: white;
@@ -452,7 +451,6 @@ label.logo {
       // min-height: 50%;
       max-height: 60%;
 
-
       img {
         object-fit: cover;
         width: 100%;
@@ -480,8 +478,6 @@ label.logo {
         margin: 1rem 0;
       }
     }
-
-
   }
 
   .details-map {
@@ -557,7 +553,6 @@ h4 {
   }
 }
 
-
 //profile
 
 .profile-section {
@@ -568,7 +563,6 @@ h4 {
   align-items: center;
   justify-content: center;
 }
-
 
 .foto-edit {
   display: flex;
@@ -614,14 +608,13 @@ h4 {
     font-size: 3rem;
     line-height: 4rem;
   }
-
 }
 
 .my-business-title,
 .my-reviews-title {
   font-weight: 600;
   font-size: 1.5rem;
-  padding: .5rem;
+  padding: 0.5rem;
 
   i {
     color: tomato;
@@ -714,7 +707,6 @@ h4 {
   button {
     background-color: rgb(244, 245, 241);
     border: none;
-
   }
 
   i {
@@ -726,7 +718,6 @@ h4 {
   i:hover {
     color: black;
   }
-
 }
 
 //edit-profile
@@ -740,14 +731,14 @@ h4 {
     font-weight: 600;
     font-size: 3rem;
     margin: 20px;
-    color: $secondarycolor
+    color: $secondarycolor;
   }
 
   h4 {
     font-weight: 600;
     font-size: 2rem;
 
-    color: $secondarycolor
+    color: $secondarycolor;
   }
 }
 
@@ -783,9 +774,8 @@ h4 {
     box-shadow: 2px 2px 4px black;
   }
 
-
   button:hover {
-    color: $secondarycolor
+    color: $secondarycolor;
   }
 
   .delete-button {
@@ -803,10 +793,7 @@ h4 {
   }
 }
 
-
-
 //mediaQueris
-
 
 @media (max-width: 858px) {
   label.logo {
@@ -851,20 +838,17 @@ h4 {
     }
   }
 
-  #check:checked~ul {
+  #check:checked ~ ul {
     left: 0;
   }
 }
 
 @media (min-width: 858px) {
-
   //business-details
   .section-details {
     width: 100%;
     // max-width: 1200px;
     display: flex;
-
-
 
     .info-details {
       display: flex;
@@ -880,7 +864,6 @@ h4 {
         max-width: 50%;
         height: 100%;
         max-height: unset;
-
 
         img {
           object-fit: unset;
@@ -910,10 +893,7 @@ h4 {
           margin: 1rem 0;
         }
       }
-
-
     }
-
   }
 
   //profile
@@ -924,7 +904,6 @@ h4 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
   }
 
   .personal-info {
@@ -932,7 +911,6 @@ h4 {
     display: flex;
     justify-content: space-around;
     align-items: center;
-
   }
 
   .foto-edit {
@@ -944,7 +922,6 @@ h4 {
   .profile-info {
     width: 40%;
     background-color: white;
-
   }
 
   .my-business-title {
@@ -970,5 +947,4 @@ h4 {
     flex-direction: column;
     justify-content: center;
   }
-
 }
