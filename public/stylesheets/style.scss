@@ -773,6 +773,57 @@ h4 {
   }
 }
 
+.edit-profile {
+  border-radius: 8px;
+  width: 95%;
+  background-color: rgb(244, 245, 241);
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  margin: 20px;
+  font-size: 1rem;
+
+  input {
+    height: 30px;
+    border: none;
+  }
+
+  textarea {
+    border: none;
+  }
+
+  div {
+    padding-top: 10px;
+  }
+
+  button {
+    margin-top: 15px;
+    align-self: center;
+    font-size: 1rem;
+    padding: 10px 30px;
+    border: none;
+    box-shadow: 2px 2px 4px black;
+  }
+
+  button:hover {
+    color: $secondarycolor;
+  }
+
+  .delete-button {
+    border: none;
+    background-color: none;
+    color: $secondarycolor;
+    box-shadow: none;
+    background-color: rgb(244, 245, 241);
+    font-size: 2rem;
+    padding: 0;
+  }
+
+  .title-bizz-edit {
+    color: black;
+  }
+}
+
 //signup
 
 .signup-sct {
@@ -860,9 +911,7 @@ h4 {
   justify-content: center;
   align-items: center;
   height: 550px;
-   
   
-
   .form-login {
     display: flex;
     flex-direction: column;
@@ -928,52 +977,16 @@ h4 {
     }
   
   }
+  
 
 
 
-
-
-
-  input {
-    height: 30px;
-    border: none;
-  }
-
-  textarea {
-    border: none;
-  }
-
-  div {
-    padding-top: 10px;
-  }
-
-  button {
-    margin-top: 15px;
-    align-self: center;
-    font-size: 1rem;
-    padding: 10px 30px;
-    border: none;
-    box-shadow: 2px 2px 4px black;
-  }
-
-  button:hover {
-    color: $secondarycolor;
-  }
-
-  .delete-button {
-    border: none;
-    background-color: none;
-    color: $secondarycolor;
-    box-shadow: none;
-    background-color: rgb(244, 245, 241);
-    font-size: 2rem;
-    padding: 0;
-  }
-
-  .title-bizz-edit {
-    color: black;
-  }
 }
+
+
+
+  
+
 
 //mediaQueris
 
