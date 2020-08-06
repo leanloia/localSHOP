@@ -289,15 +289,18 @@ label.logo {
 // business
 
 .business-container {
-  height: 30vh;
+  height: 40vh;
   width: 100%;
   background-color: tomato;
-  background-image: url('');
-  object-fit: cover;
+  background: url(../images/localshop-search2.jpg) no-repeat center center / cover;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  box-shadow: 2px 2px 6px black;
+  margin-bottom: 1rem;
+  
+
 
   .form-search {
     color: white;
@@ -312,6 +315,7 @@ label.logo {
       font-weight: 600;
       text-align: center;
       font-size: 2rem;
+      margin: 1rem 0;
     }
 
     .inputs-search {
@@ -319,6 +323,21 @@ label.logo {
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
+
+      #city-input {
+        width: 12rem;
+        height: 2rem;
+        margin: .5rem;
+      }
+
+      #type-input {
+        width: 12rem;
+        height: 2rem;
+        margin: .5rem;
+      }
+
+
+      
 
       .search-btn {
         align-self: center;
