@@ -5,7 +5,7 @@
             <div class='profile-img'>
                 <img src="{{user.profilePic}}">
             </div>
-            <a href="/profile/{{user._id}}/edit">EDIT PROFILE</a>
+            <a href="/profile/{{user._id}}/edit"><button>EDIT PROFILE</button></a>
         </div>
         <div class='profile-info'>
             <h3>{{user.name}} </h3>
@@ -27,7 +27,7 @@
         <div class="my-business">
             <a href="business/details/{{id}}">
                 <div>
-                    <p>{{name}} <i class="fas fa-heart" style="color: tomato;"></i>  {{favouriteBy.length}}</p>
+                    <p>{{name}} <i class="fas fa-heart"></i>  {{favouriteBy.length}}</p>
                 </div>
                 <div class='img-business-profile'>
                     <img src="{{image_url}}">

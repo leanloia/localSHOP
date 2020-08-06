@@ -248,6 +248,12 @@ label.logo {
       padding: 10px 30px;
       border: none;
       box-shadow: 2px 2px 4px black;
+
+
+    }
+
+    button:hover {
+      color: $secondarycolor
     }
 
 
@@ -287,6 +293,11 @@ label.logo {
         padding: 10px 30px;
         border: none;
         box-shadow: 2px 2px 4px black;
+
+      }
+
+      button:hover {
+        color: $secondarycolor
       }
     }
   }
@@ -362,7 +373,7 @@ label.logo {
   justify-content: center;
   box-shadow: 2px 2px 6px black;
   margin-bottom: 1rem;
-  
+
 
 
   .form-search {
@@ -377,8 +388,9 @@ label.logo {
       color: white;
       font-weight: 600;
       text-align: center;
-      font-size: 2rem;
+      font-size: 2.3rem;
       margin: 1rem 0;
+      text-shadow: 1px 1px 4px black;
     }
 
     .inputs-search {
@@ -400,7 +412,7 @@ label.logo {
       }
 
 
-      
+
 
       .search-btn {
         align-self: center;
@@ -409,6 +421,10 @@ label.logo {
         padding: 10px 30px;
         border: none;
         box-shadow: 2px 2px 4px black;
+      }
+
+      .search-btn:hover {
+        color: $secondarycolor;
       }
     }
   }
@@ -492,6 +508,13 @@ label.logo {
         background-color: white;
         width: 16px;
       }
+
+      .favourite-btn:hover {
+        color: black;
+
+      }
+
+
     }
   }
 }
@@ -528,7 +551,7 @@ label.logo {
     align-items: flex-start;
     justify-content: initial;
     width: 100%;
-    background-color: rgb(244, 245, 241);
+    background-color: #f4f4f4;
 
     .img-details {
       width: 100%;
@@ -561,6 +584,7 @@ label.logo {
         line-height: 1.6rem;
         margin: 1rem 0;
       }
+
       .cont-favourite {
         display: flex;
         flex-direction: row;
@@ -572,6 +596,12 @@ label.logo {
           width: 16px;
           padding: 0 1rem
         }
+
+        i:hover {
+          color: black;
+        }
+
+
       }
     }
   }
@@ -623,7 +653,7 @@ label.logo {
 .review-title {
   margin: 1px 20px;
   padding: 1rem;
-  background-color: rgb(244, 245, 241);
+  background-color: #f4f4f4;
   width: 100%;
   line-height: 1rem;
   border-radius: 8px;
@@ -637,7 +667,7 @@ label.logo {
 .review-container {
   margin: 5px 20px;
   padding: 1rem;
-  background-color: rgb(244, 245, 241);
+  background-color: #f4f4f4;
   width: 100%;
   line-height: 1rem;
   border-radius: 8px;
@@ -655,17 +685,34 @@ label.logo {
 .review-write {
   margin: 9px 20px;
   padding: 1rem;
-  background-color: rgb(244, 245, 241);
+  background-color: #f4f4f4;
   width: 100%;
   line-height: 1rem;
   border-radius: 8px;
 
   button {
     font-size: 1rem;
-    margin-top: 10px;
     padding: 10px 30px;
     border: none;
     box-shadow: 2px 2px 4px black;
+  }
+
+  button:hover {
+    color: $secondarycolor
+  }
+
+  input {
+    width: 12rem;
+    height: 2rem;
+    margin: .5rem;
+    border: none;
+    border-bottom: 1px solid $secondarycolor;
+    background-color: transparent;
+  }
+
+  textarea {
+    border: 1px solid $secondarycolor;
+    background-color: transparent;
   }
 }
 
@@ -689,6 +736,19 @@ label.logo {
   a {
     margin: 10px;
   }
+
+  button {
+    font-size: 1rem;
+    padding: 10px 30px;
+    border: none;
+    box-shadow: 2px 2px 4px black;
+
+  }
+
+  button:hover {
+    color: $secondarycolor
+  }
+
 }
 
 .profile-img {
@@ -754,7 +814,7 @@ label.logo {
   margin-bottom: 10px;
   width: 46%;
   margin: 5px;
-  background-color: rgb(244, 245, 241);
+  background-color: #f4f4f4;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -805,7 +865,7 @@ label.logo {
   margin: 5px;
   padding: 15px;
   width: 90%;
-  background-color: rgb(244, 245, 241);
+  background-color: #f4f4f4;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -823,7 +883,7 @@ label.logo {
   }
 
   button {
-    background-color: rgb(244, 245, 241);
+    background-color: #f4f4f4;
     border: none;
   }
 
@@ -909,10 +969,20 @@ label.logo {
     .inputs {
       padding-bottom: 10px;
       padding-top: 10px;
+
     }
 
     label {
       padding-bottom: 0.2rem;
+    }
+
+    input {
+      border: none;
+      border-bottom: 1px solid $secondarycolor;
+    }
+
+    textarea {
+      border: 1px solid $secondarycolor;
     }
   }
 
@@ -941,7 +1011,7 @@ label.logo {
     background-color: none;
     color: $secondarycolor;
     box-shadow: none;
-    background-color: rgb(244, 245, 241);
+    background-color: #f4f4f4;
     font-size: 1.5rem;
     padding: 0;
   }
@@ -949,13 +1019,15 @@ label.logo {
   .edit-profile {
     border-radius: 8px;
     width: 95%;
-    background-color: rgb(244, 245, 241);
+    // background-color: #f4f4f4;
     display: flex;
     flex-direction: row;
     padding: 20px;
     margin: 20px;
     font-size: 1rem;
   }
+
+
 
 
 
@@ -999,24 +1071,25 @@ label.logo {
     }
 
     button {
-      padding: 0.7rem;
-      margin: 1rem;
-      color: white;
-      font-weight: bold;
-      background-color: $primarycolor;
+      font-size: 1rem;
+      padding: 10px 30px;
+      border: none;
+      box-shadow: 2px 2px 4px black;
+      margin: 1rem 0;
+
+
     }
 
     button:hover {
-      // color: $secondarycolor;
-      border: 2px solid $secondarycolor;
-      transform: translateY(-2px);
-      box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+      color: $secondarycolor
     }
 
     input {
       width: 260px;
       height: 40px;
       text-align: center;
+      border: none;
+      border-bottom: 1px solid $secondarycolor;
     }
 
     label {
@@ -1068,24 +1141,24 @@ label.logo {
     }
 
     button {
-      padding: 0.7rem;
-      margin: 1rem;
-      color: white;
-      font-weight: bold;
-      background-color: $primarycolor;
+      font-size: 1rem;
+      padding: 10px 30px;
+      border: none;
+      box-shadow: 2px 2px 4px black;
+      margin: 1rem 0;
+
     }
 
     button:hover {
-      // color: $secondarycolor;
-      border: 2px solid $secondarycolor;
-      transform: translateY(-2px);
-      box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+      color: $secondarycolor
     }
 
     input {
       width: 260px;
       height: 40px;
       text-align: center;
+      border: none;
+      border-bottom: 1px solid $secondarycolor;
     }
 
     label {
@@ -1140,24 +1213,38 @@ label.logo {
         width: 280px;
         height: 35px;
         text-align: center;
+        border: none;
+        border-bottom: 1px solid $secondarycolor;
       }
 
       select {
         width: 280px;
         height: 35px;
+        border: none;
+        border-bottom: 1px solid $secondarycolor;
       }
 
       label {
         padding: 0 0 .5rem 0;
       }
+
+      textarea {
+        border: 1px solid $secondarycolor
+      }
     }
 
     button {
       font-size: 1rem;
-      margin: 20px;
       padding: 10px 30px;
       border: none;
       box-shadow: 2px 2px 4px black;
+      margin: 1rem 0;
+
+
+    }
+
+    button:hover {
+      color: $secondarycolor
     }
 
     .error-message {
@@ -1195,7 +1282,7 @@ label.logo {
       position: fixed;
       width: 100%;
       height: 100vh;
-      background: #2c3e50;
+      background: $secondarycolor;
       top: 80px;
       left: -100%;
       text-align: center;
@@ -1207,6 +1294,7 @@ label.logo {
       display: block;
       margin: 50px 0;
       line-height: 30px;
+
     }
 
     a {
@@ -1216,7 +1304,7 @@ label.logo {
     a.active,
     a:hover {
       background: none;
-      color: tomato;
+      color: black;
     }
   }
 
@@ -1249,7 +1337,7 @@ label.logo {
       justify-content: initial;
       width: 100%;
 
-      background-color: rgb(244, 245, 241);
+      background-color: #f4f4f4;
 
       .img-details {
         width: 50%;
@@ -1473,8 +1561,8 @@ label.logo {
         }
 
         p {
-          font-size: 1.8rem;
-          font-weight: 600;
+          font-size: 1.5rem;
+
         }
 
       }

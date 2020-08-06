@@ -241,6 +241,10 @@ label.logo {
   box-shadow: 2px 2px 4px black;
 }
 
+.home .container-home button:hover {
+  color: tomato;
+}
+
 .home .banner-add {
   padding-top: 20px;
   width: 100%;
@@ -274,6 +278,10 @@ label.logo {
   padding: 10px 30px;
   border: none;
   box-shadow: 2px 2px 4px black;
+}
+
+.home .banner-add .text-add button:hover {
+  color: tomato;
 }
 
 .home .about-us {
@@ -354,8 +362,9 @@ label.logo {
   color: white;
   font-weight: 600;
   text-align: center;
-  font-size: 2rem;
+  font-size: 2.3rem;
   margin: 1rem 0;
+  text-shadow: 1px 1px 4px black;
 }
 
 .business-container .form-search .inputs-search {
@@ -384,6 +393,10 @@ label.logo {
   padding: 10px 30px;
   border: none;
   box-shadow: 2px 2px 4px black;
+}
+
+.business-container .form-search .inputs-search .search-btn:hover {
+  color: tomato;
 }
 
 .container-card {
@@ -468,6 +481,10 @@ label.logo {
   width: 16px;
 }
 
+.container-card .card .info-card .favourite-btn:hover {
+  color: black;
+}
+
 .card:hover {
   transform: translateY(-15px);
   box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
@@ -499,7 +516,7 @@ label.logo {
   align-items: flex-start;
   justify-content: initial;
   width: 100%;
-  background-color: #f4f5f1;
+  background-color: #f4f4f4;
 }
 
 .section-details .info-details .img-details {
@@ -547,6 +564,10 @@ label.logo {
   padding: 0 1rem;
 }
 
+.section-details .info-details .directions .cont-favourite i:hover {
+  color: black;
+}
+
 .section-details .details-map {
   width: 100%;
   height: 100%;
@@ -592,7 +613,7 @@ label.logo {
 .review-title {
   margin: 1px 20px;
   padding: 1rem;
-  background-color: #f4f5f1;
+  background-color: #f4f4f4;
   width: 100%;
   line-height: 1rem;
   border-radius: 8px;
@@ -606,7 +627,7 @@ label.logo {
 .review-container {
   margin: 5px 20px;
   padding: 1rem;
-  background-color: #f4f5f1;
+  background-color: #f4f4f4;
   width: 100%;
   line-height: 1rem;
   border-radius: 8px;
@@ -624,7 +645,7 @@ label.logo {
 .review-write {
   margin: 9px 20px;
   padding: 1rem;
-  background-color: #f4f5f1;
+  background-color: #f4f4f4;
   width: 100%;
   line-height: 1rem;
   border-radius: 8px;
@@ -632,10 +653,27 @@ label.logo {
 
 .review-write button {
   font-size: 1rem;
-  margin-top: 10px;
   padding: 10px 30px;
   border: none;
   box-shadow: 2px 2px 4px black;
+}
+
+.review-write button:hover {
+  color: tomato;
+}
+
+.review-write input {
+  width: 12rem;
+  height: 2rem;
+  margin: .5rem;
+  border: none;
+  border-bottom: 1px solid tomato;
+  background-color: transparent;
+}
+
+.review-write textarea {
+  border: 1px solid tomato;
+  background-color: transparent;
 }
 
 .profile-section {
@@ -656,6 +694,17 @@ label.logo {
 
 .foto-edit a {
   margin: 10px;
+}
+
+.foto-edit button {
+  font-size: 1rem;
+  padding: 10px 30px;
+  border: none;
+  box-shadow: 2px 2px 4px black;
+}
+
+.foto-edit button:hover {
+  color: tomato;
 }
 
 .profile-img {
@@ -722,7 +771,7 @@ label.logo {
   margin-bottom: 10px;
   width: 46%;
   margin: 5px;
-  background-color: #f4f5f1;
+  background-color: #f4f4f4;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -773,7 +822,7 @@ label.logo {
   margin: 5px;
   padding: 15px;
   width: 90%;
-  background-color: #f4f5f1;
+  background-color: #f4f4f4;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -792,7 +841,7 @@ label.logo {
 }
 
 .review-profile button {
-  background-color: #f4f5f1;
+  background-color: #f4f4f4;
   border: none;
 }
 
@@ -881,6 +930,15 @@ label.logo {
   padding-bottom: 0.2rem;
 }
 
+.edit-profile-container .form-edit input {
+  border: none;
+  border-bottom: 1px solid tomato;
+}
+
+.edit-profile-container .form-edit textarea {
+  border: 1px solid tomato;
+}
+
 .edit-profile-container h3 {
   font-weight: 600;
   font-size: 3rem;
@@ -906,7 +964,7 @@ label.logo {
   background-color: none;
   color: tomato;
   box-shadow: none;
-  background-color: #f4f5f1;
+  background-color: #f4f4f4;
   font-size: 1.5rem;
   padding: 0;
 }
@@ -914,7 +972,6 @@ label.logo {
 .edit-profile-container .edit-profile {
   border-radius: 8px;
   width: 95%;
-  background-color: #f4f5f1;
   display: flex;
   flex-direction: row;
   padding: 20px;
@@ -958,23 +1015,23 @@ label.logo {
 }
 
 .signup-sct .form-signup button {
-  padding: 0.7rem;
-  margin: 1rem;
-  color: white;
-  font-weight: bold;
-  background-color: #c5c5c4;
+  font-size: 1rem;
+  padding: 10px 30px;
+  border: none;
+  box-shadow: 2px 2px 4px black;
+  margin: 1rem 0;
 }
 
 .signup-sct .form-signup button:hover {
-  border: 2px solid tomato;
-  transform: translateY(-2px);
-  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+  color: tomato;
 }
 
 .signup-sct .form-signup input {
   width: 260px;
   height: 40px;
   text-align: center;
+  border: none;
+  border-bottom: 1px solid tomato;
 }
 
 .signup-sct .form-signup label {
@@ -1024,23 +1081,23 @@ label.logo {
 }
 
 .login-sct .form-login button {
-  padding: 0.7rem;
-  margin: 1rem;
-  color: white;
-  font-weight: bold;
-  background-color: #c5c5c4;
+  font-size: 1rem;
+  padding: 10px 30px;
+  border: none;
+  box-shadow: 2px 2px 4px black;
+  margin: 1rem 0;
 }
 
 .login-sct .form-login button:hover {
-  border: 2px solid tomato;
-  transform: translateY(-2px);
-  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+  color: tomato;
 }
 
 .login-sct .form-login input {
   width: 260px;
   height: 40px;
   text-align: center;
+  border: none;
+  border-bottom: 1px solid tomato;
 }
 
 .login-sct .form-login label {
@@ -1090,23 +1147,35 @@ label.logo {
   width: 280px;
   height: 35px;
   text-align: center;
+  border: none;
+  border-bottom: 1px solid tomato;
 }
 
 .addbusiness-sct .form-addbusiness div select {
   width: 280px;
   height: 35px;
+  border: none;
+  border-bottom: 1px solid tomato;
 }
 
 .addbusiness-sct .form-addbusiness div label {
   padding: 0 0 .5rem 0;
 }
 
+.addbusiness-sct .form-addbusiness div textarea {
+  border: 1px solid tomato;
+}
+
 .addbusiness-sct .form-addbusiness button {
   font-size: 1rem;
-  margin: 20px;
   padding: 10px 30px;
   border: none;
   box-shadow: 2px 2px 4px black;
+  margin: 1rem 0;
+}
+
+.addbusiness-sct .form-addbusiness button:hover {
+  color: tomato;
 }
 
 .addbusiness-sct .form-addbusiness .error-message {
@@ -1135,7 +1204,7 @@ label.logo {
     position: fixed;
     width: 100%;
     height: 100vh;
-    background: #2c3e50;
+    background: tomato;
     top: 80px;
     left: -100%;
     text-align: center;
@@ -1153,7 +1222,7 @@ label.logo {
   .navbar a.active,
   .navbar a:hover {
     background: none;
-    color: tomato;
+    color: black;
   }
   #check:checked ~ ul {
     left: 0;
@@ -1178,7 +1247,7 @@ label.logo {
     align-items: flex-start;
     justify-content: initial;
     width: 100%;
-    background-color: #f4f5f1;
+    background-color: #f4f4f4;
   }
   .section-details .info-details .img-details {
     width: 50%;
@@ -1353,8 +1422,7 @@ label.logo {
     font-size: 3.5rem;
   }
   .home .container-home #banner p {
-    font-size: 1.8rem;
-    font-weight: 600;
+    font-size: 1.5rem;
   }
   .home .banner-add {
     height: 200px;

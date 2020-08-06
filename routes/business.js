@@ -292,7 +292,7 @@ businessRouter.post("/business/favourite/:id", async (req, res, next) => {
       },
     }, ]);
 
-    res.redirect("/business");
+    res.redirect(`/business/details/${businessFound._id}`);
   } catch (error) {
     console.error(error);
     next(error);
