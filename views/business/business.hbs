@@ -56,14 +56,11 @@
             </a>
         </div>
         <div class='info-card'>
-
-            <span class="name-fav">
-                <h4>{{name}}</h4>
-                <form action='/business/favourite/{{id}}' method='post'>
-
-                    <button class="favourite-btn" type="submit"><i class="fas fa-heart"></i></button>
-                </form>
-            </span>
+            
+            <span class="name-fav"><h4>{{name}}</h4><form action='/business/favourite/{{id}}' method='post'>
+                
+                <button class="favourite-btn" type="submit"><i class="fas fa-heart"></i></button>
+            </form> </span>
             <p>{{city}}</p>
             <p>{{about}}</p>
         </div>
