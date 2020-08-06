@@ -818,12 +818,12 @@ h4 {
     margin: 20px;
     font-size: 1rem;
   }
-  
-   
-  
-    .title-bizz-edit {
-      color: black;
-    }
+
+
+
+  .title-bizz-edit {
+    color: black;
+  }
 }
 
 
@@ -916,7 +916,7 @@ h4 {
   justify-content: center;
   align-items: center;
   height: 550px;
-  
+
   .form-login {
     display: flex;
     flex-direction: column;
@@ -989,12 +989,61 @@ h4 {
 // add-business
 
 .addbusiness-sct {
-  border: 2px solid red;
-  height: 700px;
+  height: 900px;
   display: flex;
   justify-content: center;
-  align-items: center
-  ;
+  align-items: center;
+
+  .form-addbusiness {
+
+    height: 880px;
+    width: 375px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0px 0px 6px grey;
+
+
+    h2 {
+      font-size: 2rem;
+      padding-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+
+      input {
+        width: 280px;
+        height: 35px;
+        text-align: center;
+      }
+
+      label {
+        padding: 0 0 .5rem 0;
+      }
+    }
+
+    button {
+      font-size: 1rem;
+      margin: 20px;
+      padding: 10px 30px;
+      border: none;
+      box-shadow: 2px 2px 4px black;
+    }  
+     
+    .error-message {
+      padding: 2rem 0;
+      color: $secondarycolor;
+      border-radius: 15px;
+      margin: 1rem 4rem;
+      text-align: center;
+      box-shadow: 0px 0px 3px $primarycolor;
+      font-weight: bold;
+    }
+  }
 
 
 
@@ -1166,5 +1215,90 @@ h4 {
     flex-direction: column;
     justify-content: center;
   }
-}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  //add-business
+
+  .addbusiness-sct {
+
+    height: 700px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .form-addbusiness {
+      height: 635px;
+      width: 900px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      box-shadow: 0px 0px 6px grey;
+      flex-wrap: wrap;
+      border-radius: 25px;
+      padding-top: 1.5rem;
+
+
+      h2 {
+        font-size: 2rem;
+        padding-top: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      div {
+        margin: 0.8rem 0;
+
+        input {
+          width: 280px;
+          height: 35px;
+          text-align: center;
+        }
+
+        label {
+          padding: 0 0 .5rem 0;
+        }
+      }
+
+      button {
+        font-size: 1rem;
+        margin: 20px;
+        padding: 10px 30px;
+        border: none;
+        box-shadow: 2px 2px 4px black;
+      }
+
+      .error-message {
+        padding: 2rem 0;
+        color: $secondarycolor;
+        border-radius: 15px;
+        margin: 1rem 4rem;
+        text-align: center;
+        box-shadow: 0px 0px 3px $primarycolor;
+        font-weight: bold;
+      }  
+
+    }
+
+
+
+  }
+
+
+  //end add-business
+
+}

@@ -938,11 +938,59 @@ h4 {
 }
 
 .addbusiness-sct {
-  border: 2px solid red;
-  height: 700px;
+  height: 900px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.addbusiness-sct .form-addbusiness {
+  height: 880px;
+  width: 375px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0px 0px 6px grey;
+}
+
+.addbusiness-sct .form-addbusiness h2 {
+  font-size: 2rem;
+  padding-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.addbusiness-sct .form-addbusiness div {
+  display: flex;
+  flex-direction: column;
+}
+
+.addbusiness-sct .form-addbusiness div input {
+  width: 280px;
+  height: 35px;
+  text-align: center;
+}
+
+.addbusiness-sct .form-addbusiness div label {
+  padding: 0 0 .5rem 0;
+}
+
+.addbusiness-sct .form-addbusiness button {
+  font-size: 1rem;
+  margin: 20px;
+  padding: 10px 30px;
+  border: none;
+  box-shadow: 2px 2px 4px black;
+}
+
+.addbusiness-sct .form-addbusiness .error-message {
+  padding: 2rem 0;
+  color: tomato;
+  border-radius: 15px;
+  margin: 1rem 4rem;
+  text-align: center;
+  box-shadow: 0px 0px 3px #c5c5c4;
+  font-weight: bold;
 }
 
 @media (max-width: 858px) {
@@ -1075,5 +1123,56 @@ h4 {
     display: flex;
     flex-direction: column;
     justify-content: center;
+  }
+  .addbusiness-sct {
+    height: 700px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .addbusiness-sct .form-addbusiness {
+    height: 635px;
+    width: 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: 0px 0px 6px grey;
+    flex-wrap: wrap;
+    border-radius: 25px;
+    padding-top: 1.5rem;
+  }
+  .addbusiness-sct .form-addbusiness h2 {
+    font-size: 2rem;
+    padding-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  .addbusiness-sct .form-addbusiness div {
+    margin: 0.8rem 0;
+  }
+  .addbusiness-sct .form-addbusiness div input {
+    width: 280px;
+    height: 35px;
+    text-align: center;
+  }
+  .addbusiness-sct .form-addbusiness div label {
+    padding: 0 0 .5rem 0;
+  }
+  .addbusiness-sct .form-addbusiness button {
+    font-size: 1rem;
+    margin: 20px;
+    padding: 10px 30px;
+    border: none;
+    box-shadow: 2px 2px 4px black;
+  }
+  .addbusiness-sct .form-addbusiness .error-message {
+    padding: 2rem 0;
+    color: tomato;
+    border-radius: 15px;
+    margin: 1rem 4rem;
+    text-align: center;
+    box-shadow: 0px 0px 3px #c5c5c4;
+    font-weight: bold;
   }
 }
