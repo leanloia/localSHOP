@@ -63,7 +63,7 @@ profileRouter.get('/profile', async (req, res, next) => {
   }
 });
 
-//GET profile/:name/edit
+//GET profile/:id/edit
 profileRouter.get("/profile/:id/edit", async (req, res, next) => {
   const userId = req.params.id;
   try {
