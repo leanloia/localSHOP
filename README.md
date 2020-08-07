@@ -140,7 +140,7 @@ The url to your repository and to your deployed project
 
 [Repository Link](https://github.com/interstellarpf/localSHOP)
 
-[Deploy Link]('https://localshop-ml.herokuapp.com/')
+[Deploy Link](https://localshop-ml.herokuapp.com/)
 
 <br>
 
@@ -148,4 +148,4 @@ The url to your repository and to your deployed project
 
 The url to your presentation slides
 
-[Slides Link]('https://docs.google.com/presentation/d/1tVjYAAoevC7dWbx4PdRKww2I8rrPSvuRitnyYOgmCdM/edit?usp=sharing')
+[Slides Link](https://docs.google.com/presentation/d/1tVjYAAoevC7dWbx4PdRKww2I8rrPSvuRitnyYOgmCdM/edit?usp=sharing)
